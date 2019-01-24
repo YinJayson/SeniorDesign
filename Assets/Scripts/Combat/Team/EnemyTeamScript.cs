@@ -249,12 +249,15 @@ public class EnemyTeamScript : TeamScript
         GameObject.FindGameObjectWithTag("ActionMenu").SetActive(false);
 
         CharacterDictionary dict = GameObject.FindObjectOfType<CharacterDictionary>();
+        HealthDictionary HPDict = GameObject.FindObjectOfType<HealthDictionary>();
         for (int i = 0; i < enemyTeam.charPos.Length; i++)
         {
             CharacterStats charStats = dict.dictionary[enemyTeam.charPos[i].id];
             charStats.addEXP(expValue);
             dict.dictionary[enemyTeam.charPos[i].id] = charStats;
-            //dict.dictionary[enemyTeam.charPos[i].id].addEXP(expValue);
+
+            HPDict.dictionary[enemyTeam.charPos[i].id] = enemyTeam.charPos[i].HP;
+
             Debug.Log("EXP for " + enemyTeam.charPos[i].id + ": " + dict.dictionary[enemyTeam.charPos[i].id].exp);
             Debug.Log("Level for " + enemyTeam.charPos[i].id + ": " + dict.dictionary[enemyTeam.charPos[i].id].level);
         }
@@ -267,8 +270,11 @@ public class EnemyTeamScript : TeamScript
         for (int i = 0; i < actionBars.Length; i++)
             actionBars[i].gameObject.SetActive(false);
 
+        Destroy(gameObject);
+        /*
         charPos[0].gameObject.SetActive(false);
         charPos[1].gameObject.SetActive(false);
         charPos[2].gameObject.SetActive(false);
+        */
     }
 }

@@ -18,7 +18,8 @@ public class EXPBarScript : MonoBehaviour
         exp = dict.dictionary[target.id].exp;
         expToLevel = dict.dictionary[target.id].expToLevel;
 
-        gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount = (float)exp / (float)expToLevel;
+        gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount = (float) exp / (float) expToLevel;
+        gameObject.transform.GetChild(1).GetComponent<Text>().text = "<b>" + exp + " / " + expToLevel + "</b>";
     }
 
     /*

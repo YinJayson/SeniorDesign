@@ -7,6 +7,7 @@ public class IncreaseDamageDebuff : MonoBehaviour, Effect
 {
     public float intensity;
     public float duration;
+    public float originalMulti;
 
     public float maxDuration;
     EffectIcon icon;
@@ -32,18 +33,21 @@ public class IncreaseDamageDebuff : MonoBehaviour, Effect
 
     void Update()
     {
-        if (gameObject.GetComponent<CharacterScript>().pos != 0)
+        duration -= Time.deltaTime;
+
+        if (duration <= 0.0f)
             expire();
     }
 
     public void effect()
     {
+        originalMulti = target.damageMulti;
         target.damageMulti = target.damageMulti + (target.damageMulti * intensity);
     }
 
     public void expire()
     {
-        target.damageMulti -= intensity;
+        target.damageMulti *= originalMulti / target.damageMulti;
         icon.expire();
         Destroy(this);
     }

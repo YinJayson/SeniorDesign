@@ -43,8 +43,7 @@ public class CharacterDictionary : MonoBehaviour
 
     public CharacterStats getStats(string id)
     {
-        CharacterStats temp = dictionary[id];
-        return temp;
+        return dictionary[id];
     }
 
     /*

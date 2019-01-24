@@ -55,18 +55,16 @@ public class CharacterStats
     {
         exp += expToAdd;
 
-        while (exp >= expToLevel)
+        while(exp >= expToLevel)
             levelUp();
-
-        Debug.Log(exp);
     }
 
     public void levelUp()
     {
+        Debug.Log(exp + " - " + expToLevel);
         exp -= expToLevel;
-        expToLevel = level * level;
         level++;
         skillPoints++;
-        Debug.Log("Level Up!");
+        expToLevel = level * level;
     }
 }
