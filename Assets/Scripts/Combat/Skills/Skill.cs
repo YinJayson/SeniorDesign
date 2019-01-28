@@ -5,6 +5,9 @@ using UnityEngine;
 public interface Skill
 {
     void skill();
-    bool getReady();
     void skillCooldown();
+    bool getReady();
+    int getType();
+    float getCooldown();
+    float getElapsed();
 }

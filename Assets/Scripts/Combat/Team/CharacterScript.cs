@@ -22,6 +22,8 @@ public class CharacterScript : MonoBehaviour
     public int maxHP;
     public int HP;
     public int attack;
+    public int baseAttack;
+    public int wpnAttack = 0;
     public int speed;
     public bool basicAttackType;
     public float damageMulti;
@@ -46,7 +48,7 @@ public class CharacterScript : MonoBehaviour
 
     //public GameObject effectBar;
     //public GameObject team;
-    public Transform combatCanvas;
+    //public Transform combatCanvas;
     public CharacterStats charStats;
 
     bool progressActionBar;
@@ -54,9 +56,11 @@ public class CharacterScript : MonoBehaviour
 	void Start ()
     {
         if(id != null)
-            charStats = GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id];
+            charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats(id);
+            //charStats = GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id];
         else
-            charStats = GameObject.FindObjectOfType<CharacterDictionary>().dictionary["generic"];
+            charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats("generic");
+        //charStats = GameObject.FindObjectOfType<CharacterDictionary>().dictionary["generic"];
 
         gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Characters/" + charStats.spriteName) as Sprite;
         //Debug.Log("Sprites/Characters/" + charStats.spriteName);
@@ -75,10 +79,23 @@ public class CharacterScript : MonoBehaviour
         ready = false;
         inPosition = true;
 
-        attack = (int)(baseStrength * dmgStr + baseDex * dmgDex);
+        baseAttack = (int)(baseStrength * dmgStr + baseDex * dmgDex);
+        attack = baseAttack + wpnAttack;
+
         baseMaxHP = (int)(baseStrength * hpStr);
         maxHP = baseMaxHP;
-        HP = maxHP;
+        if (GameObject.FindObjectOfType<HealthDictionary>().dictionary.ContainsKey(id))
+        {
+            int tempHP = HP = GameObject.FindObjectOfType<HealthDictionary>().getHealth(id);
+
+            if (tempHP == -1)
+                HP = maxHP;
+            else
+                HP = GameObject.FindObjectOfType<HealthDictionary>().getHealth(id);
+        }
+        else
+            HP = maxHP;
+
         speed = (int)(baseDex * spdDex);
         critRate = baseDex * critDex;
         critDamage = 0.5f;
@@ -119,17 +136,27 @@ public class CharacterScript : MonoBehaviour
         speed = (int)(baseDex * spdDex);
         critRate = baseDex * critDex;
 
+        if (maxHP < 0)
+            maxHP = 0;
+        if (maxHP < HP)
+            HP = maxHP;
+        if (HP <= 0)
+        {
+            HP = 0;
+            alive = false;
+        }
         if (actionBar < 0.0f)
             actionBar = 0.0f;
         if (attack < 0)
             attack = 0;
-        if (maxHP < 0)
-            maxHP = 0;
         if (speed < 0)
             speed = 0;
 
         if (!alive)
         {
+            ready = false;
+            actionBar = 0.0f;
+
             Effect[] effectsToRemove = gameObject.GetComponents<Effect>();
             for (int i = 0; i < effectsToRemove.Length; i++)
                 effectsToRemove[i].expire();
@@ -152,17 +179,12 @@ public class CharacterScript : MonoBehaviour
             int finalDamage = (int)calculateDamage(damage, physical);
             HP -= finalDamage;
 
-            if (HP <= 0)
-            {
-                HP = 0;
-                alive = false;
-                ready = false;
-                actionBar = 0.0f;
-            }
-
+            /*
             IncreaseDamageDebuff[] debuffsToRemove = gameObject.GetComponents<IncreaseDamageDebuff>();
             for (int i = 0; i < debuffsToRemove.Length; i++)
                 debuffsToRemove[i].expire();
+            */
+            Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
 
             GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
             floatingDamageText.GetComponent<Text>().text = finalDamage.ToString();
@@ -177,24 +199,17 @@ public class CharacterScript : MonoBehaviour
             int finalDamage = (int)calculateDamage(damage, physical);
             HP -= finalDamage;
 
-            if (HP <= 0)
-            {
-                HP = 0;
-                alive = false;
-                ready = false;
-                actionBar = 0.0f;
-            }
-
+            /*
             IncreaseDamageDebuff[] debuffsToRemove = gameObject.GetComponents<IncreaseDamageDebuff>();
             for (int i = 0; i < debuffsToRemove.Length; i++)
                 debuffsToRemove[i].expire();
+            */
+            Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
 
             GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
             floatingDamageText.GetComponent<Text>().text = "\b" + finalDamage.ToString() + "!\b";
             floatingDamageText.GetComponent<Text>().fontSize = 80;
             //floatingDamageText.GetComponent<DamageText>().target = gameObject;
-
-            Debug.Log("Crit!");
         }
     }
 

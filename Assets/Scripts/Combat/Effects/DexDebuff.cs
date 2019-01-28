@@ -49,6 +49,7 @@ public class DexDebuff : MonoBehaviour, Effect
     {
         if (target != null)
             target.dex += intensity;
+
         icon.expire();
         Destroy(this);
     }

@@ -69,6 +69,9 @@ public class TeamScript : MonoBehaviour
         if (!charPos[0].alive && !defeated)
             if(!checkDefeat())
                 moveToBack(0);
+        if (!charPos[1].alive)
+            if (charPos[2].alive)
+                moveToBack(1);
     }
 
     public void moveToFront(int mover)
@@ -212,7 +215,7 @@ public class TeamScript : MonoBehaviour
     {
         charPos[0].actionBar = 0.0f;
         enemyTeam.charPos[0].actionBar -= 20.0f;
-        enemyTeam.charPos[0].gameObject.AddComponent<IncreaseDamageDebuff>();
+        enemyTeam.charPos[0].gameObject.AddComponent<BlockedDebuff>();
     }
 
     bool checkDefeat()

@@ -26,11 +26,15 @@ public class StatCard : MonoBehaviour
         charStats = dict.dictionary[id];
 
         gameObject.transform.GetChild(0).GetComponent<Text>().text = char.ToUpper(id[0]) + id.Substring(1);
+        gameObject.transform.GetChild(1).GetComponent<Text>().text = "Level " + charStats.level;
 
-        gameObject.transform.GetChild(1).GetComponent<Text>().text = "STR: " + charStats.strength;
-        gameObject.transform.GetChild(2).GetComponent<Text>().text = "DEX: " + charStats.dex;
-        gameObject.transform.GetChild(3).GetComponent<Text>().text = "INT: " + charStats.intelligence;
-        gameObject.transform.GetChild(4).GetComponent<Text>().text = "Skill Points: " + charStats.skillPoints;
+        gameObject.transform.GetChild(2).GetComponent<Text>().text = "STR: " + charStats.strength;
+        gameObject.transform.GetChild(3).GetComponent<Text>().text = "DEX: " + charStats.dex;
+        gameObject.transform.GetChild(4).GetComponent<Text>().text = "INT: " + charStats.intelligence;
+        gameObject.transform.GetChild(5).GetComponent<Text>().text = "Skill Points: " + charStats.skillPoints;
+
+        gameObject.transform.GetChild(7).transform.GetChild(0).GetComponent<Image>().fillAmount = (float) charStats.exp / (float) charStats.expToLevel;
+        gameObject.transform.GetChild(7).transform.GetChild(1).GetComponent<Text>().text = "<b>" + charStats.exp + " / " + charStats.expToLevel + "</b>";
 
         checkSP();
     }
@@ -60,8 +64,8 @@ public class StatCard : MonoBehaviour
     void checkSP()
     {
         if (charStats.skillPoints <= 0)
-            gameObject.transform.GetChild(5).gameObject.SetActive(false);
+            gameObject.transform.GetChild(6).gameObject.SetActive(false);
         else
-            gameObject.transform.GetChild(5).gameObject.SetActive(true);
+            gameObject.transform.GetChild(6).gameObject.SetActive(true);
     }
 }

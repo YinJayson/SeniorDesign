@@ -57,14 +57,12 @@
      <Compile Include="Assets\Scripts\Combat\Effects\Effect.cs" />
      <Compile Include="Assets\Scripts\Combat\Effects\EffectIcon.cs" />
      <Compile Include="Assets\Scripts\Combat\Effects\IncreaseDamageDebuff.cs" />
-     <Compile Include="Assets\Scripts\Combat\Skills\GrazeSkill.cs" />
      <Compile Include="Assets\Scripts\Combat\Skills\Skill.cs" />
      <Compile Include="Assets\Scripts\Combat\Skills\SkillCooldownIcon.cs" />
      <Compile Include="Assets\Scripts\Combat\Team\CharacterScript.cs" />
      <Compile Include="Assets\Scripts\Combat\Team\EnemyTeamScript.cs" />
      <Compile Include="Assets\Scripts\Combat\Team\TeamScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\ActionBarScript.cs" />
-     <Compile Include="Assets\Scripts\Combat\UI\DamageText.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\EffectBarScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\EffectMenuScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\EXPBarScript.cs" />
