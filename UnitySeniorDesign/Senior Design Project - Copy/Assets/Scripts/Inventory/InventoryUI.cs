@@ -29,40 +29,5 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    /*private void Awake()
-    {
-        //Fetch the Image from the GameObject
-        itemImage = GetComponent<Image>();
-        SetItem(null);
-        //itemName.text = "Life Potion";
-        for (int i = 0; i < inventorySlots; i++) {
-            GameObject instance = Instantiate(slot);
-            instance.transform.SetParent(slots);
-            ItemsUI.Add(instance.GetComponentInChildren<InventoryUI>());
-        }
- 
-    }
-
-    public void SetItem(InventoryItems inventoryItem) {
-        this.inventoryItem = inventoryItem;
-        if (this.inventoryItem != null)
-        {
-            itemImage.color = Color.white;
-            itemImage.sprite = this.inventoryItem.sprite;
-
-        }
-        else {
-            itemImage.color = Color.clear;
-        }
-        //itemImage.sprite = this.inventoryItem.sprite;
-    }
-    public void setSlot(int slot, InventoryItems inventoryItem) {
-        ItemsUI[slot].SetItem(inventoryItem);
-    }
-    public void AddItem(InventoryItems inventoryItem) {
-        setSlot(ItemsUI.FindIndex(i => i.ItemsUI == null), inventoryItem);
-    }
-
-
-    */
+   
 }
