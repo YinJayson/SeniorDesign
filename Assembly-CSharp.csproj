@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7F472C48-069C-D63B-3DE3-48411CDEFCFF}</ProjectGuid>
+    <ProjectGuid>{21FC3E83-383F-2EBF-97F1-C9D680316E14}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,14 +53,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Combat\Effects\BlockedDebuff.cs" />
+     <Compile Include="Assets\Scripts\Combat\Effects\DecreaseDamageBuff.cs" />
+     <Compile Include="Assets\Scripts\Combat\Effects\DexBuff.cs" />
      <Compile Include="Assets\Scripts\Combat\Effects\DexDebuff.cs" />
      <Compile Include="Assets\Scripts\Combat\Effects\Effect.cs" />
      <Compile Include="Assets\Scripts\Combat\Effects\EffectIcon.cs" />
      <Compile Include="Assets\Scripts\Combat\Effects\IncreaseDamageDebuff.cs" />
+     <Compile Include="Assets\Scripts\Combat\Effects\StrDebuff.cs" />
+     <Compile Include="Assets\Scripts\Combat\Skills\DefenseSkill.cs" />
+     <Compile Include="Assets\Scripts\Combat\Skills\OffenseSkill.cs" />
      <Compile Include="Assets\Scripts\Combat\Skills\Skill.cs" />
      <Compile Include="Assets\Scripts\Combat\Skills\SkillCooldownIcon.cs" />
+     <Compile Include="Assets\Scripts\Combat\Skills\SupportSkill.cs" />
      <Compile Include="Assets\Scripts\Combat\Team\CharacterScript.cs" />
      <Compile Include="Assets\Scripts\Combat\Team\EnemyTeamScript.cs" />
+     <Compile Include="Assets\Scripts\Combat\Team\FormManager.cs" />
      <Compile Include="Assets\Scripts\Combat\Team\TeamScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\ActionBarScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\EffectBarScript.cs" />
@@ -68,7 +76,9 @@
      <Compile Include="Assets\Scripts\Combat\UI\EXPBarScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\HealthBarScript.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\MoveToLocalPosition.cs" />
+     <Compile Include="Assets\Scripts\Combat\UI\SkillButton.cs" />
      <Compile Include="Assets\Scripts\Combat\UI\VictoryMenuScript.cs" />
+     <Compile Include="Assets\Scripts\Formation\FormCard.cs" />
      <Compile Include="Assets\Scripts\Inventory\DebugAddItem.cs" />
      <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
      <Compile Include="Assets\Scripts\Inventory\Item.cs" />
@@ -76,18 +86,21 @@
      <Compile Include="Assets\Scripts\Inventory\ItemMenu.cs" />
      <Compile Include="Assets\Scripts\Stats\CharacterDictionary.cs" />
      <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
+     <Compile Include="Assets\Scripts\Stats\HealthDictionary.cs" />
+     <Compile Include="Assets\Scripts\Stats\LevelUpMenu\StatCard.cs" />
+     <Compile Include="Assets\Scripts\UI\DelayDestroy.cs" />
      <Compile Include="Assets\Scripts\UI\LoadScene.cs" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Jayson/Google Drive/Senior Design/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Jayson/Desktop/A/SeniorDesign/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Jayson/Google Drive/Senior Design/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Jayson/Desktop/A/SeniorDesign/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Jayson/Google Drive/Senior Design/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Jayson/Desktop/A/SeniorDesign/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Jayson/Google Drive/Senior Design/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Jayson/Desktop/A/SeniorDesign/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
