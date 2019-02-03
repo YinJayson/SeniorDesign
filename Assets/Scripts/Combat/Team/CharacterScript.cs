@@ -57,10 +57,8 @@ public class CharacterScript : MonoBehaviour
     {
         if(id != null)
             charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats(id);
-            //charStats = GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id];
         else
             charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats("generic");
-        //charStats = GameObject.FindObjectOfType<CharacterDictionary>().dictionary["generic"];
 
         gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Characters/" + charStats.spriteName) as Sprite;
         //Debug.Log("Sprites/Characters/" + charStats.spriteName);
@@ -85,14 +83,7 @@ public class CharacterScript : MonoBehaviour
         baseMaxHP = (int)(baseStrength * hpStr);
         maxHP = baseMaxHP;
         if (GameObject.FindObjectOfType<HealthDictionary>().dictionary.ContainsKey(id))
-        {
-            int tempHP = HP = GameObject.FindObjectOfType<HealthDictionary>().getHealth(id);
-
-            if (tempHP == -1)
-                HP = maxHP;
-            else
-                HP = GameObject.FindObjectOfType<HealthDictionary>().getHealth(id);
-        }
+            HP = GameObject.FindObjectOfType<HealthDictionary>().getHealth(id);
         else
             HP = maxHP;
 
