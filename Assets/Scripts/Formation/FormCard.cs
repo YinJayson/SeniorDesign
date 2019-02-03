@@ -34,16 +34,20 @@ public class FormCard : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().fillAmount =
-            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / (float)(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
+        // Health
+        gameObject.transform.GetChild(3).transform.GetChild(1).GetComponent<Image>().fillAmount = (float)
+            ((int)GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).strength * 2.5f));
         gameObject.transform.GetChild(3).transform.GetChild(2).GetComponent<Text>().text =
-            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + (int)(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
+            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).strength * 2.5f);
+        
+        // TODO: Update calculations when equipment is set up
 
+        // EXP
         gameObject.transform.GetChild(4).transform.GetChild(1).GetComponent<Image>().fillAmount =
-            (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel;
+            (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / (float)GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).expToLevel;
         gameObject.transform.GetChild(4).transform.GetChild(2).GetComponent<Text>().text =
              "<b>" +
-             GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp + " / " + GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel
+             GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp + " / " + GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).expToLevel
              + "</b>";
     }
 
