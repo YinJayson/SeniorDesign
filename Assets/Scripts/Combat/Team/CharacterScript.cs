@@ -53,7 +53,7 @@ public class CharacterScript : MonoBehaviour
 
     bool progressActionBar;
 
-	void Start ()
+    void Start ()
     {
         if(id != null)
             charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats(id);

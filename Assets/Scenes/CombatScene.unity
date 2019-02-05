@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: 0
-  id: lua
+  id: 
   targetPos: {x: 0, y: 0}
   baseStrength: 0
   baseDex: 0
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: 0
-  id: avis
+  id: 
   targetPos: {x: 0, y: 0}
   baseStrength: 0
   baseDex: 0
@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: 0
-  id: adrian
+  id: 
   targetPos: {x: 0, y: 0}
   baseStrength: 0
   baseDex: 0
@@ -3200,12 +3200,13 @@ GameObject:
   - component: {fileID: 2043750130}
   - component: {fileID: 2043750129}
   - component: {fileID: 2043750131}
+  - component: {fileID: 2043750132}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &2043750129
 MonoBehaviour:
@@ -3242,6 +3243,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8f8ea01e5dbce48969cfcf6d1c46ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2043750132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043750128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e6e81a955634543ad241bb20d4db3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: []
 --- !u!1 &2047214799
 GameObject:
   m_ObjectHideFlags: 0

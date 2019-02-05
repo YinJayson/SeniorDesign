@@ -348,6 +348,7 @@
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\StoryDialogue.cs" />
     <Compile Include="Assets\Scripts\Formation\FormCard.cs" />
+    <Compile Include="Assets\Scripts\Formation\FormChanger.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentList.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItems.cs" />

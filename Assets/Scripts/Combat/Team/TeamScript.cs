@@ -19,9 +19,22 @@ public class TeamScript : MonoBehaviour
     public bool victorious;
     public bool defeated;
 
-    void Start()
+    void Awake()
     {
         charPos = new CharacterScript[3];
+        charPos[0] = gameObject.transform.GetChild(0).GetComponent<CharacterScript>();
+        charPos[1] = gameObject.transform.GetChild(1).GetComponent<CharacterScript>();
+        charPos[2] = gameObject.transform.GetChild(2).GetComponent<CharacterScript>();
+
+        FormManager formation = GameObject.FindObjectOfType<FormManager>();
+        charPos[0].id = formation.pos[0];
+        charPos[1].id = formation.pos[1];
+        charPos[2].id = formation.pos[2];
+    }
+
+    void Start()
+    {
+
 
         /*
         charPos[0] = char1.GetComponent<CharacterScript>();
@@ -35,9 +48,7 @@ public class TeamScript : MonoBehaviour
         charPos[2].targetPos = new Vector2(x3, 0);
         charPos[2].pos = 2;
         */
-        charPos[0] = gameObject.transform.GetChild(0).GetComponent<CharacterScript>();
-        charPos[1] = gameObject.transform.GetChild(1).GetComponent<CharacterScript>();
-        charPos[2] = gameObject.transform.GetChild(2).GetComponent<CharacterScript>();
+
 
         charPos[0].targetPos = new Vector2(50, 0);
         charPos[0].pos = 0;

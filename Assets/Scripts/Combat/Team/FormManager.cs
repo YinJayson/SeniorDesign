@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FormManager : MonoBehaviour
 {
-    public string[] pos;
-
     private static bool created = false;
+
+    public string[] pos;
 
     void Awake()
     {
@@ -16,9 +16,9 @@ public class FormManager : MonoBehaviour
             created = true;
 
             pos = new string[3];
-            pos[0] = "adrian";
-            pos[1] = "avis";
-            pos[2] = "lua";
+            pos[0] = "hero1";
+            pos[1] = "hero2";
+            pos[2] = "hero3";
         }
     }
 }
