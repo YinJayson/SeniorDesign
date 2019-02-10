@@ -1,4 +1,11 @@
-﻿using System.Collections;
+/*
+ 
+    USE SCENE MAIN1 FOR WORKING INVENTORY
+ 
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +14,6 @@ public class PlayerInventory : MonoBehaviour {
     public List<InventoryItems> playerItems = new List<InventoryItems>();
     //list with all possible items
     public ItemsList itemList;
-    public InventoryUI inventoryUI;
 
     //TODO
     //method nneeds to be changed to give player an item from winning combat needs to be implemented with combat system
@@ -47,6 +53,9 @@ public class PlayerInventory : MonoBehaviour {
         }
         return null;
     }
+
+
+
     
     //method to remove item
     //Delete button
