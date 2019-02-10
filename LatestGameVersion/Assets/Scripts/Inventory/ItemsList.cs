@@ -1,62 +1,92 @@
-﻿using System.Collections;
+/*
+ 
+    USE SCENE MAIN1 FOR WORKING INVENTORY
+ 
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System;
 
-public class ItemsList : MonoBehaviour {
+public class PlayerInventory : MonoBehaviour {
 
-    public List<InventoryItems> item = new List<InventoryItems>();
+    public List<InventoryItems> playerItems = new List<InventoryItems>();
+    //list with all possible items
+    public ItemsList itemList;
 
-    //Ask Jayson about Start vs Awake
-    private void Awake()
-    {
-        //at the start of the game the inventory list will be called
-        listOfItems();
+    //TODO
+    //method nneeds to be changed to give player an item from winning combat needs to be implemented with combat system
+    public void itemObtained(string itemName) {
+        //locate the item in the Inventory items List
+        //var OBItem = itemList.GetByName(itemName);
+        InventoryItems OBItem = itemList.GetByName(itemName);
+        //add the located item into the player's inventory
+        playerItems.Add(OBItem);
+        //Debug.Log(OBItem.itemName);
+        //Debug.Log(OBItem.itemDescription);
+        //inventoryUI.AddItem(OBItem);
     }
 
-    //search for the inventory item by the item name
-    public InventoryItems GetByName(string itemName) {
+    /* TODO:
+     proably need a separate method for when the item is bought
+     not completely sure how much it will be altered
+     "place holder method" to rememeber to implement it
+     */
+    public void itemBought(string itemName) {
+        //locate the item in the Inventory items List
+        InventoryItems BOItem = itemList.GetByName(itemName);
+        //add the located item into the player's inventory
+        playerItems.Add(BOItem);
+    }
 
-        for (int i = 0; i < item.Count; i++) {
-            if (item[i].itemName == itemName)
+    public InventoryItems GetByName(string itemName)
+    {
+
+        for (int i = 0; i < playerItems.Count; i++)
+        {
+            if (playerItems[i].itemName == itemName)
             {
-                return item[i];
-                //Debug.Log(item[i].itemName);
+                return playerItems[i];
+                //Debug.Log(playerItems[i].itemName);
             }
         }
         return null;
     }
 
-    void listOfItems()
+
+
+    
+    //method to remove item
+    //Delete button
+   
+   /* public void deleteItem(string itemName) {
+        InventoryItems delItem = playerItems.GetByName(itemName);
+        playerItems.Remove(delItem);
+        //Debug.Log(delItem.itemName + " Deleted");
+    }*/
+    
+    /* TODO */
+    //make the player able to use item
+    //connect with player stats
+    // Use this for initialization
+    void Start()
     {
-        //list of all possible invewntory items
-        item = new List<InventoryItems>()
+        itemObtained("Apple");
+        itemObtained("Life Potion");
+        itemObtained("Juice Box");
+       // deleteItem("Life Potion");
+
+        for (int i = 0; i < playerItems.Count; i++)
         {
-            new InventoryItems("Health Potion", "Potion that raises health by 10. Can be used in and out of combat.", 10, 0, 0, Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Life Potion", "Potion that is used to revive a fallen member", 1000, 0,1000,Resources.Load<Sprite>("Art/Items/Life Potion")),
-            new InventoryItems("Apple", "Healthy snack :3", 5, 0, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Juice Box", "Apple juice. Nice, refreshing, made with real juice ;)", 7, 0, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Demon Scroll", "Drain some of your enemy's life away", 0, 35, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Skill scroll", "Bump up your Skill EXP by 20 during battle", 0, 0, 20,Resources.Load<Sprite>("Art/Items/Health Potion")),
-        };
-    }
-    public void Start() {
-        /*foreach (var InventoryItems in item) {
-            Debug.Log(InventoryItems.itemName + ": " + InventoryItems.itemDescription + "\nHealth Stat: " + InventoryItems.healthStat + InventoryItems.icon);
-        }*/
-        //GetByName("Apple");
-        
-        
-       /* for (int i = 0; i < item.Count; i++) {
-            Debug.Log(item[i].itemName);
+            Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
         }
-        */
-        
-        
-        
+        //Debug.Log("Fuck my life");
     }
 
-	
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
