@@ -22,6 +22,8 @@ public class InventoryItems : MonoBehaviour {
         this.skillStat = skillStat;
         this.sprite = Resources.Load<Sprite>("Art/Items/" + itemName);
     }
-   
- 
+
+    // testing to be sent to shop
+    public InventoryItems bomb = new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0, Resources.Load<Sprite>("Art/Items/Health Potion"));
+
 }
