@@ -13,7 +13,9 @@ public class PlayerInventory : MonoBehaviour {
     public void itemObtained(string itemName) {
         //locate the item in the Inventory items List
         //var OBItem = itemList.GetByName(itemName);
+
         InventoryItems OBItem = itemList.GetByName(itemName);
+
         //add the located item into the player's inventory
         playerItems.Add(OBItem);
         //Debug.Log(OBItem.itemName);

@@ -24,6 +24,6 @@ public class InventoryItems : MonoBehaviour {
     }
 
     // testing to be sent to shop
-    public InventoryItems bomb = new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0, Resources.Load<Sprite>("Art/Items/Health Potion"));
+//    public InventoryItems sword = new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0, Resources.Load<Sprite>("Art/Items/Health Potion"));
 
 }

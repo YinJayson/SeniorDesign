@@ -329,6 +329,7 @@ MonoBehaviour:
   player: {fileID: 904315425}
   canvas: {fileID: 1506902540}
   item: {fileID: 1285496359204144, guid: 1cb10c032e6c2d649905a50f8a61c634, type: 2}
+  instance: {fileID: 0}
   price: 30
 --- !u!61 &381204600
 BoxCollider2D:
@@ -384,10 +385,11 @@ GameObject:
   m_Component:
   - component: {fileID: 904315429}
   - component: {fileID: 904315428}
-  - component: {fileID: 904315427}
   - component: {fileID: 904315426}
   - component: {fileID: 904315432}
   - component: {fileID: 904315430}
+  - component: {fileID: 904315427}
+  - component: {fileID: 904315433}
   - component: {fileID: 904315431}
   m_Layer: 0
   m_Name: Player
@@ -543,6 +545,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1.15}
   m_EdgeRadius: 0
+--- !u!114 &904315433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904315425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797b00f0099972a4d9e88343f185de72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItems: []
+  itemList: {fileID: 0}
 --- !u!1 &1139656840
 GameObject:
   m_ObjectHideFlags: 0
