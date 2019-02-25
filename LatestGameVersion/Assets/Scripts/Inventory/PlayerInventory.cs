@@ -39,7 +39,7 @@ public class PlayerInventory : MonoBehaviour {
         //add the located item into the player's inventory
         playerItems.Add(BOItem);
     }
-
+    //please work
     public InventoryItems GetByName(string itemName)
     {
 
