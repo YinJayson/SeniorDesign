@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OffenseSkill : MonoBehaviour, Skill
 {
+    string skillName;
+    string description;
     float cooldown = 8.0f;
 
     float elapsedTime;
@@ -16,6 +18,8 @@ public class OffenseSkill : MonoBehaviour, Skill
 
     void Start()
     {
+        skillName = "<b>[Offense]</b> Bash";
+        description = "Slams the blunt side of the blade into the enemy, dealing <b>160%</b> basic attack damage";
         elapsedTime = 0.0f;
     }
 
@@ -79,5 +83,14 @@ public class OffenseSkill : MonoBehaviour, Skill
     public float getElapsed()
     {
         return elapsedTime;
+    }
+    public string getName()
+    {
+        return skillName;
+    }
+
+    public string getDescription()
+    {
+        return description;
     }
 }

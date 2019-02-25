@@ -258,8 +258,8 @@ public class EnemyTeamScript : TeamScript
 
             HPDict.dictionary[enemyTeam.charPos[i].id] = enemyTeam.charPos[i].HP;
 
-            Debug.Log("EXP for " + enemyTeam.charPos[i].id + ": " + dict.dictionary[enemyTeam.charPos[i].id].exp);
-            Debug.Log("Level for " + enemyTeam.charPos[i].id + ": " + dict.dictionary[enemyTeam.charPos[i].id].level);
+            //Debug.Log("EXP for " + enemyTeam.charPos[i].id + ": " + dict.dictionary[enemyTeam.charPos[i].id].exp);
+            //Debug.Log("Level for " + enemyTeam.charPos[i].id + ": " + dict.dictionary[enemyTeam.charPos[i].id].level);
         }
 
         CharacterScript[] chars = GameObject.FindObjectsOfType<CharacterScript>();

@@ -63,4 +63,9 @@ public class FormChanger : MonoBehaviour
         this.id = id;
         changePos();
     }
+
+    public void resetCards()
+    {
+        SendMessageUpwards("resetCard");
+    }
 }

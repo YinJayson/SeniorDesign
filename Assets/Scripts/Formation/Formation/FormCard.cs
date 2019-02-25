@@ -15,6 +15,17 @@ public class FormCard : MonoBehaviour
 
 	void Start()
     {
+        resetCard();
+    }
+
+    public void savePos()
+    {
+        FormManager form = GameObject.FindObjectOfType<FormManager>();
+        form.pos[pos] = id;
+    }
+
+    public void resetCard()
+    {
         healthBar = gameObject.transform.Find("HealthBar");
         expBar = gameObject.transform.Find("EXPBar");
         form = GameObject.FindObjectOfType<FormManager>();
@@ -41,45 +52,15 @@ public class FormCard : MonoBehaviour
             Resources.Load<Sprite>("Sprites/Characters/" + GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).spriteName) as Sprite;
 
         healthBar.transform.Find("HealthBarFilling").GetComponent<Image>().fillAmount =
-            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / (float)(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
+            (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / (int) (GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
         healthBar.transform.Find("HealthBarText").GetComponent<Text>().text =
-            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + (int)(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
+            (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + (int) (GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
 
         expBar.transform.Find("EXPBarFilling").GetComponent<Image>().fillAmount =
-            (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel;
-        expBar.transform.GetChild(2).GetComponent<Text>().text = 
-             "<b>" + 
-             GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp + " / " + GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel
-             + "</b>";
-    }
-
-    void Update()
-    {
-        // Health
-        healthBar.transform.Find("HealthBarFilling").GetComponent<Image>().fillAmount =
-            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / (float)(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
-        healthBar.transform.Find("HealthBarText").GetComponent<Text>().text =
-            GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + (int)(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
-
-        // TODO: Update calculations when equipment is set up
-
-        // EXP
-        expBar.transform.Find("EXPBarFilling").GetComponent<Image>().fillAmount =
-            (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / (float)GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel;
+            (float) GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / (int) GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel;
         expBar.transform.GetChild(2).GetComponent<Text>().text =
              "<b>" +
              GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp + " / " + GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel
              + "</b>";
-    }
-
-    public void savePos()
-    {
-        FormManager form = GameObject.FindObjectOfType<FormManager>();
-        form.pos[pos] = id;
-    }
-
-    public void resetCard()
-    {
-        Start();
     }
 }

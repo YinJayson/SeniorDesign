@@ -55,8 +55,11 @@ public class CharacterScript : MonoBehaviour
 
     void Start ()
     {
-        if(id != null)
+        if (id != null)
+        {
             charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats(id);
+            initSkill();
+        }
         else
             charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats("generic");
 
@@ -153,6 +156,27 @@ public class CharacterScript : MonoBehaviour
                 effectsToRemove[i].expire();
 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        }
+    }
+
+    void initSkill()
+    {
+        switch(id)
+        {
+            case ("hero1"):
+                switch(GameObject.FindObjectOfType<SkillDictionary>().getSkill(id))
+                {
+                    case (1):
+                        gameObject.AddComponent<OffenseSkill>();
+                        break;
+                    case (2):
+                        gameObject.AddComponent<DefenseSkill>();
+                        break;
+                    case (3):
+                        gameObject.AddComponent<SupportSkill>();
+                        break;
+                }
+                break;
         }
     }
 

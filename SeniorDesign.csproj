@@ -347,8 +347,15 @@
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\StoryDialogue.cs" />
-    <Compile Include="Assets\Scripts\Formation\FormCard.cs" />
-    <Compile Include="Assets\Scripts\Formation\FormChanger.cs" />
+    <Compile Include="Assets\Scripts\Formation\Formation\FormCard.cs" />
+    <Compile Include="Assets\Scripts\Formation\Formation\FormChanger.cs" />
+    <Compile Include="Assets\Scripts\Formation\Formation\FormMenu.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillChanger.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillDictionary.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillHighlighter.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillMenuInit.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillOutliner.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentList.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItems.cs" />
@@ -360,6 +367,7 @@
     <Compile Include="Assets\Scripts\Stats\CharacterDictionary.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\HealthDictionary.cs" />
+    <Compile Include="Assets\Scripts\Stats\LevelUpMenu\LevelMenu.cs" />
     <Compile Include="Assets\Scripts\Stats\LevelUpMenu\StatCard.cs" />
     <Compile Include="Assets\Scripts\UI\DelayDestroy.cs" />
     <Compile Include="Assets\Scripts\UI\LoadScene.cs" />
