@@ -39,7 +39,6 @@ public class PlayerInventory : MonoBehaviour {
         //add the located item into the player's inventory
         playerItems.Add(BOItem);
     }
-    //please work
     public InventoryItems GetByName(string itemName)
     {
 
@@ -81,7 +80,6 @@ public class PlayerInventory : MonoBehaviour {
         {
             Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
         }
-        //Debug.Log("Fuck my life");
     }
 
     // Update is called once per frame
