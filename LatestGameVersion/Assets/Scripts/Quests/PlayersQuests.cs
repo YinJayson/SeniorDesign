@@ -37,6 +37,11 @@ public class PlayersQuests : MonoBehaviour {
         {
             Debug.Log("Quests completed by player\n" + playerQuests[i].QuestName);
         }
+
+        for (int i = 0; i < playerItems.Count; i++)
+        {
+            Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
+        }
     }
 }
 /*
