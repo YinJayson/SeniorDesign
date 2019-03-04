@@ -113,6 +113,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &248191124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248191125}
+  - component: {fileID: 248191129}
+  - component: {fileID: 248191126}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248191125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248191124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9615375, y: 0.2414589, z: -0.068008415}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248191126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248191124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797b00f0099972a4d9e88343f185de72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItems: []
+  itemList: {fileID: 0}
+--- !u!114 &248191129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248191124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e2a6b21c42bec42853f0ed073b4994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: []
 --- !u!1 &252938947
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +301,9 @@ GameObject:
   - component: {fileID: 381204598}
   - component: {fileID: 381204597}
   - component: {fileID: 381204600}
-  - component: {fileID: 381204599}
   - component: {fileID: 381204601}
+  - component: {fileID: 381204599}
+  - component: {fileID: 381204602}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -328,9 +384,12 @@ MonoBehaviour:
   button: {fileID: 252938949}
   player: {fileID: 904315425}
   canvas: {fileID: 1506902540}
-  item: {fileID: 1285496359204144, guid: 1cb10c032e6c2d649905a50f8a61c634, type: 2}
+  item: {fileID: 114918114125849436, guid: 74cd2a3d7e6d72946ab535f03efc7281, type: 2}
   instance: {fileID: 0}
+  playerInventory: {fileID: 0}
   price: 30
+  itemtest: {fileID: 0}
+  frame: 0
 --- !u!61 &381204600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -370,12 +429,26 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &381204602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381204596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e2a6b21c42bec42853f0ed073b4994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &904315425
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +575,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -556,7 +629,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797b00f0099972a4d9e88343f185de72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerItems: []
+  playerItems:
+  - {fileID: 0}
+  - {fileID: 0}
   itemList: {fileID: 0}
 --- !u!1 &1139656840
 GameObject:

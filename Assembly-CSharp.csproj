@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Quests\PlayersQuests.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestList.cs" />
     <Compile Include="Assets\Scripts\Quests\Quests.cs" />
+    <Compile Include="Assets\Scripts\Shop\GameManager.cs" />
     <Compile Include="Assets\Scripts\Shop\NPC.cs" />
     <Compile Include="Assets\Scripts\Shop\PlayerGold.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterDictionary.cs" />

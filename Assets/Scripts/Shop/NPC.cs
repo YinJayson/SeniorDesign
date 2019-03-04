@@ -4,39 +4,44 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
-
     public Button button;
     public GameObject player;
     public GameObject canvas;
 
     private bool triggerPlayer;
     private bool shopTrigger;
-
-    // attach this to the 2D sprite, in Unity you have it as "itemSword"
-    public GameObject item;
-
-    //   public InventoryItems debugSword;
-    //   public InventoryItems weaponTest;
-    //   public ItemsList weapon = new ItemsList();
-
+  
+    public InventoryItems item;
     public ItemsList instance;
+    public PlayerInventory playerInventory;
+
+    // InventoryItems test3 = Object.FindObjectOfType<InventoryItems>();
 
     public int price;
 
+    public int frame;
+
     void Awake()
     {
-        instance = item.GetComponent<ItemsList>();
+ 
+    //    InventoryItems Grenade = gameObject.GetComponent<ItemsList>().GetByName("Grenade");
     }
 
     // Use this for initialization
     void Start () {
+    //    StartCoroutine(example());
         Button btn = button.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        //        weaponTest = GetComponent<InventoryItems>();
-        //     public InventoryItems sword = new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0, Resources.Load<Sprite>("Art/Items/Health Potion"));
-
-//        debugSword = weapon.GetByName("Grenade");
     }
+
+    /*
+    IEnumerator example()
+    {
+        Debug.Log("Waiting for princess to be rescued...");
+        yield return new WaitUntil(() => frame >= 10);
+        Debug.Log("Princess was rescued!");
+    }
+    */
 
     // Update is called once per frame
     void Update () {
@@ -69,16 +74,13 @@ public class NPC : MonoBehaviour {
             // get the items from the itemsList stuff, add price
             // add to player inventory
 
-            Transform itemSpawn = Instantiate(item.transform, player.transform);
-            itemSpawn.gameObject.SetActive(false);
-            itemSpawn.parent = player.transform;
+            //    player.GetComponent<PlayerInventory>().itemBought("Grenade");
 
-            /*
-                Transform itemTest = Instantiate(debugSword.transform, player.transform.position, Quaternion.identity);
-                itemTest.gameObject.SetActive(false);
-                itemTest.parent = player.transform;
-                player.GetComponent<PlayerGold>().money -= price;
-            */
+            //   item = gameObject.GetComponent<ItemsList>().GetByName("Grenade");
+
+            //    yield return new WaitUntil(() => frame >= 10);
+
+            item = GetComponent<ItemsList>().GetByName("Sword");
 
             Debug.Log("see");
         } else
@@ -86,7 +88,6 @@ public class NPC : MonoBehaviour {
             print("not enough gold peasant.");
         }
     }
-
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -103,6 +104,4 @@ public class NPC : MonoBehaviour {
             triggerPlayer = false;
         }
     }
-
-
 }

@@ -11,6 +11,7 @@ TagManager:
   - InventoryCanvas
   - ItemMenu
   - StatManager
+  - item
   layers:
   - Default
   - TransparentFX
