@@ -5,6 +5,13 @@ using UnityEngine;
 public class SkillDictionary : MonoBehaviour
 {
     public Dictionary<string, int> dictionary;
+    /*
+     * Available types:
+     *      1 = Offense
+     *      2 = Defense
+     *      3 = Support
+     */
+
 
     private static bool created = false;
 

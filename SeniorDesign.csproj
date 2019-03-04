@@ -350,10 +350,10 @@
     <Compile Include="Assets\Scripts\Formation\Formation\FormCard.cs" />
     <Compile Include="Assets\Scripts\Formation\Formation\FormChanger.cs" />
     <Compile Include="Assets\Scripts\Formation\Formation\FormMenu.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillCardButton.cs" />
     <Compile Include="Assets\Scripts\Formation\Skills\SkillChanger.cs" />
     <Compile Include="Assets\Scripts\Formation\Skills\SkillDictionary.cs" />
     <Compile Include="Assets\Scripts\Formation\Skills\SkillHighlighter.cs" />
-    <Compile Include="Assets\Scripts\Formation\Skills\SkillMenuInit.cs" />
     <Compile Include="Assets\Scripts\Formation\Skills\SkillOutliner.cs" />
     <Compile Include="Assets\Scripts\Formation\Skills\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInventory.cs" />
@@ -369,7 +369,7 @@
     <Compile Include="Assets\Scripts\Stats\HealthDictionary.cs" />
     <Compile Include="Assets\Scripts\Stats\LevelUpMenu\LevelMenu.cs" />
     <Compile Include="Assets\Scripts\Stats\LevelUpMenu\StatCard.cs" />
-    <Compile Include="Assets\Scripts\UI\DelayDestroy.cs" />
+    <Compile Include="Assets\Scripts\UI\DestroyAnim.cs" />
     <Compile Include="Assets\Scripts\UI\LoadScene.cs" />
   </ItemGroup>
   <ItemGroup>

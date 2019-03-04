@@ -199,7 +199,6 @@ public class CharacterScript : MonoBehaviour
             for (int i = 0; i < debuffsToRemove.Length; i++)
                 debuffsToRemove[i].expire();
             */
-            Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
 
             GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
             floatingDamageText.GetComponent<Text>().text = finalDamage.ToString();

@@ -52,7 +52,7 @@ public class StatCard : MonoBehaviour
         charStats.skillPoints--;
         checkSP();
         dict.dictionary[id] = charStats;
-        getStats();
+        StartCoroutine(getStats());
     }
     public void increaseDex()
     {
@@ -60,7 +60,7 @@ public class StatCard : MonoBehaviour
         charStats.skillPoints--;
         checkSP();
         dict.dictionary[id] = charStats;
-        getStats();
+        StartCoroutine(getStats());
     }
     public void increaseInt()
     {
@@ -68,6 +68,6 @@ public class StatCard : MonoBehaviour
         charStats.skillPoints--;
         checkSP();
         dict.dictionary[id] = charStats;
-        getStats();
+        StartCoroutine(getStats());
     }
 }

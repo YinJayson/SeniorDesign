@@ -30,6 +30,7 @@ public class FormCard : MonoBehaviour
         expBar = gameObject.transform.Find("EXPBar");
         form = GameObject.FindObjectOfType<FormManager>();
 
+        // Assign position text based on position
         if (getIDByPos)
         {
             id = form.pos[pos];
@@ -47,6 +48,7 @@ public class FormCard : MonoBehaviour
             }
         }
 
+        // Resets card text and images
         gameObject.transform.Find("NameText").GetComponent<Text>().text = char.ToUpper(id[0]) + id.Substring(1);
         gameObject.transform.Find("Buttons").transform.Find("CharButton").GetComponent<Image>().sprite =
             Resources.Load<Sprite>("Sprites/Characters/" + GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).spriteName) as Sprite;

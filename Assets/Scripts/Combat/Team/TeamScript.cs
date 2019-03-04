@@ -193,6 +193,9 @@ public class TeamScript : MonoBehaviour
             enemyTeam.applyCritDamage(charPos[0].attack + (charPos[0].attack * charPos[0].critDamage), charPos[0].basicAttackType, 0);
         else
             enemyTeam.applyDamage(charPos[0].attack, charPos[0].basicAttackType, 0);
+
+        Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(enemyTeam.charPos[0].transform.position.x, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
+        Instantiate(Resources.Load<GameObject>("Prefabs/AttackPhysical"), new Vector2(enemyTeam.charPos[0].transform.position.x - 15, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
     }
 
     public void applyDamage(float damage, bool physical, int pos)
