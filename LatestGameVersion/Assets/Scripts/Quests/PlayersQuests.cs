@@ -31,6 +31,7 @@ public class PlayersQuests : MonoBehaviour {
 
     void Start()
     {
+        /*
         //add quest here to see if everything gets added to the player quest list as well as player inventory
         QuestCompleted(1);
         for (int i = 0; i < playerQuests.Count; i++)
@@ -42,6 +43,7 @@ public class PlayersQuests : MonoBehaviour {
         {
             Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
         }
+        */
     }
 }
 /*

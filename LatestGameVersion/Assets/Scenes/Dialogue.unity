@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 2710615}
   - component: {fileID: 2710614}
   - component: {fileID: 2710613}
+  - component: {fileID: 2710620}
   - component: {fileID: 2710619}
   - component: {fileID: 2710618}
   - component: {fileID: 2710617}
@@ -262,9 +263,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerQuests: []
-  questList: {fileID: 0}
+  questList: {fileID: 2710617}
   playerItems: []
-  itemList: {fileID: 0}
+  itemList: {fileID: 2710620}
+--- !u!114 &2710620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2710612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e2a6b21c42bec42853f0ed073b4994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: []
 --- !u!1 &108924747
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,6 +4328,7 @@ GameObject:
   - component: {fileID: 1560305412}
   - component: {fileID: 1560305411}
   - component: {fileID: 1560305414}
+  - component: {fileID: 1560305415}
   m_Layer: 5
   m_Name: Guy
   m_TagString: Untagged
@@ -4379,23 +4393,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1560305414}
-        m_MethodName: Talk
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1076288218}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1560305415}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4451,6 +4465,17 @@ MonoBehaviour:
   dialogue:
     sentences:
     - Hello!!
+--- !u!114 &1560305415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560305409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5e63de8bc47634b9f9d574fc6251f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1569172102
 GameObject:
   m_ObjectHideFlags: 0
