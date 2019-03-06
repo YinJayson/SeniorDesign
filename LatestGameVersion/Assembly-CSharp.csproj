@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryItems.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemsList.cs" />
     <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\Quests\AdviceQuest.cs" />
     <Compile Include="Assets\Scripts\Quests\PlayersQuests.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestList.cs" />
     <Compile Include="Assets\Scripts\Quests\Quests.cs" />
