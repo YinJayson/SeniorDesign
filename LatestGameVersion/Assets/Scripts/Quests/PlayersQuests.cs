@@ -29,6 +29,15 @@ public class PlayersQuests : MonoBehaviour {
 
     }
 
+    public Quests GetByID(int ID) {
+        for (int i = 0; i < playerQuests.Count; i++) {
+            if (playerQuests[i].ID == ID) {
+                return playerQuests[i];
+            }
+        }
+        return null;
+    }
+
     void Start()
     {
         /*
@@ -45,6 +54,11 @@ public class PlayersQuests : MonoBehaviour {
         }
         */
     }
+
+    /*public List<Quests> GetList(){
+        return playerQuests;
+    }
+    */
 }
 /*
  Load in the inventory script to add the inventory item to the players onventoy
@@ -58,3 +72,4 @@ public class PlayersQuests : MonoBehaviour {
 
     //maybe dont need to load in list to a list
     //just call in the inventory add itemm method separately to add item to players inventory
+
