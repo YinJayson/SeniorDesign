@@ -252,9 +252,9 @@ public class CharacterScript : MonoBehaviour
     
     public bool calculateCrit()
     {
-        if (Random.Range(0.0f, 1.0f) <= critRate)
+        if (Random.Range(0.0f, 1.0f) <= critRate)   // Apply Crit
             return true;
-        else
+        else   // Do not apply crit
             return false;
     }
 

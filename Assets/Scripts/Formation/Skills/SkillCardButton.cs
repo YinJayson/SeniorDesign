@@ -25,7 +25,7 @@ public class SkillCardButton : MonoBehaviour
         {
             case 1:
                 gameObject.transform.Find("Background").GetComponent<Image>().color = new Color(1.0f, 0.05882353f, 0.0f);
-                gameObject.transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/Attack") as Sprite;
+                gameObject.transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/PhysicalAttack") as Sprite;
                 break;
             case 2:
                 gameObject.transform.Find("Background").GetComponent<Image>().color = new Color(0.0f, 1.0f, 0.7544947f);

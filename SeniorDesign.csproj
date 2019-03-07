@@ -319,6 +319,7 @@
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
     <Compile Include="Assets\Scripts\Character Movement\ButtonMovement.cs" />
     <Compile Include="Assets\Scripts\Character Movement\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Combat\ApplyDamage.cs" />
     <Compile Include="Assets\Scripts\Combat\Effects\BlockedDebuff.cs" />
     <Compile Include="Assets\Scripts\Combat\Effects\DecreaseDamageBuff.cs" />
     <Compile Include="Assets\Scripts\Combat\Effects\DexBuff.cs" />
@@ -337,6 +338,7 @@
     <Compile Include="Assets\Scripts\Combat\Team\FormManager.cs" />
     <Compile Include="Assets\Scripts\Combat\Team\TeamScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\ActionBarScript.cs" />
+    <Compile Include="Assets\Scripts\Combat\UI\AttackButton.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EffectBarScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EffectMenuScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EXPBarScript.cs" />

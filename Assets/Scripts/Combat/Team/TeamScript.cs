@@ -189,13 +189,31 @@ public class TeamScript : MonoBehaviour
     public void basicAttack()
     {
         charPos[0].actionBar = 0.0f;
+        /*
         if (charPos[0].calculateCrit())
             enemyTeam.applyCritDamage(charPos[0].attack + (charPos[0].attack * charPos[0].critDamage), charPos[0].basicAttackType, 0);
         else
             enemyTeam.applyDamage(charPos[0].attack, charPos[0].basicAttackType, 0);
+        */
+        if (charPos[0].basicAttackType == true)
+        {
+            GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/PhysicalAttack"), enemyTeam.charPos[0].transform);
+            hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
+            hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
+            hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
+            hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+        }
+        else
+        {
+            GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/MagicAttack"), enemyTeam.charPos[0].transform);
+            hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
+            hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
+            hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
+            hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+        }
 
-        Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(enemyTeam.charPos[0].transform.position.x, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
-        Instantiate(Resources.Load<GameObject>("Prefabs/AttackPhysical"), new Vector2(enemyTeam.charPos[0].transform.position.x - 15, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
+        //Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(enemyTeam.charPos[0].transform.position.x, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
+        //Instantiate(Resources.Load<GameObject>("Prefabs/AttackPhysical"), new Vector2(enemyTeam.charPos[0].transform.position.x - 15, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
     }
 
     public void applyDamage(float damage, bool physical, int pos)

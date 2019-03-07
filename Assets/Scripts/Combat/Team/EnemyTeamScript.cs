@@ -210,7 +210,28 @@ public class EnemyTeamScript : TeamScript
         if (attacker == charPos[0].GetComponent<CharacterScript>() && charPos[0].ready)
         {
             charPos[0].actionBar = 0.0f;
-            enemyTeam.applyDamage(charPos[0].attack, charPos[0].basicAttackType, 0);
+
+            if (charPos[0].basicAttackType == true)
+            {
+                GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/PhysicalAttack"), enemyTeam.charPos[0].transform);
+                hit.transform.localEulerAngles = new Vector3(0, 180, 0);
+                hit.transform.Find("DamageText").localEulerAngles = new Vector3(0, -180, 0);
+                hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
+                hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
+                hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
+                hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+            }
+            else
+            {
+                GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/MagicAttack"), enemyTeam.charPos[0].transform);
+                hit.transform.localEulerAngles = new Vector3(0, 180, 0);
+                hit.transform.Find("DamageText").localEulerAngles = new Vector3(0, -180, 0);
+                hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
+                hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
+                hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
+                hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+            }
+            //enemyTeam.applyDamage(charPos[0].attack, charPos[0].basicAttackType, 0);
         }
 
         takingAction = false;

@@ -22,7 +22,5 @@ public class HealthBarScript : MonoBehaviour
     {
         bar.fillAmount = (float)target.HP / (float)target.maxHP;
         text.text = target.HP + " / " + target.maxHP;
-
-        gameObject.transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 50);
 	}
 }
