@@ -187,69 +187,67 @@ public class CharacterScript : MonoBehaviour
         gameObject.transform.localPosition = Vector2.MoveTowards(currentPos, targetPos, 3.0f);
     }
 
-    public void applyDamage(float damage, bool physical)
+    public void applyDamage(float damage, bool physical, bool crit)
     {
         if (HP > 0)
         {
-            int finalDamage = (int)calculateDamage(damage, physical);
-            HP -= finalDamage;
+            int finalDmg = Mathf.RoundToInt(damage);
+            HP -= finalDmg;
 
+            // Damage Text initialization
+            if (crit)
+            {
+                GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
+                floatingDamageText.GetComponent<Text>().text = finalDmg.ToString();
+                floatingDamageText.GetComponent<Text>().text = "\b" + finalDmg.ToString() + "!\b";
+                floatingDamageText.GetComponent<Text>().fontSize = 20;
+            }
+            else
+            {
+                GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
+                floatingDamageText.GetComponent<Text>().text = finalDmg.ToString();
+            }
             /*
-            IncreaseDamageDebuff[] debuffsToRemove = gameObject.GetComponents<IncreaseDamageDebuff>();
-            for (int i = 0; i < debuffsToRemove.Length; i++)
-                debuffsToRemove[i].expire();
-            */
+            if(crit)
+            {
+                int finalDamage = Mathf.RoundToInt(calculateDamage(damage, physical));
+                HP -= finalDamage;
 
-            GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
-            floatingDamageText.GetComponent<Text>().text = finalDamage.ToString();
-            //floatingDamageText.GetComponent<DamageText>().target = gameObject;
+                GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
+                floatingDamageText.GetComponent<Text>().text = finalDamage.ToString();
+                floatingDamageText.GetComponent<Text>().text = "\b" + finalDamage.ToString() + "!\b";
+                floatingDamageText.GetComponent<Text>().fontSize = 20;
+            }
+            else
+            {
+                int finalDamage = Mathf.RoundToInt(calculateDamage(damage, physical));
+                HP -= finalDamage;
+
+                GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
+                floatingDamageText.GetComponent<Text>().text = finalDamage.ToString();
+            }
+            */
         }
     }
 
-    public void applyCritDamage(float damage, bool physical)
-    {
-        if (HP > 0)
-        {
-            int finalDamage = (int)calculateDamage(damage, physical);
-            HP -= finalDamage;
-
-            /*
-            IncreaseDamageDebuff[] debuffsToRemove = gameObject.GetComponents<IncreaseDamageDebuff>();
-            for (int i = 0; i < debuffsToRemove.Length; i++)
-                debuffsToRemove[i].expire();
-            */
-            Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity, gameObject.transform);
-
-            GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
-            floatingDamageText.GetComponent<Text>().text = "\b" + finalDamage.ToString() + "!\b";
-            floatingDamageText.GetComponent<Text>().fontSize = 80;
-            //floatingDamageText.GetComponent<DamageText>().target = gameObject;
-        }
-    }
-
+    /*
     public float calculateDamage(float damage, bool physical)
     {
         float finalDamage;
 
         if (physical == true)
-        {
-            finalDamage = Mathf.Round((damage - defense) * damageMulti);
-            Debug.Log("Damage: " + damage + "\nDef: " + defense);
-        }
+            finalDamage = damage - defense;
         else
-        {
-            finalDamage = Mathf.Round((damage - resist) * damageMulti);
-            Debug.Log("Damage: " + damage + "\nRes: " + resist);
-        }
-
-        Debug.Log("Final Damage: " + finalDamage);
+            finalDamage = damage - resist;
 
         if (finalDamage <= 0.0f)
             return 1.0f;
         else
             return finalDamage;
     }
+    */
     
+        /*
     public bool calculateCrit()
     {
         if (Random.Range(0.0f, 1.0f) <= critRate)   // Apply Crit
@@ -257,6 +255,7 @@ public class CharacterScript : MonoBehaviour
         else   // Do not apply crit
             return false;
     }
+    */
 
     public void stopActionBar()
     {

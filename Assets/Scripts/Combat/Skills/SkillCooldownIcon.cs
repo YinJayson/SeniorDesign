@@ -5,28 +5,24 @@ using UnityEngine.UI;
 
 public class SkillCooldownIcon : MonoBehaviour
 {
-    public float cooldown;
-    public CharacterScript target;
-    float elapsedTime;
+    public Skill skill;
     Image background;
 
 	void Start ()
     {
+        skill = gameObject.transform.parent.GetComponent<Skill>();
         if (gameObject.transform.GetChild(0) != null)
             background = gameObject.transform.GetChild(0).GetComponent<Image>();
-        elapsedTime = cooldown;
+        gameObject.transform.localPosition = new Vector2(0, -35);
 	}
 	
 	void Update ()
     {
-        gameObject.transform.position = new Vector2(target.transform.position.x, target.transform.position.y - 35);
-        gameObject.GetComponent<Image>().fillAmount = elapsedTime / cooldown;
+        gameObject.GetComponent<Image>().fillAmount = skill.getElapsed() / skill.getCooldown();
         if (background != null)
             background.fillAmount = gameObject.GetComponent<Image>().fillAmount;
 
-        elapsedTime -= Time.deltaTime;
-
-        if (elapsedTime <= 0.0f)
+        if (skill.getReady())
             Destroy(gameObject);
 	}
 }

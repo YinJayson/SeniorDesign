@@ -215,7 +215,6 @@ public class EnemyTeamScript : TeamScript
             {
                 GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/PhysicalAttack"), enemyTeam.charPos[0].transform);
                 hit.transform.localEulerAngles = new Vector3(0, 180, 0);
-                hit.transform.Find("DamageText").localEulerAngles = new Vector3(0, -180, 0);
                 hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
                 hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
                 hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
@@ -225,7 +224,6 @@ public class EnemyTeamScript : TeamScript
             {
                 GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/MagicAttack"), enemyTeam.charPos[0].transform);
                 hit.transform.localEulerAngles = new Vector3(0, 180, 0);
-                hit.transform.Find("DamageText").localEulerAngles = new Vector3(0, -180, 0);
                 hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
                 hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
                 hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;

@@ -216,6 +216,7 @@ public class TeamScript : MonoBehaviour
         //Instantiate(Resources.Load<GameObject>("Prefabs/AttackPhysical"), new Vector2(enemyTeam.charPos[0].transform.position.x - 15, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
     }
 
+    /*
     public void applyDamage(float damage, bool physical, int pos)
     {
         charPos[pos].applyDamage(damage, physical);
@@ -233,6 +234,7 @@ public class TeamScript : MonoBehaviour
             if (!checkDefeat())
                 moveToBack(pos);
     }
+    */
 
     public void skill()
     {

@@ -57,8 +57,6 @@ public class DefenseSkill : MonoBehaviour, Skill
     public void skillCooldown()
     {
         GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
-        icon.GetComponent<SkillCooldownIcon>().cooldown = cooldown;
-        icon.GetComponent<SkillCooldownIcon>().target = gameObject.GetComponent<CharacterScript>();
     }
 
     public bool getReady()

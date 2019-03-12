@@ -342,6 +342,7 @@
     <Compile Include="Assets\Scripts\Combat\UI\EffectBarScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EffectMenuScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EXPBarScript.cs" />
+    <Compile Include="Assets\Scripts\Combat\UI\FixRotation.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\MoveToLocalPosition.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\SkillButton.cs" />
