@@ -33,6 +33,7 @@ public class CharacterScript : MonoBehaviour
     // Change these values to balance stats
     public const float dmgStr = 1.25f;
     public const float dmgDex = 0.75f;
+    public const float dmgInt = 0.75f;
     public const float hpStr = 2.5f;
     public const float spdDex = 2.5f;
     public const float critDex = 0.0175f;
@@ -64,7 +65,6 @@ public class CharacterScript : MonoBehaviour
             charStats = GameObject.FindObjectOfType<CharacterDictionary>().getStats("generic");
 
         gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Characters/" + charStats.spriteName) as Sprite;
-        //Debug.Log("Sprites/Characters/" + charStats.spriteName);
 
         baseStrength = charStats.strength;
         baseDex = charStats.dex;
@@ -80,17 +80,17 @@ public class CharacterScript : MonoBehaviour
         ready = false;
         inPosition = true;
 
-        baseAttack = (int)(baseStrength * dmgStr + baseDex * dmgDex);
+        baseAttack = Mathf.RoundToInt(baseStrength * dmgStr + baseDex * dmgDex + baseIntelligence * dmgInt);
         attack = baseAttack + wpnAttack;
 
-        baseMaxHP = (int)(baseStrength * hpStr);
+        baseMaxHP = Mathf.RoundToInt(baseStrength * hpStr);
         maxHP = baseMaxHP;
         if (GameObject.FindObjectOfType<HealthDictionary>().dictionary.ContainsKey(id))
             HP = GameObject.FindObjectOfType<HealthDictionary>().getHealth(id);
         else
             HP = maxHP;
 
-        speed = (int)(baseDex * spdDex);
+        speed = Mathf.RoundToInt(baseDex * spdDex);
         critRate = baseDex * critDex;
         critDamage = 0.5f;
         damageMulti = 1.0f;
@@ -126,8 +126,8 @@ public class CharacterScript : MonoBehaviour
                 ready = false;
         }
 
-        attack = (int)(baseStrength * dmgStr + baseDex * dmgDex);
-        speed = (int)(baseDex * spdDex);
+        attack = Mathf.RoundToInt(baseStrength * dmgStr + baseDex * dmgDex * baseIntelligence * dmgInt);
+        speed = Mathf.RoundToInt(baseDex * spdDex);
         critRate = baseDex * critDex;
 
         if (maxHP < 0)
@@ -207,6 +207,8 @@ public class CharacterScript : MonoBehaviour
                 GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
                 floatingDamageText.GetComponent<Text>().text = finalDmg.ToString();
             }
+
+            gameObject.BroadcastMessage("onHit");
             /*
             if(crit)
             {

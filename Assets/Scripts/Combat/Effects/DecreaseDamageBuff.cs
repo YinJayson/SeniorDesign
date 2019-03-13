@@ -8,6 +8,7 @@ public class DecreaseDamageDebuff : MonoBehaviour, Effect
     public float intensity;
     public float duration;
     public float originalMulti;
+    public bool expireOnHit = false;
 
     public float maxDuration;
     EffectIcon icon;
@@ -51,7 +52,11 @@ public class DecreaseDamageDebuff : MonoBehaviour, Effect
         icon.expire();
         Destroy(this);
     }
-
+    public void onHit()
+    {
+        if (expireOnHit)
+            expire();
+    }
     public float getMaxDuration()
     {
         return maxDuration;
