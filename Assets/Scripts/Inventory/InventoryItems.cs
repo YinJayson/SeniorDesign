@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class InventoryItems : MonoBehaviour {
+public class InventoryItems {
     //item attributes
     public string itemName { get; set; }
     public string itemDescription { get; set; }
@@ -22,8 +22,4 @@ public class InventoryItems : MonoBehaviour {
         this.skillStat = skillStat;
         this.sprite = Resources.Load<Sprite>("Art/Items/" + itemName);
     }
-
-    // testing to be sent to shop
-//    public InventoryItems sword = new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0, Resources.Load<Sprite>("Art/Items/Health Potion"));
-
 }

@@ -104,9 +104,11 @@
     <Compile Include="Assets\Scripts\Quests\PlayersQuests.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestList.cs" />
     <Compile Include="Assets\Scripts\Quests\Quests.cs" />
-    <Compile Include="Assets\Scripts\Shop\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Shop\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Shop\NPC.cs" />
     <Compile Include="Assets\Scripts\Shop\PlayerGold.cs" />
+    <Compile Include="Assets\Scripts\Shop\preserveItems.cs" />
+    <Compile Include="Assets\Scripts\Shop\SwitchScenes.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterDictionary.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\HealthDictionary.cs" />

@@ -11,37 +11,20 @@ public class NPC : MonoBehaviour {
     private bool triggerPlayer;
     private bool shopTrigger;
   
-    public InventoryItems item;
-    public ItemsList instance;
-    public PlayerInventory playerInventory;
-
-    // InventoryItems test3 = Object.FindObjectOfType<InventoryItems>();
+    public ItemsList items;
 
     public int price;
 
-    public int frame;
-
     void Awake()
     {
- 
-    //    InventoryItems Grenade = gameObject.GetComponent<ItemsList>().GetByName("Grenade");
+
     }
 
     // Use this for initialization
     void Start () {
-    //    StartCoroutine(example());
         Button btn = button.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
-
-    /*
-    IEnumerator example()
-    {
-        Debug.Log("Waiting for princess to be rescued...");
-        yield return new WaitUntil(() => frame >= 10);
-        Debug.Log("Princess was rescued!");
-    }
-    */
 
     // Update is called once per frame
     void Update () {
@@ -67,26 +50,40 @@ public class NPC : MonoBehaviour {
         }
     }
 
+    public int count;
     public void Buy()
     {
+        /*
         if(player.GetComponent<PlayerGold>().money >= price)
         {
             // get the items from the itemsList stuff, add price
             // add to player inventory
+            */
 
-            //    player.GetComponent<PlayerInventory>().itemBought("Grenade");
+           player.GetComponent<PlayerInventory>().itemObtained("Sword");
 
             //   item = gameObject.GetComponent<ItemsList>().GetByName("Grenade");
 
             //    yield return new WaitUntil(() => frame >= 10);
+       //     FindObjectOfType<GameManager>().loadItemDataBase();
 
-            item = GetComponent<ItemsList>().GetByName("Sword");
 
-            Debug.Log("see");
+       //     item = GetComponent<ItemsList>().GetByName("Sword");
+
+           for (int i = 0; i < player.GetComponent<PlayerInventory>().playerItems.Count; i++)
+        {
+            Debug.Log(player.GetComponent<PlayerInventory>().playerItems[i].itemName);
+        }
+         
+                
+                
+                //   Debug.Log(player.GetComponent<PlayerInventory>().playerItems[0].ToString());
+        /*
         } else
         {
             print("not enough gold peasant.");
         }
+        */
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
