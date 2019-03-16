@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class InventoryItems : MonoBehaviour {
+public class InventoryItems {
     //item attributes
     public string itemName { get; set; }
     public string itemDescription { get; set; }
@@ -22,6 +22,4 @@ public class InventoryItems : MonoBehaviour {
         this.skillStat = skillStat;
         this.sprite = Resources.Load<Sprite>("Art/Items/" + itemName);
     }
-   
- 
 }
