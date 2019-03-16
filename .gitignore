@@ -20,8 +20,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
-*.ide
-*.asset
+
 # ============ #
 # OS generated #
 # ============ #
