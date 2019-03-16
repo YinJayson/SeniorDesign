@@ -40,6 +40,8 @@ public class ItemsList : MonoBehaviour {
             new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
             new InventoryItems("Demon Scroll", "Drain some of your enemy's life away", 0, 35, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
             new InventoryItems("Skill scroll", "Bump up your Skill EXP by 20 during battle", 0, 0, 20,Resources.Load<Sprite>("Art/Items/Health Potion")),
+            new InventoryItems("Sword", "simple sword", 0, 0, 20,Resources.Load<Sprite>("Art/Items/Sword")),
+
         };
     }
     public void Start() {
