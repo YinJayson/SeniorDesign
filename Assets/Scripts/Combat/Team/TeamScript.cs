@@ -19,9 +19,22 @@ public class TeamScript : MonoBehaviour
     public bool victorious;
     public bool defeated;
 
-    void Start()
+    void Awake()
     {
         charPos = new CharacterScript[3];
+        charPos[0] = gameObject.transform.GetChild(0).GetComponent<CharacterScript>();
+        charPos[1] = gameObject.transform.GetChild(1).GetComponent<CharacterScript>();
+        charPos[2] = gameObject.transform.GetChild(2).GetComponent<CharacterScript>();
+
+        FormManager formation = GameObject.FindObjectOfType<FormManager>();
+        charPos[0].id = formation.pos[0];
+        charPos[1].id = formation.pos[1];
+        charPos[2].id = formation.pos[2];
+    }
+
+    void Start()
+    {
+
 
         /*
         charPos[0] = char1.GetComponent<CharacterScript>();
@@ -35,9 +48,7 @@ public class TeamScript : MonoBehaviour
         charPos[2].targetPos = new Vector2(x3, 0);
         charPos[2].pos = 2;
         */
-        charPos[0] = gameObject.transform.GetChild(0).GetComponent<CharacterScript>();
-        charPos[1] = gameObject.transform.GetChild(1).GetComponent<CharacterScript>();
-        charPos[2] = gameObject.transform.GetChild(2).GetComponent<CharacterScript>();
+
 
         charPos[0].targetPos = new Vector2(50, 0);
         charPos[0].pos = 0;
@@ -178,12 +189,34 @@ public class TeamScript : MonoBehaviour
     public void basicAttack()
     {
         charPos[0].actionBar = 0.0f;
+        /*
         if (charPos[0].calculateCrit())
             enemyTeam.applyCritDamage(charPos[0].attack + (charPos[0].attack * charPos[0].critDamage), charPos[0].basicAttackType, 0);
         else
             enemyTeam.applyDamage(charPos[0].attack, charPos[0].basicAttackType, 0);
+        */
+        if (charPos[0].basicAttackType == true)
+        {
+            GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/PhysicalAttack"), enemyTeam.charPos[0].transform);
+            hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
+            hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
+            hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
+            hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+        }
+        else
+        {
+            GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/MagicAttack"), enemyTeam.charPos[0].transform);
+            hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
+            hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
+            hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
+            hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+        }
+
+        //Instantiate(Resources.Load<GameObject>("Prefabs/Hit"), new Vector2(enemyTeam.charPos[0].transform.position.x, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
+        //Instantiate(Resources.Load<GameObject>("Prefabs/AttackPhysical"), new Vector2(enemyTeam.charPos[0].transform.position.x - 15, enemyTeam.charPos[0].transform.position.y), Quaternion.identity, enemyTeam.charPos[0].transform);
     }
 
+    /*
     public void applyDamage(float damage, bool physical, int pos)
     {
         charPos[pos].applyDamage(damage, physical);
@@ -201,6 +234,7 @@ public class TeamScript : MonoBehaviour
             if (!checkDefeat())
                 moveToBack(pos);
     }
+    */
 
     public void skill()
     {

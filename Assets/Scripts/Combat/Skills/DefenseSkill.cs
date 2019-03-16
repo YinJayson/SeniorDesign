@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DefenseSkill : MonoBehaviour, Skill
 {
+    string skillName;
+    string description;
     float cooldown = 12.0f;
 
     float elapsedTime;
@@ -16,6 +18,8 @@ public class DefenseSkill : MonoBehaviour, Skill
 
     void Start()
     {
+        skillName = "<b>[Defense]</b> Skeptical Approach";
+        description = "Heightens the senses, decreasing incoming damage by <b>20%</b> for <b>6 seconds</b> for the whole team";
         elapsedTime = 0.0f;
     }
 
@@ -42,7 +46,7 @@ public class DefenseSkill : MonoBehaviour, Skill
         for(int i = 0; i < targetTeam.charPos.Length; i++)
         {
             DecreaseDamageDebuff buff = targetTeam.charPos[i].gameObject.AddComponent<DecreaseDamageDebuff>();
-            buff.duration = 5.0f;
+            buff.duration = 6.0f;
             buff.intensity = 0.2f;
         }
 
@@ -53,8 +57,6 @@ public class DefenseSkill : MonoBehaviour, Skill
     public void skillCooldown()
     {
         GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
-        icon.GetComponent<SkillCooldownIcon>().cooldown = cooldown;
-        icon.GetComponent<SkillCooldownIcon>().target = gameObject.GetComponent<CharacterScript>();
     }
 
     public bool getReady()
@@ -72,5 +74,15 @@ public class DefenseSkill : MonoBehaviour, Skill
     public float getElapsed()
     {
         return elapsedTime;
+    }
+
+    public string getName()
+    {
+        return skillName;
+    }
+
+    public string getDescription()
+    {
+        return description;
     }
 }

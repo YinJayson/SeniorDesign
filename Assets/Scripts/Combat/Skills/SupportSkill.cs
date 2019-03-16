@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SupportSkill : MonoBehaviour, Skill
 {
+    string skillName;
+    string description;
+
     float cooldown = 12.0f;
 
     float elapsedTime;
@@ -16,6 +19,8 @@ public class SupportSkill : MonoBehaviour, Skill
 
     void Start()
     {
+        skillName = "<b>[Support]</b> Run!";
+        description = "Yells at everyone to move faster, increasing Dexterity by <b>3</b> for <b>10 seconds</b>";
         elapsedTime = 0.0f;
     }
 
@@ -52,9 +57,7 @@ public class SupportSkill : MonoBehaviour, Skill
 
     public void skillCooldown()
     {
-        GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
-        icon.GetComponent<SkillCooldownIcon>().cooldown = cooldown;
-        icon.GetComponent<SkillCooldownIcon>().target = gameObject.GetComponent<CharacterScript>();
+        GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
     }
 
     public bool getReady()
@@ -72,5 +75,14 @@ public class SupportSkill : MonoBehaviour, Skill
     public float getElapsed()
     {
         return elapsedTime;
+    }
+    public string getName()
+    {
+        return skillName;
+    }
+
+    public string getDescription()
+    {
+        return description;
     }
 }

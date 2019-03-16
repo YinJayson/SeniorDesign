@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OffenseSkill : MonoBehaviour, Skill
 {
+    string skillName;
+    string description;
     float cooldown = 8.0f;
 
     float elapsedTime;
@@ -16,6 +18,8 @@ public class OffenseSkill : MonoBehaviour, Skill
 
     void Start()
     {
+        skillName = "<b>[Offense]</b> Unsheath";
+        description = "Forcefully unsheathes the sword, accidentally launching it. The impact deals <b>160%</b> basic attack damage";
         elapsedTime = 0.0f;
     }
 
@@ -39,19 +43,13 @@ public class OffenseSkill : MonoBehaviour, Skill
     {
         targetTeam = gameObject.transform.GetComponentInParent<TeamScript>().enemyTeam;
 
-        float damage = 0;
-        float attack = gameObject.GetComponent<CharacterScript>().attack + gameObject.GetComponent<CharacterScript>().strength * 0.6f;
+        int attack = Mathf.RoundToInt((float) gameObject.GetComponent<CharacterScript>().attack + gameObject.GetComponent<CharacterScript>().strength * 0.6f);
 
-        if (gameObject.GetComponent<CharacterScript>().calculateCrit())
-        {
-            damage = attack + (attack * gameObject.GetComponent<CharacterScript>().critDamage);
-            targetTeam.charPos[0].applyCritDamage(damage, true);
-        }
-        else
-        {
-            damage = attack;
-            targetTeam.charPos[0].applyDamage(damage, true);
-        }
+        GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/OffenseAttack"), targetTeam.charPos[0].transform);
+        hit.GetComponent<ApplyDamage>().dmg = attack;
+        hit.GetComponent<ApplyDamage>().critRate = gameObject.GetComponent<CharacterScript>().critRate;
+        hit.GetComponent<ApplyDamage>().critDmg = gameObject.GetComponent<CharacterScript>().critDamage;
+        hit.GetComponent<ApplyDamage>().physical = gameObject.GetComponent<CharacterScript>().basicAttackType;
 
         elapsedTime = cooldown;
         skillCooldown();
@@ -59,9 +57,7 @@ public class OffenseSkill : MonoBehaviour, Skill
 
     public void skillCooldown()
     {
-        GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
-        icon.GetComponent<SkillCooldownIcon>().cooldown = cooldown;
-        icon.GetComponent<SkillCooldownIcon>().target = gameObject.GetComponent<CharacterScript>();
+        GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, gameObject.transform.localPosition, Quaternion.identity, gameObject.transform);
     }
 
     public bool getReady()
@@ -79,5 +75,13 @@ public class OffenseSkill : MonoBehaviour, Skill
     public float getElapsed()
     {
         return elapsedTime;
+    }
+    public string getName()
+    {
+        return skillName;
+    }
+    public string getDescription()
+    {
+        return description;
     }
 }

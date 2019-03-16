@@ -8,6 +8,7 @@ public class IncreaseDamageDebuff : MonoBehaviour, Effect
     public float intensity;
     public float duration;
     public float originalMulti;
+    public bool expireOnHit = false;  // Default: Expires on hit false
 
     public float maxDuration;
     EffectIcon icon;
@@ -16,6 +17,7 @@ public class IncreaseDamageDebuff : MonoBehaviour, Effect
 
     void Start()
     {
+        // Default: Intensity = 10%
         if (intensity == 0)
             intensity = 0.1f;
 
@@ -51,7 +53,11 @@ public class IncreaseDamageDebuff : MonoBehaviour, Effect
         icon.expire();
         Destroy(this);
     }
-
+    public void onHit()
+    {
+        if (expireOnHit)
+            expire();
+    }
     public float getMaxDuration()
     {
         return maxDuration;

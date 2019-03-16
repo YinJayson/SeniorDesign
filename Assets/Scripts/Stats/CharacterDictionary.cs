@@ -17,21 +17,21 @@ public class CharacterDictionary : MonoBehaviour
 
             dictionary = new Dictionary<string, CharacterStats>();
 
-            CharacterStats adrianStats = new CharacterStats("MonkMage", 6, 4, 2, 0, 0, 0);
-            CharacterStats avisStats = new CharacterStats("Skeleton", 3, 6, 3, 0, 0, 0);
-            CharacterStats luaStats = new CharacterStats("Mage", 1, 4, 7, 0, 0, 0);
+            CharacterStats hero1Stats = new CharacterStats("MonkMage", 6, 4, 2, true, 0, 0, 0);
+            CharacterStats hero2Stats = new CharacterStats("Skeleton", 3, 6, 3, true, 0, 0, 0);
+            CharacterStats hero3Stats = new CharacterStats("Mage", 1, 4, 7, false, 0, 0, 0);
 
-            CharacterStats genericStats = new CharacterStats("Slime", 3, 3, 3, 5, 5);
+            CharacterStats genericStats = new CharacterStats("Slime", 3, 3, 3, true, 5, 5);
 
-            CharacterStats slimeStats = new CharacterStats("Slime", 1, 8, 1, 5, 5);
-            CharacterStats orcStats = new CharacterStats("Orc", 5, 2, 2, 7, 5);
-            CharacterStats skeletonStats = new CharacterStats("Skeleton", 2, 5, 5, 6, 5);
-            CharacterStats livingArmorStats = new CharacterStats("LivingArmor", 8, 2, 0, 8, 5);
-            CharacterStats goblinStats = new CharacterStats("Goblin", 5, 5, 2, 5, 5);
+            CharacterStats slimeStats = new CharacterStats("Slime", 1, 8, 1, true, 5, 5);
+            CharacterStats orcStats = new CharacterStats("Orc", 5, 2, 2, true, 7, 5);
+            CharacterStats skeletonStats = new CharacterStats("Skeleton", 2, 5, 5, false, 6, 5);
+            CharacterStats livingArmorStats = new CharacterStats("LivingArmor", 8, 2, 0, true, 8, 5);
+            CharacterStats goblinStats = new CharacterStats("Goblin", 5, 5, 2, true, 5, 5);
 
-            dictionary.Add("adrian", adrianStats);
-            dictionary.Add("avis", avisStats);
-            dictionary.Add("lua", luaStats);
+            dictionary.Add("hero1", hero1Stats);
+            dictionary.Add("hero2", hero2Stats);
+            dictionary.Add("hero3", hero3Stats);
             dictionary.Add("generic", genericStats);
             dictionary.Add("slime", slimeStats);
             dictionary.Add("orc", orcStats);

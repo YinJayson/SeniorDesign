@@ -319,6 +319,7 @@
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
     <Compile Include="Assets\Scripts\Character Movement\ButtonMovement.cs" />
     <Compile Include="Assets\Scripts\Character Movement\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Combat\ApplyDamage.cs" />
     <Compile Include="Assets\Scripts\Combat\Effects\BlockedDebuff.cs" />
     <Compile Include="Assets\Scripts\Combat\Effects\DecreaseDamageBuff.cs" />
     <Compile Include="Assets\Scripts\Combat\Effects\DexBuff.cs" />
@@ -337,9 +338,11 @@
     <Compile Include="Assets\Scripts\Combat\Team\FormManager.cs" />
     <Compile Include="Assets\Scripts\Combat\Team\TeamScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\ActionBarScript.cs" />
+    <Compile Include="Assets\Scripts\Combat\UI\AttackButton.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EffectBarScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EffectMenuScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\EXPBarScript.cs" />
+    <Compile Include="Assets\Scripts\Combat\UI\FixRotation.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\MoveToLocalPosition.cs" />
     <Compile Include="Assets\Scripts\Combat\UI\SkillButton.cs" />
@@ -347,7 +350,15 @@
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\StoryDialogue.cs" />
-    <Compile Include="Assets\Scripts\Formation\FormCard.cs" />
+    <Compile Include="Assets\Scripts\Formation\Formation\FormCard.cs" />
+    <Compile Include="Assets\Scripts\Formation\Formation\FormChanger.cs" />
+    <Compile Include="Assets\Scripts\Formation\Formation\FormMenu.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillCardButton.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillChanger.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillDictionary.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillHighlighter.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillOutliner.cs" />
+    <Compile Include="Assets\Scripts\Formation\Skills\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentList.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItems.cs" />
@@ -359,8 +370,9 @@
     <Compile Include="Assets\Scripts\Stats\CharacterDictionary.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\HealthDictionary.cs" />
+    <Compile Include="Assets\Scripts\Stats\LevelUpMenu\LevelMenu.cs" />
     <Compile Include="Assets\Scripts\Stats\LevelUpMenu\StatCard.cs" />
-    <Compile Include="Assets\Scripts\UI\DelayDestroy.cs" />
+    <Compile Include="Assets\Scripts\UI\DestroyAnim.cs" />
     <Compile Include="Assets\Scripts\UI\LoadScene.cs" />
   </ItemGroup>
   <ItemGroup>

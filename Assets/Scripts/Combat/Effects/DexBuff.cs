@@ -53,7 +53,10 @@ public class DexBuff : MonoBehaviour, Effect
         icon.expire();
         Destroy(this);
     }
+    public void onHit()
+    {
 
+    }
     public float getMaxDuration()
     {
         return maxDuration;

@@ -6,6 +6,7 @@ public interface Effect
 {
     void effect();
     void expire();
+    void onHit();
     float getMaxDuration();
     float getDuration();
 }
