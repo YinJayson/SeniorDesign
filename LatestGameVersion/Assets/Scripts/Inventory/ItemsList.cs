@@ -8,7 +8,6 @@ public class ItemsList : MonoBehaviour {
 
     public List<InventoryItems> item = new List<InventoryItems>();
 
-    //Ask Jayson about Start vs Awake
     private void Awake()
     {
         //at the start of the game the inventory list will be called

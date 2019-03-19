@@ -6,11 +6,11 @@ using UnityEngine;
 public class EquipmentInventory : MonoBehaviour
 {
 
-    string equipName { get; set; }
-    string equipDescription { get; set; }
-    int equipID { get; set; }
-    int hitStat { get; set; }
-    int defenceStat { get; set; }
+    public string equipName { get; set; }
+    public string equipDescription { get; set; }
+    public int equipID { get; set; }
+    public int hitStat { get; set; }
+    public int defenceStat { get; set; }
 
     public EquipmentInventory(string equipName, string equipDescription, int equipID, int hitStat, int defenceStat)
     {
