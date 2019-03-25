@@ -213,21 +213,23 @@ public class EnemyTeamScript : TeamScript
 
             if (charPos[0].basicAttackType == true)
             {
-                GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/PhysicalAttack"), enemyTeam.charPos[0].transform);
+                GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/Attacks/AttackPhysical"), enemyTeam.charPos[0].transform);
                 hit.transform.localEulerAngles = new Vector3(0, 180, 0);
                 hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
                 hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
                 hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
                 hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+                hit.GetComponent<ApplyDamage>().source = charPos[0];
             }
             else
             {
-                GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/MagicAttack"), enemyTeam.charPos[0].transform);
+                GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/Attacks/AttackMagic"), enemyTeam.charPos[0].transform);
                 hit.transform.localEulerAngles = new Vector3(0, 180, 0);
                 hit.GetComponent<ApplyDamage>().dmg = charPos[0].attack;
                 hit.GetComponent<ApplyDamage>().critRate = charPos[0].critRate;
                 hit.GetComponent<ApplyDamage>().critDmg = charPos[0].critDamage;
                 hit.GetComponent<ApplyDamage>().physical = charPos[0].basicAttackType;
+                hit.GetComponent<ApplyDamage>().source = charPos[0];
             }
             //enemyTeam.applyDamage(charPos[0].attack, charPos[0].basicAttackType, 0);
         }
@@ -264,6 +266,7 @@ public class EnemyTeamScript : TeamScript
         GameObject victoryMenu = Instantiate(Resources.Load("Menus/VictoryMenu"), GameObject.FindGameObjectWithTag("CombatCanvas").transform) as GameObject;
         victoryMenu.GetComponent<VictoryMenuScript>().setGoldGained(goldValue);
         victoryMenu.GetComponent<VictoryMenuScript>().setEXPGained(expValue);
+        victoryMenu.GetComponent<VictoryMenuScript>().dropItems(charPos[0].name, charPos[1].name, charPos[2].name);
 
         GameObject.FindGameObjectWithTag("ActionMenu").SetActive(false);
 
@@ -282,12 +285,14 @@ public class EnemyTeamScript : TeamScript
         }
 
         CharacterScript[] chars = GameObject.FindObjectsOfType<CharacterScript>();
-        for(int i = 0; i < chars.Length; i++)
+        for (int i = 0; i < chars.Length; i++)
             chars[i].stopActionBar();
 
         ActionBarScript[] actionBars = GameObject.FindObjectsOfType<ActionBarScript>();
         for (int i = 0; i < actionBars.Length; i++)
             actionBars[i].gameObject.SetActive(false);
+
+
 
         Destroy(gameObject);
         /*

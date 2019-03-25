@@ -62,7 +62,6 @@ public class CharacterStats
 
     public void levelUp()
     {
-        Debug.Log(exp + " - " + expToLevel);
         exp -= expToLevel;
         level++;
         skillPoints++;

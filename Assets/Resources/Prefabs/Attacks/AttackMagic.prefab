@@ -54,11 +54,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224259790806550448}
+  - component: {fileID: 95785879868394550}
   - component: {fileID: 114859906200309050}
   - component: {fileID: 114115681468259306}
-  - component: {fileID: 95785879868394550}
   m_Layer: 0
-  m_Name: MagicAttack
+  m_Name: AttackMagic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   critRate: 0
   critDmg: 0
   physical: 0
+  source: {fileID: 0}
 --- !u!222 &222372086469872418
 CanvasRenderer:
   m_ObjectHideFlags: 1

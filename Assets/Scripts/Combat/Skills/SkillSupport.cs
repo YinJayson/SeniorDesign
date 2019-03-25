@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupportSkill : MonoBehaviour, Skill
+public class SkillSupport : MonoBehaviour, Skill
 {
-    string skillName;
-    string description;
-
+    string skillTag = "<b>[Support]</b>";
+    string skillName = "Run!";
+    string description = "Yells at everyone to move faster, increasing Dexterity by <b>3</b> for <b>10 seconds</b>";
     float cooldown = 12.0f;
 
-    float elapsedTime;
+    float elapsedTime = 0.0f;
     public bool ready;
 
     int type = 3;   // 1 = Offense, 2 = Defense, 3 = Support
@@ -17,12 +17,14 @@ public class SupportSkill : MonoBehaviour, Skill
     TeamScript targetTeam;
     Sprite sprite;
 
+    /*
     void Start()
     {
         skillName = "<b>[Support]</b> Run!";
         description = "Yells at everyone to move faster, increasing Dexterity by <b>3</b> for <b>10 seconds</b>";
         elapsedTime = 0.0f;
     }
+    */
 
     void Update()
     {
@@ -57,7 +59,7 @@ public class SupportSkill : MonoBehaviour, Skill
 
     public void skillCooldown()
     {
-        GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
+        Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
     }
 
     public bool getReady()
@@ -76,11 +78,14 @@ public class SupportSkill : MonoBehaviour, Skill
     {
         return elapsedTime;
     }
+    public string getTag()
+    {
+        return skillTag;
+    }
     public string getName()
     {
         return skillName;
     }
-
     public string getDescription()
     {
         return description;

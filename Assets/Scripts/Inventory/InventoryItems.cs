@@ -11,15 +11,15 @@ public class InventoryItems {
     public int healthStat { get; set; }
     public int skillStat { get; set; }
     public int attackStat { get; set; }
-    public Sprite sprite { get; set; }
+    public string sprite { get; set; }
 
-    public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, Sprite icon)
+    public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, string sprite)
     {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.healthStat = healthStat;
         this.attackStat = attackStat;
         this.skillStat = skillStat;
-        this.sprite = Resources.Load<Sprite>("Art/Items/" + itemName);
+        this.sprite = sprite;
     }
 }

@@ -9,7 +9,9 @@ public class ApplyDamage : MonoBehaviour
     public float critRate;
     public float critDmg;
     public bool physical;
+    public CharacterScript source;
 
+    bool firstHit;      // Applies only to multihit. Damage is calculated at start of attack
     int dmgToApply;
     bool crit;
 
@@ -18,11 +20,59 @@ public class ApplyDamage : MonoBehaviour
     void Start()
     {
         charScript = gameObject.transform.parent.GetComponent<CharacterScript>();
+        firstHit = true;
+    }
 
-        // Calculates Damage
-        float dmgMulti = charScript.damageMulti;
+    public void damage()
+    {
+        Debug.Log("Damage = " + dmg);
+        float dmgReduction = charScript.dmgReduction;
 
-        if(physical)
+        if (physical)
+        {
+            int defense = charScript.defense;
+
+            if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
+            {
+                dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * (1 - dmgReduction) - defense);
+                crit = true;
+            }
+            else
+            {
+                dmgToApply = Mathf.RoundToInt(dmg * (1 - dmgReduction) - defense);
+                crit = false;
+            }
+        }
+        else
+        {
+            int resist = charScript.resist;
+
+            if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
+            {
+                dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * (1 - dmgReduction) - resist);
+                crit = true;
+            }
+            else
+            {
+                dmgToApply = Mathf.RoundToInt(dmg * (1 - dmgReduction) - resist);
+                crit = false;
+            }
+        }
+
+        charScript.applyDamage(dmgToApply, physical, crit, source);
+    }
+
+    public void multiHitDamage(float multiplier)
+    {
+        if (!firstHit)
+            charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
+
+        if (multiplier == 0.0f)
+            multiplier = 1.0f;
+
+        float dmgMulti = charScript.dmgReduction;
+
+        if (physical)
         {
             int defense = charScript.defense;
 
@@ -53,48 +103,7 @@ public class ApplyDamage : MonoBehaviour
             }
         }
 
-    }
-
-    public void damage(float multiplier)
-    {
-        if (multiplier == 0.0f)
-            multiplier = 1.0f;
-
-        charScript.applyDamage(dmgToApply * multiplier, physical, crit);
-
-        /*
-        if (physical)    // If physical attack
-            if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
-            {
-                dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * charScript.damageMulti);
-                charScript.applyCritDamage(dmgToApply, true);
-            }
-            else
-            {
-                dmgToApply = Mathf.RoundToInt(dmg * charScript.damageMulti);
-                charScript.applyDamage(dmgToApply, true);
-            }
-        else           // If magical attack
-            if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
-            {
-                dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * charScript.damageMulti);
-                charScript.applyCritDamage(dmgToApply, false);
-            }
-            else
-            {
-                dmgToApply = Mathf.RoundToInt((dmg - charScript.resist) * charScript.damageMulti);
-                charScript.applyDamage(dmgToApply, false);
-            }
-            */
-
-        
-
-        /*
-        if (dmgToApply <= 0)
-            dmgToApply = 1;
-
-        charScript.HP -= dmgToApply;
-        gameObject.transform.Find("DamageText").GetComponent<Text>().text = dmgToApply.ToString();
-        */
+        firstHit = false;
+        charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
     }
 }

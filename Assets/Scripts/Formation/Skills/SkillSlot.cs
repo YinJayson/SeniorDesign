@@ -20,7 +20,7 @@ public class SkillSlot : MonoBehaviour
     public void displaySkill()
     {
         skillToDisplay = gameObject.GetComponent<Skill>();
-        gameObject.transform.Find("SkillNameText").GetComponent<Text>().text = skillToDisplay.getName();
+        gameObject.transform.Find("SkillNameText").GetComponent<Text>().text = skillToDisplay.getTag() + " " + skillToDisplay.getName();
         gameObject.transform.Find("DescriptionText").GetComponent<Text>().text = skillToDisplay.getDescription();
         gameObject.transform.Find("CooldownText").GetComponent<Text>().text = "Cooldown: " + skillToDisplay.getCooldown().ToString();
     }

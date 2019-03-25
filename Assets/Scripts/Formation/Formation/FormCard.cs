@@ -54,12 +54,12 @@ public class FormCard : MonoBehaviour
             Resources.Load<Sprite>("Sprites/Characters/" + GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).spriteName) as Sprite;
 
         healthBar.transform.Find("HealthBarFilling").GetComponent<Image>().fillAmount =
-            (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / (int) (GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
+            (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 3.75f);
         healthBar.transform.Find("HealthBarText").GetComponent<Text>().text =
-            (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + (int) (GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 2.5f);
+            (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] + " / " + Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 3.75f);
 
         expBar.transform.Find("EXPBarFilling").GetComponent<Image>().fillAmount =
-            (float) GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / (int) GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel;
+            (float) GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp / GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel;
         expBar.transform.GetChild(2).GetComponent<Text>().text =
              "<b>" +
              GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].exp + " / " + GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].expToLevel

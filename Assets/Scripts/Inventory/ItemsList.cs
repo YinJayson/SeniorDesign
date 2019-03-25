@@ -33,15 +33,14 @@ public class ItemsList : MonoBehaviour {
         //list of all possible invewntory items
         item = new List<InventoryItems>()
         {
-            new InventoryItems("Health Potion", "Potion that raises health by 10. Can be used in and out of combat.", 10, 0, 0, Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Life Potion", "Potion that is used to revive a fallen member", 1000, 0,1000,Resources.Load<Sprite>("Art/Items/Life Potion")),
-            new InventoryItems("Apple", "Healthy snack :3", 5, 0, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Juice Box", "Apple juice. Nice, refreshing, made with real juice ;)", 7, 0, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Demon Scroll", "Drain some of your enemy's life away", 0, 35, 0,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Skill scroll", "Bump up your Skill EXP by 20 during battle", 0, 0, 20,Resources.Load<Sprite>("Art/Items/Health Potion")),
-            new InventoryItems("Sword", "simple sword", 0, 0, 20,Resources.Load<Sprite>("Art/Items/Sword")),
-
+            new InventoryItems("Health Potion", "Potion that raises health by 10. Can be used in and out of combat.", 10, 0, 0, "sprite"),
+            new InventoryItems("Life Potion", "Potion that is used to revive a fallen member", 1000, 0,1000, "sprite"),
+            new InventoryItems("Apple", "Healthy snack :3", 5, 0, 0, "apple"),
+            new InventoryItems("Juice Box", "Apple juice. Nice, refreshing, made with real juice ;)", 7, 0, 0,"Health Potion"),
+            new InventoryItems("Grenade", "Blast your enemy away", 0, 30, 0,"Health Potion"),
+            new InventoryItems("Demon Scroll", "Drain some of your enemy's life away", 0, 35, 0,"Health Potion"),
+            new InventoryItems("Skill scroll", "Bump up your Skill EXP by 20 during battle", 0, 0, 20,"Health Potion"),
+            new InventoryItems("Sword", "simple sword", 0, 0, 20,"Sword")
         };
     }
     public void Start() {

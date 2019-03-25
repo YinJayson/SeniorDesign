@@ -14,6 +14,7 @@ public interface Skill
 
     void skill();
     void skillCooldown();
+    string getTag();
     string getName();
     string getDescription();
     float getCooldown();

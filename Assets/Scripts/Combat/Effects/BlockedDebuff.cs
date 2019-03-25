@@ -7,7 +7,6 @@ public class BlockedDebuff : MonoBehaviour, Effect
 {
     public float intensity = 0.2f;
     public float duration;
-    public float originalMulti;
     //public bool expiresOnHit = true;  // Blocked debuff only lasts for one hit
 
     public float maxDuration;
@@ -25,6 +24,7 @@ public class BlockedDebuff : MonoBehaviour, Effect
         icon.sprite = "IncreaseDamage";
 
         maxDuration = duration;
+
         effect();
     }
 
@@ -37,13 +37,12 @@ public class BlockedDebuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        originalMulti = target.damageMulti;
-        target.damageMulti = target.damageMulti + (target.damageMulti * intensity);
+        target.multipliers.Add(-intensity);
     }
 
     public void expire()
     {
-        target.damageMulti *= originalMulti / target.damageMulti;
+        target.multipliers.Remove(-intensity);
         icon.expire();
         Destroy(this);
     }

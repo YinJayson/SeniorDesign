@@ -3,31 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IncreaseDamageDebuff : MonoBehaviour, Effect
+public class BookBuff : MonoBehaviour, Effect
 {
-    public float intensity;
-    public float duration;
-    public bool expireOnHit = false;  // Default: Expires on hit false
+    public float intensity = 0.2f;
+    public float duration = 10.0f;
 
-    public float maxDuration;
+    public float maxDuration = 10.0f;
+
     EffectIcon icon;
+    GameObject skillBook;
     CharacterScript target;
     GameObject targetEffectBar;
 
     void Start()
     {
-        // Default: Intensity = 10%
-        if (intensity == 0)
-            intensity = 0.1f;
-
         target = gameObject.GetComponent<CharacterScript>();
-        targetEffectBar = target.transform.GetChild(2).gameObject;
+        targetEffectBar = target.transform.Find("EffectBar").gameObject;
         icon = Instantiate(Resources.Load<GameObject>("Icons/EffectIcon") as GameObject, new Vector2(targetEffectBar.transform.position.x - 15, targetEffectBar.transform.position.y), Quaternion.identity, targetEffectBar.transform).GetComponent<EffectIcon>();
         icon.target = this;
-        icon.effect = "Incoming Damage +" + (intensity * 100.0f).ToString() + "%";
-        icon.sprite = "IncreaseDamage";
-
-        maxDuration = duration;
+        icon.effect = "Incoming Damage -" + (intensity * 100.0f).ToString() + "%";
+        icon.sprite = "DecreaseDamage";
 
         effect();
     }
@@ -42,24 +37,24 @@ public class IncreaseDamageDebuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        target.multipliers.Add(-intensity);
+        target.multipliers.Add(intensity);
     }
+
     public void expire()
     {
-        target.multipliers.Remove(-intensity);
+        target.multipliers.Remove(intensity);
+
         icon.expire();
         Destroy(this);
     }
     public void onHit()
     {
-        if (expireOnHit)
-            expire();
+
     }
     public float getMaxDuration()
     {
         return maxDuration;
     }
-
     public float getDuration()
     {
         return duration;

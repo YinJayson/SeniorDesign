@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DecreaseDamageDebuff : MonoBehaviour, Effect
+public class DecreaseDamageBuff : MonoBehaviour, Effect
 {
     public float intensity;
     public float duration;
-    public float originalMulti;
     public bool expireOnHit = false;
 
     public float maxDuration;
@@ -42,13 +41,12 @@ public class DecreaseDamageDebuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        originalMulti = target.damageMulti;
-        target.damageMulti = target.damageMulti - (target.damageMulti * intensity);
+        target.multipliers.Add(intensity);
     }
 
     public void expire()
     {
-        target.damageMulti *= originalMulti / target.damageMulti;
+        target.multipliers.Remove(intensity);
         icon.expire();
         Destroy(this);
     }
@@ -61,7 +59,6 @@ public class DecreaseDamageDebuff : MonoBehaviour, Effect
     {
         return maxDuration;
     }
-
     public float getDuration()
     {
         return duration;

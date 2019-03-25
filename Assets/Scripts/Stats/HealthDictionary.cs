@@ -22,9 +22,9 @@ public class HealthDictionary : MonoBehaviour
     {
         if (!created)
         {
-            dictionary.Add("hero1", (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero1").strength * 2.5f));
-            dictionary.Add("hero2", (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero2").strength * 2.5f));
-            dictionary.Add("hero3", (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero3").strength * 2.5f));
+            dictionary.Add("hero1", Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero1").strength * 3.75f));
+            dictionary.Add("hero2", Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero2").strength * 3.75f));
+            dictionary.Add("hero3", Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero3").strength * 3.75f));
 
             created = true;
         }

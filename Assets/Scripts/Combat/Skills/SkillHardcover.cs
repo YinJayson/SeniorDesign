@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefenseSkill : MonoBehaviour, Skill
+public class SkillHardcover : MonoBehaviour, Skill
 {
-    string skillName;
-    string description;
-    float cooldown = 12.0f;
+    string skillTag = "<b>[Hardcover]</b>";
+    string skillName = "Shield of Pages";
+    string description = "Actively covers the front-most teammate with very thick books, decreasing damage by <b>20%</b> for <b>10 seconds</b>";
+    float cooldown = 16.0f;
 
-    float elapsedTime;
+    float elapsedTime = 0.0f;
     public bool ready;
 
     int type = 2;   // 1 = Offense, 2 = Defense, 3 = Support
 
     TeamScript targetTeam;
     Sprite sprite;
-
-    void Start()
-    {
-        skillName = "<b>[Defense]</b> Skeptical Approach";
-        description = "Heightens the senses, decreasing incoming damage by <b>20%</b> for <b>6 seconds</b> for the whole team";
-        elapsedTime = 0.0f;
-    }
 
     void Update()
     {
@@ -37,18 +31,15 @@ public class DefenseSkill : MonoBehaviour, Skill
             ready = true;
         else
             ready = false;
+
+        
     }
 
     public void skill()
     {
         targetTeam = gameObject.transform.GetComponentInParent<TeamScript>();
 
-        for(int i = 0; i < targetTeam.charPos.Length; i++)
-        {
-            DecreaseDamageDebuff buff = targetTeam.charPos[i].gameObject.AddComponent<DecreaseDamageDebuff>();
-            buff.duration = 6.0f;
-            buff.intensity = 0.2f;
-        }
+        targetTeam.gameObject.AddComponent<TeamBookBuff>();
 
         elapsedTime = cooldown;
         skillCooldown();
@@ -56,7 +47,7 @@ public class DefenseSkill : MonoBehaviour, Skill
 
     public void skillCooldown()
     {
-        GameObject icon = Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
+        Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, gameObject.transform.localPosition, Quaternion.identity, gameObject.transform);
     }
 
     public bool getReady()
@@ -75,12 +66,14 @@ public class DefenseSkill : MonoBehaviour, Skill
     {
         return elapsedTime;
     }
-
+    public string getTag()
+    {
+        return skillTag;
+    }
     public string getName()
     {
         return skillName;
     }
-
     public string getDescription()
     {
         return description;

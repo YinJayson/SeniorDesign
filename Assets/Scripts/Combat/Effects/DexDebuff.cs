@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DexDebuff : MonoBehaviour, Effect
 {
-    public int intensity;
+    public float intensity;
     public float duration;
 
     float maxDuration;
@@ -13,18 +13,18 @@ public class DexDebuff : MonoBehaviour, Effect
     CharacterScript target;
     GameObject targetEffectBar;
 
-	void Start ()
+	void Start()
     {
         if (intensity == 0)
-            intensity = 5;
+            intensity = 0.1f;
         if (duration == 0)
-            duration = 5.0f;
+            duration = 10.0f;
 
         target = gameObject.GetComponent<CharacterScript>();
-        targetEffectBar = target.transform.GetChild(2).gameObject;
+        targetEffectBar = target.transform.Find("EffectBar").gameObject;
         icon = Instantiate(Resources.Load<GameObject>("Icons/EffectIcon") as GameObject, new Vector2(targetEffectBar.transform.position.x - 15, targetEffectBar.transform.position.y), Quaternion.identity, targetEffectBar.transform).GetComponent<EffectIcon>();
         icon.target = this;
-        icon.effect = "Dex -" + intensity.ToString();
+        icon.effect = "Dex -" + (intensity * 100.0f).ToString() + "%";
         icon.sprite = "DexDebuff";
 
         maxDuration = duration;
@@ -42,13 +42,13 @@ public class DexDebuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        target.dex -= intensity;
+        target.dex -= Mathf.RoundToInt(target.baseDex * intensity);
     }
 
     public void expire()
     {
         if (target != null)
-            target.dex += intensity;
+            target.dex += Mathf.RoundToInt(target.baseDex * intensity);
 
         icon.expire();
         Destroy(this);

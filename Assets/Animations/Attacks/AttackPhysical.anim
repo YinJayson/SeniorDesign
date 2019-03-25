@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PhysicalAttack
+  m_Name: AttackPhysical
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -167,7 +167,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -393,7 +393,7 @@ AnimationClip:
     floatParameter: 1
     intParameter: 0
     messageOptions: 0
-  - time: 2
+  - time: 1
     functionName: destroyAnim
     data: 
     objectReferenceParameter: {fileID: 0}
