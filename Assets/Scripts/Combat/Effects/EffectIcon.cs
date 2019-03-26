@@ -11,7 +11,7 @@ public class EffectIcon : MonoBehaviour
     //public float duration;
     //public float maxDuration;
 
-    GameObject effectMenu;
+    static GameObject effectMenu;
     Button button;
 
     void Start()
@@ -35,15 +35,18 @@ public class EffectIcon : MonoBehaviour
 
     void showEffectMenu()
     {
+        if(effectMenu == null)
+            effectMenu = Instantiate(Resources.Load("Menus/EffectMenu") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 15), Quaternion.identity, GameObject.FindGameObjectWithTag("CombatCanvas").transform);
+        /*
         if (GameObject.FindGameObjectWithTag("EffectMenu") != null)
             effectMenu = GameObject.FindGameObjectWithTag("EffectMenu");
         else
             effectMenu = Instantiate(Resources.Load("Menus/EffectMenu") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 15), Quaternion.identity, GameObject.FindGameObjectWithTag("CombatCanvas").transform);
-
+        */
         effectMenu.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 15);
         effectMenu.SetActive(true);
         effectMenu.GetComponent<EffectMenuScript>().icon = this;
-        effectMenu.transform.GetChild(0).GetComponent<Text>().text = effect;
+        effectMenu.transform.Find("EffectText").GetComponent<Text>().text = effect;
 	}
 
     public void expire()

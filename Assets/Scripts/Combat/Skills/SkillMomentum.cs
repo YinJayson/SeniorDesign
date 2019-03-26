@@ -6,7 +6,7 @@ public class SkillMomentum : MonoBehaviour, Skill
 {
     string skillTag = "<b>[Momentum]</b>";
     string skillName = "Book Storm";
-    string description = "Telekinetically throws a flurry of books, dealing <b>180%</b> basic attack damage distributed amongst all enemies";
+    string description = "Telekinetically throws a flurry of books, dealing <b>180% attack damage distributed amongst all enemies</b>";
     float cooldown = 16.0f;
 
     float elapsedTime = 0.0f;

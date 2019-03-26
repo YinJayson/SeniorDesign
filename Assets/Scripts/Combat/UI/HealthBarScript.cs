@@ -14,7 +14,7 @@ public class HealthBarScript : MonoBehaviour
     void Start()
     {
         target = gameObject.GetComponentInParent<CharacterScript>();
-        bar = gameObject.transform.Find("HealthBarFilling").GetComponent<Image>();
+        bar = gameObject.transform.Find("Filling").GetComponent<Image>();
         text = gameObject.transform.Find("HealthBarText").GetComponent<Text>();
     }
 

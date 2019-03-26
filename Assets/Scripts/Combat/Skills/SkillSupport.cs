@@ -6,8 +6,8 @@ public class SkillSupport : MonoBehaviour, Skill
 {
     string skillTag = "<b>[Support]</b>";
     string skillName = "Run!";
-    string description = "Yells at everyone to move faster, increasing Dexterity by <b>3</b> for <b>10 seconds</b>";
-    float cooldown = 12.0f;
+    string description = "Yells at everyone to move faster, <b>increasing Dexterity</b> by <b>20%</b> for <b>8 seconds</b>";
+    float cooldown = 16.0f;
 
     float elapsedTime = 0.0f;
     public bool ready;
@@ -16,15 +16,6 @@ public class SkillSupport : MonoBehaviour, Skill
 
     TeamScript targetTeam;
     Sprite sprite;
-
-    /*
-    void Start()
-    {
-        skillName = "<b>[Support]</b> Run!";
-        description = "Yells at everyone to move faster, increasing Dexterity by <b>3</b> for <b>10 seconds</b>";
-        elapsedTime = 0.0f;
-    }
-    */
 
     void Update()
     {
@@ -49,8 +40,8 @@ public class SkillSupport : MonoBehaviour, Skill
         for (int i = 0; i < targetTeam.charPos.Length; i++)
         {
             DexBuff buff = targetTeam.charPos[i].gameObject.AddComponent<DexBuff>();
-            buff.duration = 10.0f;
-            buff.intensity = 3;
+            buff.duration = 8.0f;
+            buff.intensity = 0.2f;
         }
 
         elapsedTime = cooldown;

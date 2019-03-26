@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 114525997485394866}
   - component: {fileID: 114137914834066182}
   - component: {fileID: 114381122644199048}
-  - component: {fileID: 114516014340162456}
+  - component: {fileID: 114504452984623152}
   - component: {fileID: 114856655182701216}
   m_Layer: 5
   m_Name: SkillSlot3
@@ -731,6 +731,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: hero2
+--- !u!114 &114504452984623152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622331249917498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82deb8c43f1c4cf43b21ffebb5f2da93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ready: 0
 --- !u!114 &114511372502233326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,18 +752,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17ebc1343d4de4740962b41e8a3cf3d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ready: 0
---- !u!114 &114516014340162456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1622331249917498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a78652b9274134ba6e41ee2c9a3536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ready: 0

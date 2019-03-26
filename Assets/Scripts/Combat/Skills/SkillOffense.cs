@@ -6,8 +6,8 @@ public class SkillOffense : MonoBehaviour, Skill
 {
     string skillTag = "<b>[Offense]</b>";
     string skillName = "Unsheath";
-    string description = "Forcefully unsheathes the sword, accidentally launching it. The impact deals <b>160%</b> attack damage and has +20% critical chance";
-    float cooldown = 8.0f;
+    string description = "Forcefully unsheathes the sword, accidentally launching it. The impact deals <b>160% attack damage</b> and has <b>+20% critical chance</b>";
+    float cooldown = 12.0f;
 
     float elapsedTime = 0.0f;
     public bool ready;
@@ -46,7 +46,7 @@ public class SkillOffense : MonoBehaviour, Skill
     {
         targetTeam = gameObject.transform.GetComponentInParent<TeamScript>().enemyTeam;
 
-        int attack = Mathf.RoundToInt((float) gameObject.GetComponent<CharacterScript>().attack + gameObject.GetComponent<CharacterScript>().strength * 0.6f);
+        int attack = Mathf.RoundToInt((float) gameObject.GetComponent<CharacterScript>().attack + gameObject.GetComponent<CharacterScript>().attack * 0.6f);
 
         GameObject hit = Instantiate(Resources.Load<GameObject>("Prefabs/Attacks/AttackOffense"), targetTeam.charPos[0].transform);
         hit.GetComponent<ApplyDamage>().dmg = attack;

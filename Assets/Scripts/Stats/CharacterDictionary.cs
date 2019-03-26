@@ -18,12 +18,12 @@ public class CharacterDictionary : MonoBehaviour
             dictionary = new Dictionary<string, CharacterStats>();
 
             CharacterStats hero1Stats = new CharacterStats("MonkMage", 6, 4, 2, true, 0, 0, 0);
-            CharacterStats hero2Stats = new CharacterStats("Skeleton", 3, 6, 3, true, 0, 0, 0);
+            CharacterStats hero2Stats = new CharacterStats("ranger", 3, 6, 3, true, 0, 0, 0);
             CharacterStats hero3Stats = new CharacterStats("Mage", 1, 4, 7, false, 0, 0, 0);
 
             CharacterStats genericStats = new CharacterStats("Slime", 3, 3, 3, true, 5, 5);
 
-            CharacterStats slimeStats = new CharacterStats("Slime", 1, 8, 1, true, 5, 5);
+            CharacterStats slimeStats = new CharacterStats("Slime", 1, 6, 1, true, 5, 5);
             CharacterStats orcStats = new CharacterStats("Orc", 5, 2, 2, true, 7, 5);
             CharacterStats skeletonStats = new CharacterStats("Skeleton", 2, 5, 5, false, 6, 5);
             CharacterStats livingArmorStats = new CharacterStats("LivingArmor", 8, 2, 0, true, 8, 5);
