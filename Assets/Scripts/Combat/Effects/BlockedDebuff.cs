@@ -50,13 +50,28 @@ public class BlockedDebuff : MonoBehaviour, Effect
     {
         expire();
     }
+    public void setMaxDuration(float maxDuration)
+    {
+        this.maxDuration = maxDuration;
+    }
+    public void setDuration(float duration)
+    {
+        this.duration = duration;
+    }
+    public void setIntensity(float intensity)
+    {
+        this.intensity = intensity;
+    }
     public float getMaxDuration()
     {
         return maxDuration;
     }
-
     public float getDuration()
     {
         return duration;
+    }
+    public float getIntensity()
+    {
+        return intensity;
     }
 }

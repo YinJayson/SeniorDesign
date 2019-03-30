@@ -79,7 +79,7 @@ public class EnemyTeamScript : TeamScript
     {
         updatePos();
 
-        if (charPos[0].ready && charPos[0].inPosition && !takingAction && !victorious)
+        if (charPos[0].ready && charPos[0].inPosition && !charPos[0].stunned && !takingAction && !victorious)
         {
             enemyAI();
         }
@@ -207,7 +207,7 @@ public class EnemyTeamScript : TeamScript
 
         yield return new WaitForSeconds(delay);
 
-        if (attacker == charPos[0].GetComponent<CharacterScript>() && charPos[0].ready)
+        if (attacker == charPos[0].GetComponent<CharacterScript>() && charPos[0].ready && !charPos[0].stunned)
         {
             charPos[0].actionBar = 0.0f;
 

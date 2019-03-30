@@ -6,8 +6,8 @@ public class SkillDefense : MonoBehaviour, Skill
 {
     string skillTag = "<b>[Defense]</b>";
     string skillName = "Skeptical Approach";
-    string description = "Heightens the senses, decreasing incoming damage by <b>20%</b> for <b>6 seconds</b> for the whole team";
-    float cooldown = 12.0f;
+    string description = "Heightens the senses, <b>decreasing incoming damage</b> by <b>20%</b> for <b>6 seconds</b> for <b>all allies</b>";
+    float cooldown = 16.0f;
 
     float elapsedTime = 0.0f;
     public bool ready;
@@ -16,15 +16,6 @@ public class SkillDefense : MonoBehaviour, Skill
 
     TeamScript targetTeam;
     Sprite sprite;
-
-    /*
-    void Start()
-    {
-        skillName = "<b>[Defense]</b> Skeptical Approach";
-        description = "Heightens the senses, decreasing incoming damage by <b>20%</b> for <b>6 seconds</b> for the whole team";
-        elapsedTime = 0.0f;
-    }
-    */
 
     void Update()
     {

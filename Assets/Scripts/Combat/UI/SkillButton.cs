@@ -18,10 +18,9 @@ public class SkillButton : MonoBehaviour
 
         image = gameObject.GetComponent<Image>();
         cooldown = gameObject.transform.Find("CooldownImage").GetComponent<Image>();
-        skillText = gameObject.transform.Find("TextBackground").transform.Find("NameText").GetComponent<Text>();
+        skillText = gameObject.transform.Find("SkillArrow").transform.Find("SkillText").transform.Find("Text").GetComponent<Text>();
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         targetSkill = targetTeam.charPos[0].GetComponent<Skill>();
@@ -32,7 +31,7 @@ public class SkillButton : MonoBehaviour
                 image.color = new Color(1.0f, 0.0f, 0.0f);
                 break;
             case 2:
-                image.color = new Color(0.0f, 0.0f, 1.0f);
+                image.color = new Color(0.0f, 0.7544947f, 1.0f);
                 break;
             case 3:
                 image.color = new Color(0.0f, 1.0f, 0.0f);

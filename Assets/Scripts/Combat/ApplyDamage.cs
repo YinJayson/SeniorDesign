@@ -5,15 +5,21 @@ using UnityEngine.UI;
 
 public class ApplyDamage : MonoBehaviour
 {
+    /* Damage related */
     public int dmg;
     public float critRate;
     public float critDmg;
     public bool physical;
     public CharacterScript source;
-
-    bool firstHit;      // Applies only to multihit. Damage is calculated at start of attack
     int dmgToApply;
     bool crit;
+
+    /* Effect related */
+    public float intensity;
+    public float duration;
+
+    /* Multihit related */
+    bool firstHit;      // Applies only to multihit. Damage is calculated at start of attack
 
     CharacterScript charScript;
 
@@ -25,7 +31,6 @@ public class ApplyDamage : MonoBehaviour
 
     public void damage()
     {
-        Debug.Log("Damage = " + dmg);
         float dmgReduction = charScript.dmgReduction;
 
         if (physical)
@@ -61,7 +66,6 @@ public class ApplyDamage : MonoBehaviour
 
         charScript.applyDamage(dmgToApply, physical, crit, source);
     }
-
     public void multiHitDamage(float multiplier)
     {
         if (!firstHit)
@@ -105,5 +109,20 @@ public class ApplyDamage : MonoBehaviour
 
         firstHit = false;
         charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
+    }
+    public void applyEffect(string effectName)
+    {
+        Effect effect;
+
+        switch(effectName)
+        {
+            case ("stun"):
+                {
+                    effect = charScript.gameObject.AddComponent<StunDebuff>();
+                    effect.setDuration(duration);
+                    effect.setIntensity(intensity);
+                    break;
+                }
+        }
     }
 }

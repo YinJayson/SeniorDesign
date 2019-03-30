@@ -21,14 +21,17 @@ public class SkillDictionary : MonoBehaviour
         {
             DontDestroyOnLoad(this.gameObject);
 
-            dictionary = new Dictionary<string, int>();
-            dictionary.Add("hero1", 1);
-            dictionary.Add("hero2", 2);
-            dictionary.Add("hero3", 3);
-
-            created = true;
+            dictionary = new Dictionary<string, int>()
+            {
+                { "hero1", 1 },
+                { "hero2", 2 },
+                { "hero3", 3 },
+            };
         }
+
+        created = true;
     }
+
     public void setSkill(string id, int skill)
     {
         dictionary[id] = skill;

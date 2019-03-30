@@ -15,11 +15,10 @@ public class DropDictionary : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             created = true;
 
-            dictionary = new Dictionary<string, DropChance>();
-
-            DropChance dropSlime = new DropChance(50, "Apple", 50, "", 0, "", 0, "", 0);
-
-            dictionary.Add("slime", dropSlime);
+            dictionary = new Dictionary<string, DropChance>()
+            {
+                { "slime", new DropChance(50, "Apple", 50, "", 0, "", 0, "", 0) }
+            };
         }
     }
 }

@@ -33,6 +33,8 @@ public class CharacterScript : MonoBehaviour
     public List<float> multipliers;
     public float dmgReduction;   // Overall Damage = 1 - damageMulti
 
+    public bool stunned;         // Stunned effect prevents char from switching positions
+
     // Change these values to balance stats
     public const float dmgStr = 0.75f;
     public const float dmgDex = 0.75f;
@@ -107,6 +109,7 @@ public class CharacterScript : MonoBehaviour
         inPosition = true;
         actionBar = 30.0f;
 
+        stunned = false;
         progressActionBar = true;
 	}
 	
@@ -122,7 +125,7 @@ public class CharacterScript : MonoBehaviour
 
         if (progressActionBar)
         {
-            if (actionBar < 100.0f && alive)
+            if (actionBar < 100.0f && alive && !stunned)
             {
                 actionBar += (float)speed * Time.deltaTime;
 
@@ -201,6 +204,9 @@ public class CharacterScript : MonoBehaviour
                         break;
                     case (2):
                         gameObject.AddComponent<SkillHardcover>();
+                        break;
+                    case (3):
+                        gameObject.AddComponent<SkillHeavy>();
                         break;
                 }
                 break;

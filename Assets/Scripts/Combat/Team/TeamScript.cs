@@ -65,7 +65,7 @@ public class TeamScript : MonoBehaviour
     {
         updatePos();
 
-        if (charPos[0].ready && !victorious)
+        if (charPos[0].ready && !victorious && !charPos[0].stunned)
         {
             if (Input.GetKeyDown("w"))
                 skill();
@@ -168,11 +168,19 @@ public class TeamScript : MonoBehaviour
 
     public void updatePos()
     {
-        if (!charPos[0].ready)
-            if (charPos[1].ready)
-                moveToFront(1);
+        if (!charPos[0].ready)              // If front isn't ready...
+        {
+            if (charPos[0].stunned)         //      if front is stunned
+            {
+                if (!charPos[1].ready && charPos[2].ready)
+                    moveToMiddle(2);          //          only allow last person to move if ready
+            }
+                                            //      Else if front isn't stunned...
+            else if (charPos[1].ready)
+                moveToFront(1);             //      move middle to front
             else if (charPos[2].ready)
-                moveToFront(2);
+                moveToFront(2);             //      move back to front
+        }
 
         if (charPos[0].ready && !charPos[1].ready)
             if (charPos[2].ready)
