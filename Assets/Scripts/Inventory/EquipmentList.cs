@@ -4,11 +4,31 @@ using UnityEngine;
 
 public class EquipmentList : MonoBehaviour {
 
-    public List<EquipmentInventory> item = new List<EquipmentInventory>();
+    private void Awake()
+    {
+        //at the start of the game the inventory list will be called
+        listOfItems();
+    }
+
+    public List<EquipmentInventory> equip = new List<EquipmentInventory>();
+
+    //search for the equipment by the item name
+    public EquipmentInventory GetByName(string equipName)
+    {
+
+        for (int i = 0; i < equip.Count; i++)
+        {
+            if (equip[i].equipName == equipName)
+            {
+                return equip[i];
+            }
+        }
+        return null;
+    }
 
     void listOfItems()
     {
-        item = new List<EquipmentInventory>()
+        equip = new List<EquipmentInventory>()
         {
             new EquipmentInventory("Stick", "Pitiful weapon that the main character starts off with", 1, 3, 0),
             new EquipmentInventory("Knife", "Basic knife found in an kitchen. Would not reccommend going into combat with it but whatever", 2, 4, 0),
