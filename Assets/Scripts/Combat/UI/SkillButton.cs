@@ -21,7 +21,6 @@ public class SkillButton : MonoBehaviour
         skillText = gameObject.transform.Find("SkillArrow").transform.Find("SkillText").transform.Find("Text").GetComponent<Text>();
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         targetSkill = targetTeam.charPos[0].GetComponent<Skill>();
