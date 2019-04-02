@@ -124,6 +124,10 @@ GameObject:
   - component: {fileID: 2710615}
   - component: {fileID: 2710614}
   - component: {fileID: 2710613}
+  - component: {fileID: 2710620}
+  - component: {fileID: 2710619}
+  - component: {fileID: 2710618}
+  - component: {fileID: 2710617}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -220,6 +224,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2710617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2710612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0906468757df4f4fab48863c54fc03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: []
+--- !u!114 &2710618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2710612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0cf2585d8658a46b46ccd11e56d302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  QuestName: 
+  QuestDescription: 
+  rewardID: 0
+--- !u!114 &2710619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2710612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2873bd5e961a00e42a5ea951ea251560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerQuests: []
+  questList: {fileID: 2710617}
+  playerItems: []
+  itemList: {fileID: 2710620}
+--- !u!114 &2710620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2710612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e2a6b21c42bec42853f0ed073b4994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: []
 --- !u!1 &108924747
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,6 +4328,11 @@ GameObject:
   - component: {fileID: 1560305412}
   - component: {fileID: 1560305411}
   - component: {fileID: 1560305414}
+  - component: {fileID: 1560305415}
+  - component: {fileID: 1560305418}
+  - component: {fileID: 1560305417}
+  - component: {fileID: 1560305416}
+  - component: {fileID: 1560305419}
   m_Layer: 5
   m_Name: Guy
   m_TagString: Untagged
@@ -4356,6 +4419,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1560305415}
+        m_MethodName: giveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1560305412
@@ -4406,6 +4480,75 @@ MonoBehaviour:
   dialogue:
     sentences:
     - Hello!!
+--- !u!114 &1560305415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560305409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5e63de8bc47634b9f9d574fc6251f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Guy: {fileID: 1560305411}
+  questList: {fileID: 1560305418}
+  playerQuests: {fileID: 1560305417}
+  startedQuests: []
+--- !u!114 &1560305416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560305409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0cf2585d8658a46b46ccd11e56d302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  QuestName: 
+  QuestDescription: 
+  rewardID: 0
+--- !u!114 &1560305417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560305409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2873bd5e961a00e42a5ea951ea251560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerQuests: []
+  questList: {fileID: 1560305418}
+  playerItems: []
+  itemList: {fileID: 1560305419}
+--- !u!114 &1560305418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560305409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0906468757df4f4fab48863c54fc03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: []
+--- !u!114 &1560305419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560305409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e2a6b21c42bec42853f0ed073b4994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: []
 --- !u!1 &1569172102
 GameObject:
   m_ObjectHideFlags: 0

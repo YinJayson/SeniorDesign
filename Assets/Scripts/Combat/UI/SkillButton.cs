@@ -8,19 +8,19 @@ public class SkillButton : MonoBehaviour
     TeamScript targetTeam;
     Skill targetSkill;
 
-    public Image type;
-    public Image cooldown;
+    Image image;
+    Image cooldown;
+    Text skillText; 
 
 	void Start ()
     {
-        type = gameObject.GetComponent<Image>();
-        cooldown = gameObject.transform.GetChild(1).GetComponent<Image>();
-
         targetTeam = GameObject.FindObjectOfType<TeamScript>();
-        //targetSkill = targetTeam.charPos[0].GetComponent<Skill>();
+
+        image = gameObject.GetComponent<Image>();
+        cooldown = gameObject.transform.Find("CooldownImage").GetComponent<Image>();
+        skillText = gameObject.transform.Find("SkillArrow").transform.Find("SkillText").transform.Find("Text").GetComponent<Text>();
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         targetSkill = targetTeam.charPos[0].GetComponent<Skill>();
@@ -28,16 +28,17 @@ public class SkillButton : MonoBehaviour
         switch (targetSkill.getType())
         {
             case 1:
-                type.color = new Color(1.0f, 0.0f, 0.0f);
+                image.color = new Color(1.0f, 0.0f, 0.0f);
                 break;
             case 2:
-                type.color = new Color(0.0f, 0.0f, 1.0f);
+                image.color = new Color(0.0f, 0.7544947f, 1.0f);
                 break;
             case 3:
-                type.color = new Color(0.0f, 1.0f, 0.0f);
+                image.color = new Color(0.0f, 1.0f, 0.0f);
                 break;
         }
 
         cooldown.fillAmount = targetSkill.getElapsed() / targetSkill.getCooldown();
+        skillText.text = targetSkill.getName();
     }
 }

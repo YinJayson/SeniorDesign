@@ -1,11 +1,17 @@
-﻿using System.Collections;
+/*
+ 
+    USE SCENE MAIN1 FOR WORKING INVENTORY
+ 
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {
 
     public List<InventoryItems> playerItems = new List<InventoryItems>();
-    InventoryItems OBItem;
     //list with all possible items
     public ItemsList itemList;
 
@@ -14,17 +20,9 @@ public class PlayerInventory : MonoBehaviour {
     public void itemObtained(string itemName) {
         //locate the item in the Inventory items List
         //var OBItem = itemList.GetByName(itemName);
-        if (itemName != null)
-        {
-            Debug.Log(itemName);
-
-            OBItem = ItemsList.FindObjectOfType<ItemsList>().GetByName(itemName);
-            playerItems.Add(OBItem);
-        }
-
+        InventoryItems OBItem = itemList.GetByName(itemName);
         //add the located item into the player's inventory
-    //    playerItems.Add(OBItem);
-        Debug.Log("after");
+        playerItems.Add(OBItem);
         //Debug.Log(OBItem.itemName);
         //Debug.Log(OBItem.itemDescription);
         //inventoryUI.AddItem(OBItem);
@@ -41,7 +39,6 @@ public class PlayerInventory : MonoBehaviour {
         //add the located item into the player's inventory
         playerItems.Add(BOItem);
     }
-
     public InventoryItems GetByName(string itemName)
     {
 
@@ -55,6 +52,9 @@ public class PlayerInventory : MonoBehaviour {
         }
         return null;
     }
+
+
+
     
     //method to remove item
     //Delete button
@@ -71,34 +71,20 @@ public class PlayerInventory : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        // itemObtained("Sword");
-        /*
         itemObtained("Apple");
         itemObtained("Life Potion");
         itemObtained("Juice Box");
-       
-
-        
        // deleteItem("Life Potion");
 
         for (int i = 0; i < playerItems.Count; i++)
         {
             Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
         }
-
-        */
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    void Awake()
-    {
-    //    FindObjectOfType<ItemsList>();
-    //    itemList = GetComponent<ItemsList>();
-    //    itemObtained("Sword");
     }
 }

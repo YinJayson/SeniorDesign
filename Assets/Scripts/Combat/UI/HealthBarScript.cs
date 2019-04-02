@@ -14,7 +14,7 @@ public class HealthBarScript : MonoBehaviour
     void Start()
     {
         target = gameObject.GetComponentInParent<CharacterScript>();
-        bar = gameObject.transform.Find("HealthBarFilling").GetComponent<Image>();
+        bar = gameObject.transform.Find("Filling").GetComponent<Image>();
         text = gameObject.transform.Find("HealthBarText").GetComponent<Text>();
     }
 
@@ -22,7 +22,5 @@ public class HealthBarScript : MonoBehaviour
     {
         bar.fillAmount = (float)target.HP / (float)target.maxHP;
         text.text = target.HP + " / " + target.maxHP;
-
-        gameObject.transform.position = new Vector2(target.transform.position.x, target.transform.position.y + 50);
 	}
 }

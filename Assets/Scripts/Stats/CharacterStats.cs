@@ -8,6 +8,7 @@ public class CharacterStats
     public int strength;
     public int dex;
     public int intelligence;
+    public bool basicAttackType;
     public int goldValue;
     public int expValue;
     public int level;
@@ -18,7 +19,7 @@ public class CharacterStats
 
     /* Constructors */
     // Used for everyone, generally enemies
-    public CharacterStats(string sprite, int s, int d, int i, int g, int e)
+    public CharacterStats(string sprite, int s, int d, int i, bool atkType, int g, int e)
     {
         spriteName = sprite;
         strength = s;
@@ -35,7 +36,7 @@ public class CharacterStats
     }
 
     // Used for player characters
-    public CharacterStats(string sprite, int s, int d, int i, int lvl, int exp, int SP)
+    public CharacterStats(string sprite, int s, int d, int i, bool atkType, int lvl, int exp, int SP)
     {
         spriteName = sprite;
         strength = s;
@@ -61,7 +62,6 @@ public class CharacterStats
 
     public void levelUp()
     {
-        Debug.Log(exp + " - " + expToLevel);
         exp -= expToLevel;
         level++;
         skillPoints++;

@@ -14,21 +14,15 @@ public class HealthDictionary : MonoBehaviour
         {
             DontDestroyOnLoad(this.gameObject);
 
-            dictionary = new Dictionary<string, int>();
-        }
-    }
-
-    void Start()
-    {
-        if (!created)
-        {
-            dictionary.Add("adrian", (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats("adrian").strength * 2.5f));
-            dictionary.Add("lua", (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats("lua").strength * 2.5f));
-            dictionary.Add("avis", (int)(GameObject.FindObjectOfType<CharacterDictionary>().getStats("avis").strength * 2.5f));
+            dictionary = new Dictionary<string, int>()
+            {
+                { "hero1", Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero1").strength * 3.75f) },
+                { "hero2", Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero2").strength * 3.75f) },
+                { "hero3", Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().getStats("hero3").strength * 3.75f) }
+            };
 
             created = true;
         }
-        // TODO: Update calculations when equipment is set up
     }
 
     public int getHealth(string id)

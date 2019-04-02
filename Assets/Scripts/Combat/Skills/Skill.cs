@@ -4,10 +4,21 @@ using UnityEngine;
 
 public interface Skill
 {
+    /*
+     * string name
+     * string description
+     * float cooldown
+     * bool ready
+     * int type     // 1 = Offense, 2 = Defense, 3 = Support
+     */
+
     void skill();
     void skillCooldown();
-    bool getReady();
-    int getType();
+    string getTag();
+    string getName();
+    string getDescription();
     float getCooldown();
     float getElapsed();
+    bool getReady();
+    int getType();
 }

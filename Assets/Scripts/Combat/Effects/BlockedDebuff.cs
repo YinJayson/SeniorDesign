@@ -7,14 +7,12 @@ public class BlockedDebuff : MonoBehaviour, Effect
 {
     public float intensity = 0.2f;
     public float duration;
-    public float originalMulti;
+    //public bool expiresOnHit = true;  // Blocked debuff only lasts for one hit
 
     public float maxDuration;
     EffectIcon icon;
     CharacterScript target;
     GameObject targetEffectBar;
-
-    int health;
 
     void Start()
     {
@@ -26,7 +24,7 @@ public class BlockedDebuff : MonoBehaviour, Effect
         icon.sprite = "IncreaseDamage";
 
         maxDuration = duration;
-        health = target.HP;
+
         effect();
     }
 
@@ -35,33 +33,45 @@ public class BlockedDebuff : MonoBehaviour, Effect
         // Only applies if remaining in front
         if (gameObject.GetComponent<CharacterScript>().pos != 0)
             expire();
-
-        // Only applies for one hit
-        if (target.HP < health)
-            expire();
-        health = target.HP;
     }
 
     public void effect()
     {
-        originalMulti = target.damageMulti;
-        target.damageMulti = target.damageMulti + (target.damageMulti * intensity);
+        target.multipliers.Add(-intensity);
     }
 
     public void expire()
     {
-        target.damageMulti *= originalMulti / target.damageMulti;
+        target.multipliers.Remove(-intensity);
         icon.expire();
         Destroy(this);
     }
-
+    public void onHit()
+    {
+        expire();
+    }
+    public void setMaxDuration(float maxDuration)
+    {
+        this.maxDuration = maxDuration;
+    }
+    public void setDuration(float duration)
+    {
+        this.duration = duration;
+    }
+    public void setIntensity(float intensity)
+    {
+        this.intensity = intensity;
+    }
     public float getMaxDuration()
     {
         return maxDuration;
     }
-
     public float getDuration()
     {
         return duration;
+    }
+    public float getIntensity()
+    {
+        return intensity;
     }
 }
