@@ -53,13 +53,13 @@ public class NPC : MonoBehaviour {
     public int count;
     public void Buy()
     {
-        /*
+        
         if(player.GetComponent<PlayerGold>().money >= price)
         {
             // get the items from the itemsList stuff, add price
             // add to player inventory
-            */
-
+            
+           
            player.GetComponent<PlayerInventory>().itemObtained("Sword");
 
             //   item = gameObject.GetComponent<ItemsList>().GetByName("Grenade");
@@ -74,16 +74,18 @@ public class NPC : MonoBehaviour {
         {
             Debug.Log(player.GetComponent<PlayerInventory>().playerItems[i].itemName);
         }
+
+           player.GetComponent<PlayerGold>().money = player.GetComponent<PlayerGold>().money - price;
          
                 
                 
                 //   Debug.Log(player.GetComponent<PlayerInventory>().playerItems[0].ToString());
-        /*
+        
         } else
         {
             print("not enough gold peasant.");
         }
-        */
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
