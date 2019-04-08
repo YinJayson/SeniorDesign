@@ -2,33 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentList : MonoBehaviour {
+public class EquipmentList : MonoBehaviour
+{
+
+    public List<EquipmentInventory> item = new List<EquipmentInventory>();
 
     private void Awake()
     {
         //at the start of the game the inventory list will be called
-        listOfItems();
+        listOfEquipment();
     }
 
-    public List<EquipmentInventory> equip = new List<EquipmentInventory>();
-
-    //search for the equipment by the item name
-    public EquipmentInventory GetByName(string equipName)
+    void listOfEquipment()
     {
-
-        for (int i = 0; i < equip.Count; i++)
-        {
-            if (equip[i].equipName == equipName)
-            {
-                return equip[i];
-            }
-        }
-        return null;
-    }
-
-    void listOfItems()
-    {
-        equip = new List<EquipmentInventory>()
+        item = new List<EquipmentInventory>()
         {
             new EquipmentInventory("Stick", "Pitiful weapon that the main character starts off with", 1, 3, 0),
             new EquipmentInventory("Knife", "Basic knife found in an kitchen. Would not reccommend going into combat with it but whatever", 2, 4, 0),
@@ -49,14 +36,17 @@ public class EquipmentList : MonoBehaviour {
         };
     }
 
-    /*
-     * // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}*/
+    //search the equipment database by equipment name
+    public EquipmentInventory GetByName(string equipName)
+    {
+        for (int i = 0; i < item.Count; i++)
+        {
+            if (item[i].equipName == equipName)
+            {
+                return item[i];
+            }
+        }
+        return null;
+    }
+
 }

@@ -9,7 +9,7 @@ public class Quests : MonoBehaviour
     public string QuestDescription;
     //inventory item ID that is rewarded
     public int rewardID;
-    
+   
 
     public Quests(int ID, string QuestName, string QuestDescription, int rewardID)
     {
