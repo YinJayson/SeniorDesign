@@ -16,7 +16,7 @@ public class PlayerInventory : MonoBehaviour {
         //var OBItem = itemList.GetByName(itemName);
         if (itemName != null)
         {
-            Debug.Log(itemName);
+         //   Debug.Log(itemName);
 
             OBItem = ItemsList.FindObjectOfType<ItemsList>().GetByName(itemName);
             playerItems.Add(OBItem);
