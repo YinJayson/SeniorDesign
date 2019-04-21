@@ -50,8 +50,12 @@ public class FormCard : MonoBehaviour
 
         // Resets card text and images
         gameObject.transform.Find("NameText").GetComponent<Text>().text = char.ToUpper(id[0]) + id.Substring(1);
-        gameObject.transform.Find("Buttons").transform.Find("CharButton").GetComponent<Image>().sprite =
+
+        //Debug.Log(gameObject.transform.Find("CharButton").transform.Find("Sprite").GetComponent<Image>().sprite);
+        /*
+        gameObject.transform.Find("CharButton").Find("Image").GetComponent<Image>().sprite =
             Resources.Load<Sprite>("Sprites/Characters/" + GameObject.FindObjectOfType<CharacterDictionary>().getStats(id).spriteName) as Sprite;
+            */
 
         healthBar.transform.Find("HealthBarFilling").GetComponent<Image>().fillAmount =
             (float) GameObject.FindObjectOfType<HealthDictionary>().dictionary[id] / Mathf.RoundToInt(GameObject.FindObjectOfType<CharacterDictionary>().dictionary[id].strength * 3.75f);

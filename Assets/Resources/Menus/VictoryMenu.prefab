@@ -199,10 +199,10 @@ GameObject:
   - component: {fileID: 222132551936327646}
   - component: {fileID: 114831775359825266}
   - component: {fileID: 114950627664457596}
+  - component: {fileID: 114430290922294570}
   - component: {fileID: 114666488870773622}
-  - component: {fileID: 114012921264511824}
   m_Layer: 5
-  m_Name: RetryButton
+  m_Name: OverworldButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,8 +312,8 @@ GameObject:
   - component: {fileID: 222948742761334576}
   - component: {fileID: 114385028444509182}
   - component: {fileID: 114901862706373942}
+  - component: {fileID: 114140472745391846}
   - component: {fileID: 114862651721494122}
-  - component: {fileID: 114229052564895480}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -543,17 +543,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114012921264511824
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1432931181886526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6e2820edcfe9148a8572e73ac3c158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114015648395931706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -693,10 +682,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 1
     m_MaxSize: 83
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -847,6 +836,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff17b7c1c1bf5043a670f230e5742f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114140472745391846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497192491718776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6e2820edcfe9148a8572e73ac3c158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114170992151472006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -973,17 +973,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: <b>EXPText</b>
---- !u!114 &114229052564895480
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1497192491718776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6e2820edcfe9148a8572e73ac3c158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114232289600135206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1005,10 +994,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 1
     m_MaxSize: 83
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1016,7 +1005,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Retry
+  m_Text: Overworld
 --- !u!114 &114252422368427802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1431,6 +1420,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c181746bee23554b88c2ac98b3e03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114430290922294570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432931181886526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6e2820edcfe9148a8572e73ac3c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114451014565478128
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114229052564895480}
+      - m_Target: {fileID: 114140472745391846}
         m_MethodName: loadScene
         m_Mode: 5
         m_Arguments:
@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114012921264511824}
+      - m_Target: {fileID: 114430290922294570}
         m_MethodName: loadScene
         m_Mode: 5
         m_Arguments:
@@ -2034,7 +2034,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CombatScene
+          m_StringArgument: OverworldScene
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2356,7 +2356,7 @@ RectTransform:
   m_GameObject: {fileID: 1685425520610054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224694823897276280}
   m_RootOrder: 0
@@ -2521,7 +2521,7 @@ RectTransform:
   m_GameObject: {fileID: 1054652237552436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224354814993039230}
   m_RootOrder: 0

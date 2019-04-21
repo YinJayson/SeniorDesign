@@ -9,11 +9,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour {
-
+public class PlayerInventory : MonoBehaviour
+{
     public List<InventoryItems> playerItems = new List<InventoryItems>();
     //list with all possible items
     public ItemsList itemList;
+
+    void Start()
+    {
+        itemList = FindObjectOfType<ItemsList>();
+
+        for (int i = 0; i < playerItems.Count; i++)
+        {
+            Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     //TODO
     //method nneeds to be changed to give player an item from winning combat needs to be implemented with combat system
@@ -69,22 +85,4 @@ public class PlayerInventory : MonoBehaviour {
     //make the player able to use item
     //connect with player stats
     // Use this for initialization
-    void Start()
-    {
-        itemObtained("Apple");
-        itemObtained("Life Potion");
-        itemObtained("Juice Box");
-       // deleteItem("Life Potion");
-
-        for (int i = 0; i < playerItems.Count; i++)
-        {
-            Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

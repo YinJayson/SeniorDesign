@@ -37,12 +37,12 @@ public class BlockedDebuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        target.multipliers.Add(-intensity);
+        target.dmgMultis.Add(-intensity);
     }
 
     public void expire()
     {
-        target.multipliers.Remove(-intensity);
+        target.dmgMultis.Remove(-intensity);
         icon.expire();
         Destroy(this);
     }
