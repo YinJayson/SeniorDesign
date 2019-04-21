@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdviceQuest : MonoBehaviour {
+public class AdviceQuest : MonoBehaviour
+{
+    public QuestList questList;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public PlayersQuests playerQuests;
+
+    public StartQuest startedQuests;
+
+    Quests finishedQuest;
+
+    public void endQuest(int ID) {
+
+        playerQuests.QuestCompleted(ID);
+
+    }
+
+
+    public void endAdvice() {
+        endQuest(1);
+    }
 }
