@@ -10,7 +10,7 @@ public class CharacterDictionary : MonoBehaviour
 
     void Awake()
     {
-        if(!created)
+        if (!created)
         {
             DontDestroyOnLoad(this.gameObject);
             created = true;
@@ -30,6 +30,8 @@ public class CharacterDictionary : MonoBehaviour
                 { "goblin", new CharacterStats("Goblin", 5, 5, 2, true, 5, 5) }
             };
         }
+        else
+            Destroy(gameObject);
     }
 
     public CharacterStats getStats(string id)

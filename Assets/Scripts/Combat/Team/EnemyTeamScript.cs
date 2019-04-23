@@ -266,7 +266,7 @@ public class EnemyTeamScript : TeamScript
         GameObject victoryMenu = Instantiate(Resources.Load("Menus/VictoryMenu"), GameObject.FindGameObjectWithTag("CombatCanvas").transform) as GameObject;
         victoryMenu.GetComponent<VictoryMenuScript>().setGoldGained(goldValue);
         victoryMenu.GetComponent<VictoryMenuScript>().setEXPGained(expValue);
-        victoryMenu.GetComponent<VictoryMenuScript>().dropItems(charPos[0].name, charPos[1].name, charPos[2].name);
+        victoryMenu.GetComponent<VictoryMenuScript>().dropItems(charPos[0].id, charPos[1].id, charPos[2].id);
 
         GameObject.FindGameObjectWithTag("ActionMenu").SetActive(false);
 

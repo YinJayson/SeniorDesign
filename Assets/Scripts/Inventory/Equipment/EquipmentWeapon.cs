@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentWeapon : EquipmentInventory
+public class EquipmentWeapon : EquipmentItem
 {
     public int atkStat { get; set; }
     public bool atkType { get; set; }   // True = Physical, False = Magical

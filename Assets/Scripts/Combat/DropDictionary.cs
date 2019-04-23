@@ -17,7 +17,12 @@ public class DropDictionary : MonoBehaviour
 
             dictionary = new Dictionary<string, DropChance>()
             {
-                { "slime", new DropChance(50, "Apple", 50, "", 0, "", 0, "", 0) }
+                { "slime", new DropChance(5, "Apple", 50) },
+                { "orc", new DropChance(50, "Health Potion", 20, "Apple", 40) },
+                { "skeleton", new DropChance(50, "Health Potion", 20) },
+                { "livingArmor", new DropChance() },
+                { "goblin", new DropChance(50, "Health Potion", 25, "Apple", 100) },
+                { "generic", new DropChance() },
             };
         }
     }

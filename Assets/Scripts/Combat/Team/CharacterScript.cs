@@ -89,6 +89,13 @@ public class CharacterScript : MonoBehaviour
         strength = baseStrength;
         dex = baseDex;
         intelligence = baseIntelligence;
+
+        if (FindObjectOfType<EquipDictionary>().dictionary.ContainsKey(id))
+        {
+            wpnAttack = GameObject.FindObjectOfType<EquipmentList>().GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtk();
+            basicAttackType = GameObject.FindObjectOfType<EquipmentList>().GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtkType();
+        }
+
         attack = baseAttack + wpnAttack;
 
         // Strength related
@@ -142,7 +149,8 @@ public class CharacterScript : MonoBehaviour
                 ready = false;
         }
 
-        attack = Mathf.RoundToInt(strength * dmgStr + dex * dmgDex + intelligence * dmgInt);
+        baseAttack = Mathf.RoundToInt(baseStrength * dmgStr + baseDex * dmgDex + baseIntelligence * dmgInt);
+        attack = baseAttack + wpnAttack;
         speed = Mathf.RoundToInt(dex * spdDex);
         critRate = dex * critDex;
 

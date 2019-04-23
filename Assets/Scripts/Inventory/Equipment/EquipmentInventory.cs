@@ -3,20 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentInventory
+public class EquipmentItem
 {
 
     public string equipName { get; set; }
     public string equipDescription { get; set; }
     public int equipID { get; set; }
 
-    public EquipmentInventory()
+    public EquipmentItem()
     {
         equipName = "";
         equipDescription = "";
         equipID = 0;
     }
-    public EquipmentInventory(string equipName, string equipDescription, int equipID)
+    public EquipmentItem(string equipName, string equipDescription, int equipID)
     {
         this.equipName = equipName;
         this.equipDescription = equipDescription;

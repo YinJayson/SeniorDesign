@@ -27,9 +27,9 @@ public class SkillDictionary : MonoBehaviour
                 { "hero2", 2 },
                 { "hero3", 3 },
             };
-        }
 
-        created = true;
+            created = true;
+        }
     }
 
     public void setSkill(string id, int skill)

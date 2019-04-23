@@ -10,7 +10,7 @@ public class DropButton : MonoBehaviour
     public void setItem(InventoryItems item)
     {
         itemToDisplay = item;
-        gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/" + item.sprite) as Sprite;
+        gameObject.GetComponent<Image>().sprite = itemToDisplay.sprite;//Resources.Load<Sprite>("Sprites/Items/" + item.sprite) as Sprite;
     }
 
     public void displayItemMenu()

@@ -5,17 +5,27 @@ using UnityEngine;
 public class EquipmentList : MonoBehaviour
 {
 
-    public List<EquipmentInventory> item = new List<EquipmentInventory>();
+    public List<EquipmentItem> item = new List<EquipmentItem>();
+
+    private static bool created = false;
 
     private void Awake()
     {
         //at the start of the game the inventory list will be called
-        listOfEquipment();
+        if(!created)
+        {
+            DontDestroyOnLoad(this.gameObject);
+
+            listOfEquipment();
+
+            created = true;
+        }
+
     }
 
     void listOfEquipment()
     {
-        item = new List<EquipmentInventory>()
+        item = new List<EquipmentItem>()
         {
             new EquipmentWeapon("Stick", "Pitiful weapon that the main character starts off with", 1, 3, true),
             new EquipmentWeapon("Knife", "Basic knife found in an kitchen. Would not reccommend going into combat with it but whatever", 2, 4, true),
@@ -56,7 +66,7 @@ public class EquipmentList : MonoBehaviour
     }
 
     //search the equipment database by equipment name
-    public EquipmentInventory GetByName(string equipName)
+    public EquipmentItem GetByName(string equipName)
     {
         for (int i = 0; i < item.Count; i++)
         {

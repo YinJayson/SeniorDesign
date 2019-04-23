@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentArmor : EquipmentInventory
+public class EquipmentArmor : EquipmentItem
 {
     public int defenseStat { get; set; }
     public int resistStat { get; set; }

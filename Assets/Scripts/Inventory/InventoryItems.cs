@@ -16,16 +16,14 @@ public class InventoryItems
     //item id added for use with quests
     public int itemID { get; set; }
 
-    public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, Sprite icon, int itemID)
+    public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, string spriteName, int itemID)
     {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.healthStat = healthStat;
         this.attackStat = attackStat;
         this.skillStat = skillStat;
-        this.sprite = Resources.Load<Sprite>("Art/Items/" + itemName);
+        this.sprite = Resources.Load<Sprite>("Sprites/Items/" + spriteName) as Sprite;
         this.itemID = itemID;
     }
-   
- 
 }

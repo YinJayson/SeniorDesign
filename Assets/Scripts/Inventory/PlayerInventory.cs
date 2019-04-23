@@ -15,13 +15,22 @@ public class PlayerInventory : MonoBehaviour
     //list with all possible items
     public ItemsList itemList;
 
+    private static bool created = false;
+
     void Start()
     {
-        itemList = FindObjectOfType<ItemsList>();
-
-        for (int i = 0; i < playerItems.Count; i++)
+        if(!created)
         {
-            Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
+            DontDestroyOnLoad(this.gameObject);
+
+            itemList = FindObjectOfType<ItemsList>();
+
+            for (int i = 0; i < playerItems.Count; i++)
+            {
+                Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
+            }
+
+            created = true;
         }
     }
 
