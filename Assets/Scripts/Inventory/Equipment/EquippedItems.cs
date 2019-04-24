@@ -5,20 +5,16 @@ using UnityEngine;
 public class EquippedItems
 {
     // Helmet, armor, shoes, weapon
-    public EquipmentList equipList;
-    public string[] equipped = new string[4];
+    public string helm;
+    public string armor;
+    public string pants;
+    public string weapon;
 
-    void Start()
+    public EquippedItems(string helmID, string armorID, string pantsID, string weaponID)
     {
-        equipList = GameObject.FindObjectOfType<EquipmentList>();
-        Debug.Log(equipList);
-    }
-
-    public EquippedItems(string helm, string armor, string leg, string weapon)
-    {
-        equipped[0] = helm;
-        equipped[1] = armor;
-        equipped[2] = leg;
-        equipped[3] = weapon;
+        helm = helmID;
+        armor = armorID;
+        pants = pantsID;
+        weapon = weaponID;
     }
 }

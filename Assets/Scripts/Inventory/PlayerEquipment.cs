@@ -11,8 +11,8 @@ public class PlayerEquipment : MonoBehaviour
     //Connected to combat this is method used when its one by combat
     public void equipmentObtained(string equipName)
     {
-        EquipmentItem OBItem = equipmentList.GetByName(equipName);
-        playerEquipment.Add(OBItem);
+        //EquipmentItem OBItem = equipmentList.GetByName(equipName);
+        //playerEquipment.Add(OBItem);
     }
 
     

@@ -8,7 +8,7 @@ public class EquipDictionary : MonoBehaviour
 
     private static bool created = false;
 
-    void Awake()
+    void Start()
     {
         if (!created)
         {
@@ -17,7 +17,7 @@ public class EquipDictionary : MonoBehaviour
 
             dictionary = new Dictionary<string, EquippedItems>()        // Equipped items are ordered as: Helm, Armor, Legs, Weapon
             {
-                { "hero1", new EquippedItems("Leather Helmet", "Leather Armor", "Cotton Pants", "Laser Gun") }
+                { "hero1", new EquippedItems("helmetLeather", "armorLeather", "pantsCotton", "gunLaser") }
             };
         }
     }

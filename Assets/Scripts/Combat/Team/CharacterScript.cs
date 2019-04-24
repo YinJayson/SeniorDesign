@@ -85,15 +85,19 @@ public class CharacterScript : MonoBehaviour
         baseMaxHP = Mathf.RoundToInt(baseStrength * hpStr);
 
         /* init stats */
-        // When equipment is added, add equipment stats
         strength = baseStrength;
         dex = baseDex;
         intelligence = baseIntelligence;
 
+        /* Equipment */
         if (FindObjectOfType<EquipDictionary>().dictionary.ContainsKey(id))
         {
-            wpnAttack = GameObject.FindObjectOfType<EquipmentList>().GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtk();
-            basicAttackType = GameObject.FindObjectOfType<EquipmentList>().GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtkType();
+            EquipmentDictionary equipmentDict = FindObjectOfType<EquipmentDictionary>();
+            EquippedItems equipped = FindObjectOfType<EquipDictionary>().dictionary[id];
+            defense = equipmentDict.armorDictionary[equipped.helm].getDefense() + equipmentDict.armorDictionary[equipped.armor].getDefense() + equipmentDict.armorDictionary[equipped.pants].getDefense();
+            resist = equipmentDict.armorDictionary[equipped.helm].getResist() + equipmentDict.armorDictionary[equipped.armor].getResist() + equipmentDict.armorDictionary[equipped.pants].getResist();
+            wpnAttack = equipmentDict.weaponDictionary[equipped.weapon].getAttack();//GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtk();
+            basicAttackType = equipmentDict.weaponDictionary[equipped.weapon].getAtkType();//GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtkType();
         }
 
         attack = baseAttack + wpnAttack;

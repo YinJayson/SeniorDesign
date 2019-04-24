@@ -2,24 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentArmor : EquipmentItem
+public class EquipmentArmor : Item
 {
-    public int defenseStat { get; set; }
-    public int resistStat { get; set; }
+    public int defenseStat;
+    public int resistStat;
 
-    public EquipmentArmor(string equipName, string equipDescription, int equipID, int defenseStat, int resistStat)
+    public EquipmentArmor(string name, string description, int value, int defenseStat, int resistStat)
     {
-        this.equipName = equipName;
-        this.equipDescription = equipDescription;
-        this.equipID = equipID;
+        this.name = name;
+        this.description = description;
+        this.value = value;
         this.defenseStat = defenseStat;
         this.resistStat = resistStat;
+
+        this.stacks = false;    // Armors do not stack
     }
-    public override int getDefense()
+    public int getDefense()
     {
         return defenseStat;
     }
-    public override int getResist()
+    public int getResist()
     {
         return resistStat;
     }
