@@ -6,7 +6,7 @@ public class SkillHardcover : MonoBehaviour, Skill
 {
     string skillTag = "<b>[Hardcover]</b>";
     string skillName = "Shield of Pages";
-    string description = "Actively covers the <b>front-most teammate</b> with a thick book, <b>decreasing incoming damage</b> by <b>20%</b> for <b>10 seconds</b>";
+    string description = "Actively covers the <b>front-most teammate</b> with a thick book, <b>decreasing incoming damage</b> by <b>25%</b> for <b>10 seconds</b>";
     float cooldown = 16.0f;
 
     float elapsedTime = 0.0f;

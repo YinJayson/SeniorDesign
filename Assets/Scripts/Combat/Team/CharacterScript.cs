@@ -17,8 +17,6 @@ public class CharacterScript : MonoBehaviour
     public int strength;
     public int dex;
     public int intelligence;
-    public int defense;
-    public int resist;
     public int maxHP;
     public int HP;
     public int attack;
@@ -30,7 +28,11 @@ public class CharacterScript : MonoBehaviour
     public float critDamage;
     public float cdReduction;
 
-    public List<float> multipliers;
+    public List<float> defMultis;
+    public int defense;
+    public int resist;
+
+    public List<float> dmgMultis;
     public float dmgReduction;   // Overall Damage = 1 - damageMulti
 
     public bool stunned;         // Stunned effect prevents char from switching positions
@@ -76,6 +78,7 @@ public class CharacterScript : MonoBehaviour
         baseStrength = charStats.strength;
         baseDex = charStats.dex;
         baseIntelligence = charStats.intelligence;
+        basicAttackType = charStats.basicAttackType;
         goldValue = charStats.goldValue;
         expValue = charStats.expValue;
         baseAttack = Mathf.RoundToInt(baseStrength * dmgStr + baseDex * dmgDex + baseIntelligence * dmgInt);
@@ -86,6 +89,13 @@ public class CharacterScript : MonoBehaviour
         strength = baseStrength;
         dex = baseDex;
         intelligence = baseIntelligence;
+
+        if (FindObjectOfType<EquipDictionary>().dictionary.ContainsKey(id))
+        {
+            wpnAttack = GameObject.FindObjectOfType<EquipmentList>().GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtk();
+            basicAttackType = GameObject.FindObjectOfType<EquipmentList>().GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtkType();
+        }
+
         attack = baseAttack + wpnAttack;
 
         // Strength related
@@ -139,17 +149,35 @@ public class CharacterScript : MonoBehaviour
                 ready = false;
         }
 
-        attack = Mathf.RoundToInt(strength * dmgStr + dex * dmgDex + intelligence * dmgInt);
+        baseAttack = Mathf.RoundToInt(baseStrength * dmgStr + baseDex * dmgDex + baseIntelligence * dmgInt);
+        attack = baseAttack + wpnAttack;
         speed = Mathf.RoundToInt(dex * spdDex);
         critRate = dex * critDex;
 
-        float multi = 0.0f;
-        for (int i = 0; i < multipliers.Count; i++)
+        /* Calculates damage multiplier */
+        float dmgMulti = 0.0f;
+        for (int i = 0; i < dmgMultis.Count; i++)
         {
-            multi += (1 - multi) * multipliers[i];
+            dmgMulti += (1 - dmgMulti) * dmgMultis[i];
         }
-        dmgReduction = multi;
 
+        dmgReduction = dmgMulti;
+        //////////////////////////////////
+        
+        /* Calculates defense */
+        float defMulti = 1.0f;
+        for (int i = 0; i < defMultis.Count; i++)
+        {
+            defMulti += defMultis[i];
+        }
+        if (defMulti < 0.0f)
+            defMulti = 0.0f;
+
+        defense = Mathf.RoundToInt(defense * defMulti);
+        resist = Mathf.RoundToInt(resist * defMulti);
+        ////////////////////////
+        
+        dmgReduction = dmgMulti;
         if (maxHP < 0)
             maxHP = 0;
         if (maxHP < HP)
@@ -210,6 +238,20 @@ public class CharacterScript : MonoBehaviour
                         break;
                 }
                 break;
+            case ("hero3"):
+                switch (GameObject.FindObjectOfType<SkillDictionary>().getSkill(id))
+                {
+                    case (1):
+                        gameObject.AddComponent<SkillCorrosion>();
+                        break;
+                    case (2):
+                        gameObject.AddComponent<SkillSticky>();
+                        break;
+                    case (3):
+                        gameObject.AddComponent<SkillRegeneration>();
+                        break;
+                }
+                break;
         }
     }
 
@@ -225,6 +267,8 @@ public class CharacterScript : MonoBehaviour
         if (HP > 0)
         {
             int finalDmg = Mathf.RoundToInt(damage);
+            if (finalDmg <= 0)
+                finalDmg = 1;
             HP -= finalDmg;
 
             // Damage Text initialization
@@ -244,6 +288,16 @@ public class CharacterScript : MonoBehaviour
             if(gameObject.GetComponent<Effect>() != null)
                 gameObject.BroadcastMessage("onHit");
         }
+    }
+    public void applyHeal(int healAmount)
+    {
+        if (healAmount <= 0)
+            healAmount = 1;
+        HP += healAmount;
+
+        GameObject floatingDamageText = Instantiate(Resources.Load<GameObject>("Prefabs/DamageText") as GameObject, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 20), Quaternion.identity, gameObject.transform);
+        floatingDamageText.GetComponent<Text>().text = healAmount.ToString();
+        floatingDamageText.GetComponent<Text>().color = new Color(0.0f, 1.0f, 0.0f);
     }
 
     public void stopActionBar()

@@ -25,6 +25,7 @@ public class CharacterStats
         strength = s;
         dex = d;
         intelligence = i;
+        basicAttackType = atkType;
         goldValue = g;
         expValue = e;
 
@@ -42,6 +43,7 @@ public class CharacterStats
         strength = s;
         dex = d;
         intelligence = i;
+        basicAttackType = atkType;
         goldValue = 0;
         expValue = 0;
 

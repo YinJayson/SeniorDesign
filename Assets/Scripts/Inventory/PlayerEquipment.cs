@@ -5,28 +5,26 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
 
-    public List<EquipmentInventory> playerEquipment = new List<EquipmentInventory>();
-    //list with all possible items
-    public EquipmentList equipList;
+    public List<EquipmentItem> playerEquipment = new List<EquipmentItem>();
+    public EquipmentList equipmentList;
 
-    //TODO
-    //method nneeds to be changed to give player an item from winning combat needs to be implemented with combat system
-    public void itemObtained(string equipName)
+    //Connected to combat this is method used when its one by combat
+    public void equipmentObtained(string equipName)
     {
-        //locate the item in the Equipment List
-        EquipmentInventory OBItem = equipList.GetByName(equipName);
-        //add the located equipment into the player's equipment inventory
+        EquipmentItem OBItem = equipmentList.GetByName(equipName);
         playerEquipment.Add(OBItem);
     }
 
-    void Start()
+    
+    public EquipmentItem GetByName(string equipName)
     {
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        for (int i = 0; i < playerEquipment.Count; i++)
+        {
+            if (playerEquipment[i].equipName == equipName)
+            {
+                return playerEquipment[i];
+            }
+        }
+        return null;
     }
 }
