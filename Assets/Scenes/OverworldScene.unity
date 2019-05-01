@@ -1802,7 +1802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 115285589}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 139181505}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -2562,7 +2562,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 179377095}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -2880,7 +2880,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 193509631}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -3161,7 +3161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 231315070}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -3388,7 +3388,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 245791311}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -4630,7 +4630,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 371786459}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -5251,7 +5251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 440518794}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -5388,7 +5388,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 441689628}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -6295,7 +6295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 574196926}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -6538,7 +6538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 611809545}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -6608,6 +6608,7 @@ GameObject:
   - component: {fileID: 627764773}
   - component: {fileID: 627764776}
   - component: {fileID: 627764774}
+  - component: {fileID: 627764775}
   m_Layer: 5
   m_Name: InventoryMenu
   m_TagString: Untagged
@@ -6663,6 +6664,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &627764775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 627764772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea6a1e2fb84c7442bbcc9aa1cfbedb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &627764776
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6940,7 +6952,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 649958650}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -9629,7 +9641,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 922736614}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -10805,7 +10817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1013255064}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -11824,7 +11836,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1088772760}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -12146,7 +12158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1104895313}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -13739,7 +13751,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1226392771}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -14929,7 +14941,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1335231883}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -15135,7 +15147,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1341032539}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -15450,7 +15462,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1371094034}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -17107,7 +17119,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1458086155}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -17859,7 +17871,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1574030986}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -21567,7 +21579,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1877954177}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
@@ -22360,7 +22372,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43673877}
+      - m_Target: {fileID: 1960084740}
         m_MethodName: displayItemMenu
         m_Mode: 1
         m_Arguments:
