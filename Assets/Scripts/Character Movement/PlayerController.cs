@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         // attach to player later cuz i are lazy ding dong bing bong
-        transform.position = FindObjectOfType<PositionLoader>().position;
+    //    transform.position = FindObjectOfType<PositionLoader>().position;
        /* UpButton.onClick.AddListener(Update);
         DownButton.onClick.AddListener(Update);
         LeftButton.onClick.AddListener(Update);

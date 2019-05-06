@@ -74,6 +74,7 @@ public class NPC : MonoBehaviour
 
     public void tests(string thing)
     {
+        Debug.Log(thing);
         // dont need else ifs
         if (thing == GetComponent<ItemsList>().GetByName("Sword").itemName)
         {
@@ -96,18 +97,11 @@ public class NPC : MonoBehaviour
             {
                 print("Not enough gold, customer");
             }
-        } else if (thing == gameObject.GetComponent<ItemsList>().GetByName("Grenade").itemName)
-        {
-            if (player.GetComponent<PlayerGold>().money >= gameObject.GetComponent<ItemsList>().GetByName("Grenade").itemPrice)
-            {
-                player.GetComponent<PlayerInventory>().itemObtained("Grenade");
-                player.GetComponent<PlayerGold>().money = player.GetComponent<PlayerGold>().money - gameObject.GetComponent<ItemsList>().GetByName("Grenade").itemPrice;
-            }
-            else
-            {
-                print("Not enough gold, customer");
-            }
-        }
+        } 
+
+
+
+
     }
 
     public void sellMyItem()

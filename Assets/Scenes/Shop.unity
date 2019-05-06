@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Sword
 --- !u!222 &133675211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -276,7 +276,6 @@ GameObject:
   - component: {fileID: 381204601}
   - component: {fileID: 381204599}
   - component: {fileID: 381204602}
-  - component: {fileID: 381204603}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -413,18 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e2a6b21c42bec42853f0ed073b4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &381204603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 381204596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba6881da9eb44f4ebbb4d73c55c0aac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemList: {fileID: 0}
 --- !u!1 &410289123
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,48 +487,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 410289123}
   m_CullTransparentMesh: 0
---- !u!1 &708055953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 708055957}
-  - component: {fileID: 708055955}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &708055955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 708055953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dbdd2775be146f4fa73ab117b5d7670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsDatabase: {fileID: 0}
-  playerIntv: {fileID: 0}
---- !u!4 &708055957
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 708055953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766227912
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +897,7 @@ GameObject:
   - component: {fileID: 1623310343}
   - component: {fileID: 1623310342}
   - component: {fileID: 1623310341}
+  - component: {fileID: 1623310344}
   m_Layer: 5
   m_Name: Sword
   m_TagString: Untagged
@@ -975,8 +921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.51077586, y: 0.5}
   m_AnchorMax: {x: 0.51077586, y: 0.5}
-  m_AnchoredPosition: {x: 4.9999886, y: 53.999985}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 4.9999886, y: 87.19}
+  m_SizeDelta: {x: 160, y: 96.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623310341
 MonoBehaviour:
@@ -1064,6 +1010,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623310339}
   m_CullTransparentMesh: 0
+--- !u!114 &1623310344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1623310339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba6881da9eb44f4ebbb4d73c55c0aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemList: {fileID: 0}
 --- !u!1 &1930940919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.764151, g: 0.43132722, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
