@@ -13,25 +13,27 @@ public class PlayersQuests : MonoBehaviour {
 
 
     //one the player finished the quest
-    public void QuestCompleted(int ID) {
-        Quests completedQuest = questList.GetByID(ID);
+    public void QuestCompleted(string QuestName) {
+        //Debug.Log("Test 2\n");
+        Quests completedQuest = questList.GetByName(QuestName);
+        //Debug.Log("Test 3\n");
         playerQuests.Add(completedQuest);
-        RewardPlayer(ID);
+        RewardPlayer(QuestName);
 
         //after adding quest to finished players quest add prize (inventory item) inot players inventory
     }
 
-    public void RewardPlayer(int ID) {
+    public void RewardPlayer(string QuestName) {
         //find inventory item that is being rewarded for that specific quest
-        Quests reward = questList.GetByID(ID);
-        InventoryItems rewardItem = itemList.GetByItemID(reward.rewardID);
+        Quests reward = questList.GetByName(QuestName);
+        InventoryItems rewardItem = itemList.GetByName(reward.rewardItems);
         playerItems.Add(rewardItem);
 
     }
 
-    public Quests GetByID(int ID) {
+    public Quests GetByName(string QuestName) {
         for (int i = 0; i < playerQuests.Count; i++) {
-            if (playerQuests[i].ID == ID) {
+            if (playerQuests[i].QuestName == QuestName) {
                 return playerQuests[i];
             }
         }

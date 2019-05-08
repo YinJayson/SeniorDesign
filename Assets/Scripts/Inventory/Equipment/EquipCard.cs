@@ -26,6 +26,10 @@ public class EquipCard : MonoBehaviour
         gameObject.transform.Find("NameText").GetComponent<Text>().text = char.ToUpper(id[0]) + id.Substring(1);
     }
 
+    public void startGetStats()
+    {
+        StartCoroutine(getStats());
+    }
     public IEnumerator getStats()
     {
         yield return new WaitUntil(() => charDict != null);
@@ -40,7 +44,7 @@ public class EquipCard : MonoBehaviour
             gameObject.transform.Find("AtkTypeText").GetComponent<Text>().text = "Atk Type: <b>Physical</b>";
         else
             gameObject.transform.Find("AtkTypeText").GetComponent<Text>().text = "Atk Type: <b>Magical</b>";
-        gameObject.transform.Find("AtkText").GetComponent<Text>().text = "Attack: " + equipmentDict.weaponDictionary[equipped.weapon].getAttack();//list.GetByName(equipment.equipped[3]).getAtk();
+        gameObject.transform.Find("AtkText").GetComponent<Text>().text = "Attack: " + ((0.75 * (charStats.strength + charStats.dex + charStats.intelligence)) + equipmentDict.weaponDictionary[equipped.weapon].getAttack());//list.GetByName(equipment.equipped[3]).getAtk();
 
         /* Set armor stats */
 

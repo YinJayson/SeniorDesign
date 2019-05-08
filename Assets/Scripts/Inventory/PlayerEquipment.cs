@@ -15,7 +15,7 @@ public class PlayerEquipment : MonoBehaviour
         //playerEquipment.Add(OBItem);
     }
 
-    
+    /*
     public EquipmentItem GetByName(string equipName)
     {
         for (int i = 0; i < playerEquipment.Count; i++)
@@ -27,4 +27,5 @@ public class PlayerEquipment : MonoBehaviour
         }
         return null;
     }
+    */
 }
