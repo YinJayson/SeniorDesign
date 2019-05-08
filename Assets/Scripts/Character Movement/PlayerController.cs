@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+
+        transform.position = FindObjectOfType<PositionLoader>().position;
        /* UpButton.onClick.AddListener(Update);
         DownButton.onClick.AddListener(Update);
         LeftButton.onClick.AddListener(Update);

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BookBuff : MonoBehaviour, Effect
 {
-    public float intensity = 0.2f;
+    public float intensity = 0.25f;
     public float duration = 10.0f;
 
     public float maxDuration = 10.0f;
@@ -37,12 +37,12 @@ public class BookBuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        target.multipliers.Add(intensity);
+        target.dmgMultis.Add(intensity);
     }
 
     public void expire()
     {
-        target.multipliers.Remove(intensity);
+        target.dmgMultis.Remove(intensity);
 
         icon.expire();
         Destroy(this);

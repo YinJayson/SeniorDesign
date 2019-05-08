@@ -9,13 +9,13 @@ public class SkillCardButton : MonoBehaviour
 
     void Update()
     {
-        id = gameObject.transform.parent.parent.GetComponent<FormCard>().id;    // id is assigned in Update incase characters are changed
+        id = gameObject.transform.parent.GetComponent<FormCard>().id;    // id is assigned in Update incase characters are changed
         resetSkillCard();
     }
 
     public void initMenu()
     {
-        Instantiate(Resources.Load("Menus/SkillMenu" + id), gameObject.transform.parent.parent.parent);
+        Instantiate(Resources.Load("Menus/SkillMenu" + id), gameObject.transform.parent.parent);
     }
 
     // Assigns skill button's color and image

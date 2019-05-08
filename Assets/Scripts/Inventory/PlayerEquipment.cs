@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
 
-    public List<EquipmentInventory> playerEquipment = new List<EquipmentInventory>();
+    public List<EquipmentItem> playerEquipment = new List<EquipmentItem>();
     public EquipmentList equipmentList;
 
     //Connected to combat this is method used when its one by combat
     public void equipmentObtained(string equipName)
     {
-        EquipmentInventory OBItem = equipmentList.GetByName(equipName);
-        playerEquipment.Add(OBItem);
+        //EquipmentItem OBItem = equipmentList.GetByName(equipName);
+        //playerEquipment.Add(OBItem);
     }
 
     
-    public EquipmentInventory GetByName(string equipName)
+    public EquipmentItem GetByName(string equipName)
     {
         for (int i = 0; i < playerEquipment.Count; i++)
         {

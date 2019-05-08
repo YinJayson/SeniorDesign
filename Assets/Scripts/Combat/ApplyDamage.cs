@@ -12,7 +12,7 @@ public class ApplyDamage : MonoBehaviour
     public bool physical;
     public CharacterScript source;
     int dmgToApply;
-    bool crit;
+    bool crit = false;  // By default, attacks do not apply crit
 
     /* Effect related */
     public float intensity;
@@ -31,55 +31,21 @@ public class ApplyDamage : MonoBehaviour
 
     public void damage()
     {
-        float dmgReduction = charScript.dmgReduction;
+        float dmgMulti = 1.0f - charScript.dmgReduction;
 
         if (physical)
         {
-            int defense = charScript.defense;
+            //int defense = charScript.defense;
 
-            if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
+            dmgToApply = Mathf.RoundToInt((dmg - charScript.defense) * dmgMulti);
+            crit = false;
+
+            if (Random.Range(0.0f, 1.0f) <= critRate)   // Apply crit
             {
-                dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * (1 - dmgReduction) - defense);
+                dmgToApply += Mathf.RoundToInt(dmgToApply * critDmg);
                 crit = true;
             }
-            else
-            {
-                dmgToApply = Mathf.RoundToInt(dmg * (1 - dmgReduction) - defense);
-                crit = false;
-            }
-        }
-        else
-        {
-            int resist = charScript.resist;
-
-            if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
-            {
-                dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * (1 - dmgReduction) - resist);
-                crit = true;
-            }
-            else
-            {
-                dmgToApply = Mathf.RoundToInt(dmg * (1 - dmgReduction) - resist);
-                crit = false;
-            }
-        }
-
-        charScript.applyDamage(dmgToApply, physical, crit, source);
-    }
-    public void multiHitDamage(float multiplier)
-    {
-        if (!firstHit)
-            charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
-
-        if (multiplier == 0.0f)
-            multiplier = 1.0f;
-
-        float dmgMulti = charScript.dmgReduction;
-
-        if (physical)
-        {
-            int defense = charScript.defense;
-
+            /*
             if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
             {
                 dmgToApply = Mathf.RoundToInt(((dmg + Mathf.RoundToInt(dmg * critDmg))) * dmgMulti) - defense;
@@ -90,9 +56,19 @@ public class ApplyDamage : MonoBehaviour
                 dmgToApply = Mathf.RoundToInt(dmg * dmgMulti) - defense;
                 crit = false;
             }
+            */
         }
         else
         {
+            dmgToApply = Mathf.RoundToInt((dmg - charScript.resist) * dmgMulti);
+            crit = false;
+
+            if (Random.Range(0.0f, 1.0f) <= critRate)   // Apply crit
+            {
+                dmgToApply += Mathf.RoundToInt(dmgToApply * critDmg);
+                crit = true;
+            }
+            /*
             int resist = charScript.resist;
 
             if (Random.Range(0.0f, 1.0f) <= critRate)    // Apply crit
@@ -105,10 +81,49 @@ public class ApplyDamage : MonoBehaviour
                 dmgToApply = Mathf.RoundToInt(dmg * dmgMulti) - resist;
                 crit = false;
             }
+            */
         }
 
-        firstHit = false;
-        charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
+        charScript.applyDamage(dmgToApply, physical, crit, source);
+    }
+    public void multiHitDamage(float multiplier)
+    {
+        if (!firstHit)
+            charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
+        else
+        {
+            Debug.Log("multihit dmg = " + dmg);
+            if (multiplier == 0.0f)
+                multiplier = 1.0f;
+
+            float dmgMulti = 1.0f - charScript.dmgReduction;
+
+            if (physical)
+            {
+                dmgToApply = Mathf.RoundToInt((dmg - charScript.defense) * dmgMulti);
+                crit = false;
+
+                if (Random.Range(0.0f, 1.0f) <= critRate)
+                {
+                    dmgToApply += Mathf.RoundToInt(dmgToApply * critDmg);
+                    crit = true;
+                }
+            }
+            else
+            {
+                dmgToApply = Mathf.RoundToInt((dmg - charScript.resist) * dmgMulti);
+                crit = false;
+
+                if (Random.Range(0.0f, 1.0f) <= critRate)   // Apply crit
+                {
+                    dmgToApply += Mathf.RoundToInt(dmgToApply * critDmg);
+                    crit = true;
+                }
+            }
+
+            firstHit = false;
+            charScript.applyDamage(dmgToApply * multiplier, physical, crit, source);
+        }
     }
     public void applyEffect(string effectName)
     {
@@ -119,6 +134,20 @@ public class ApplyDamage : MonoBehaviour
             case ("stun"):
                 {
                     effect = charScript.gameObject.AddComponent<StunDebuff>();
+                    effect.setDuration(duration);
+                    effect.setIntensity(intensity);
+                    break;
+                }
+            case ("decDef"):
+                {
+                    effect = charScript.gameObject.AddComponent<DecreaseDefensesDebuff>();
+                    effect.setDuration(duration);
+                    effect.setIntensity(intensity);
+                    break;
+                }
+            case ("decDex"):
+                {
+                    effect = charScript.gameObject.AddComponent<DexDebuff>();
                     effect.setDuration(duration);
                     effect.setIntensity(intensity);
                     break;

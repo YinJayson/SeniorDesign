@@ -20,7 +20,7 @@ public class DecreaseDamageBuff : MonoBehaviour, Effect
             intensity = 0.1f;
 
         target = gameObject.GetComponent<CharacterScript>();
-        targetEffectBar = target.transform.GetChild(2).gameObject;
+        targetEffectBar = target.transform.Find("EffectBar").gameObject;
         icon = Instantiate(Resources.Load<GameObject>("Icons/EffectIcon") as GameObject, new Vector2(targetEffectBar.transform.position.x - 15, targetEffectBar.transform.position.y), Quaternion.identity, targetEffectBar.transform).GetComponent<EffectIcon>();
         icon.target = this;
         icon.effect = "Incoming Damage -" + (intensity * 100.0f).ToString() + "%";
@@ -41,12 +41,12 @@ public class DecreaseDamageBuff : MonoBehaviour, Effect
 
     public void effect()
     {
-        target.multipliers.Add(intensity);
+        target.dmgMultis.Add(intensity);
     }
 
     public void expire()
     {
-        target.multipliers.Remove(intensity);
+        target.dmgMultis.Remove(intensity);
         icon.expire();
         Destroy(this);
     }
