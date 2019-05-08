@@ -12,8 +12,10 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public List<InventoryItems> playerItems = new List<InventoryItems>();
+    public List<EquipmentItem> equipmentInventory = new List<EquipmentItem>();
     //list with all possible items
     public ItemsList itemList;
+    public int gold;
 
     private static bool created = false;
 
@@ -25,19 +27,11 @@ public class PlayerInventory : MonoBehaviour
 
             itemList = FindObjectOfType<ItemsList>();
 
-            for (int i = 0; i < playerItems.Count; i++)
-            {
-                Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
-            }
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary["armorCotton"]);
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary["armorLeather"]);
 
             created = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     //TODO
@@ -78,7 +72,13 @@ public class PlayerInventory : MonoBehaviour
         return null;
     }
 
-
+    public void giveEquipmentArmor(string id)
+    {
+        if (FindObjectOfType<EquipmentDictionary>().armorDictionary.ContainsKey(id))
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary[id]);
+        else
+            Debug.Log("Could not find " + id + " in armorDictionary");
+    }
 
     
     //method to remove item

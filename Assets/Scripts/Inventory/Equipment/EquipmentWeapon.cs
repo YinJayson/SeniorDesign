@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentWeapon : Item
+public class EquipmentWeapon : EquipmentItem
 {
     public int attack;
     public bool atkType;

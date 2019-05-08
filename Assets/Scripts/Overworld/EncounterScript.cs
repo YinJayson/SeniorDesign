@@ -9,29 +9,30 @@ public class EncounterScript : MonoBehaviour
 
     void Start()
     {
-        distanceUntilEncounter = Random.Range(0.5f, 1.0f) * 50.0f;
+        distanceUntilEncounter = Random.Range(0.5f, 1.0f) * 30.0f;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter");
-        position = transform.position;
+        if(collision.CompareTag("EncounterZone"))
+            position = transform.position;
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("In zone");
+        if (collision.CompareTag("EncounterZone"))
+        {
+            distanceUntilEncounter -= Vector2.Distance(transform.position, position);
+            position = transform.position;
 
-        distanceUntilEncounter -= Vector2.Distance(transform.position, position);
-        position = transform.position;
-
-        if (distanceUntilEncounter <= 0.0f)
+            if (distanceUntilEncounter <= 0.0f)
             encounter();
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exit");
+        if(collision.CompareTag("EncounterZone"))
+            distanceUntilEncounter = Random.Range(0.5f, 1.0f) * 30.0f;
     }
-
     void encounter()
     {
         Debug.Log("Encounter!");

@@ -11,9 +11,11 @@ public class QuestList : MonoBehaviour {
         listOfQuests();
     }
 
-    public Quests GetByID(int ID) {
+    public Quests GetByName(string QuestName) {
+        //Debug.Log("Test 7\n");
         for (int i = 0; i < quest.Count; i++) {
-            if (quest[i].ID == ID) {
+            //Debug.Log("Test 4\n");
+            if (quest[i].QuestName == QuestName) {
                 return quest[i];
             }
         }
@@ -24,8 +26,8 @@ public class QuestList : MonoBehaviour {
         quest = new List<Quests>()
         {
             //quest ID, title, description
-            new Quests(1, "Advice", "Get advice from the village elder", 4),
-            new Quests(2, "Find the Archer", "Find the archer in your village and make her join your team", 1),
+            new Quests("Advice", "Get advice from the village elder", "Juice Box"),
+            new Quests("Find the Archer", "Find the archer in your village and make her join your team", "Health Potion"),
            //new quests to be added after finlizong what scenes will be in the game
         };
     }

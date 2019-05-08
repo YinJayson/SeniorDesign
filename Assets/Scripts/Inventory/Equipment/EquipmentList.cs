@@ -50,6 +50,7 @@ public class EquipmentList : MonoBehaviour
     }
 
     //search the equipment database by equipment name
+    /*
     public EquipmentItem GetByName(string equipName)
     {
         for (int i = 0; i < item.Count; i++)
@@ -61,5 +62,6 @@ public class EquipmentList : MonoBehaviour
         }
         return null;
     }
+    */
 
 }

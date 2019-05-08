@@ -12,27 +12,27 @@ public class StartQuest : MonoBehaviour {
 
     Quests checkedQuest;
 
-    public void startQuest(int ID) {
+    public void startQuest(string QuestName) {
 
-        checkInProgress(ID);
+        checkInProgress(QuestName);
         startedQuests.Add(checkedQuest);
         
     }
     //method to check if the quest is already in progress
-    public Quests checkInProgress(int ID) {
+    public Quests checkInProgress(string QuestName) {
         //find that the quest exists in the database
         //Quests 
-        checkedQuest= questList.GetByID(ID);
+        checkedQuest= questList.GetByName(QuestName);
 
         //check if quest is already in progress
         for (int i = 0; i < startedQuests.Count; i++)
         {
-            if (startedQuests[i].ID != checkedQuest.ID)
+            if (startedQuests[i].QuestName != checkedQuest.QuestName)
             {
                 return checkedQuest;
             }
             else{
-                checkIfCompleted(ID);
+                checkIfCompleted(QuestName);
             }
         }
         return null;
@@ -40,13 +40,13 @@ public class StartQuest : MonoBehaviour {
     }
     //check if the quest has already been completed and is currently in
     //the players completed quests database
-    public Quests checkIfCompleted(int ID) {
+    public Quests checkIfCompleted(string QuestName) {
 
-        checkedQuest= questList.GetByID(ID);
+        checkedQuest= questList.GetByName(QuestName);
 
-        Quests completed = playerQuests.GetByID(checkedQuest.ID);
+        Quests completed = playerQuests.GetByName(checkedQuest.QuestName);
 
-        if(completed.ID == checkedQuest.ID){
+        if(completed.QuestName == checkedQuest.QuestName){
             return null;
         }
 
@@ -81,7 +81,7 @@ public class StartQuest : MonoBehaviour {
     }*/
 
     public void giveQuest(){
-        startQuest(1);
+        startQuest("Find the Archer");
 
         for (int i = 0; i < startedQuests.Count; i++)
         {

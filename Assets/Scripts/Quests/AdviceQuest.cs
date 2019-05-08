@@ -12,14 +12,15 @@ public class AdviceQuest : MonoBehaviour
 
     Quests finishedQuest;
 
-    public void endQuest(int ID) {
-
-        playerQuests.QuestCompleted(ID);
+    public void endQuest(string QuestName) {
+        //Debug.Log("Test 1\n");
+        playerQuests.QuestCompleted(QuestName);
+        Debug.Log("Advice Quest Completed!");
 
     }
 
 
     public void endAdvice() {
-        endQuest(1);
+        endQuest("Find the Archer");
     }
 }

@@ -96,8 +96,9 @@ public class CharacterScript : MonoBehaviour
             EquippedItems equipped = FindObjectOfType<EquipDictionary>().dictionary[id];
             defense = equipmentDict.armorDictionary[equipped.helm].getDefense() + equipmentDict.armorDictionary[equipped.armor].getDefense() + equipmentDict.armorDictionary[equipped.pants].getDefense();
             resist = equipmentDict.armorDictionary[equipped.helm].getResist() + equipmentDict.armorDictionary[equipped.armor].getResist() + equipmentDict.armorDictionary[equipped.pants].getResist();
-            wpnAttack = equipmentDict.weaponDictionary[equipped.weapon].getAttack();//GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtk();
-            basicAttackType = equipmentDict.weaponDictionary[equipped.weapon].getAtkType();//GetByName(FindObjectOfType<EquipDictionary>().dictionary[id].equipped[3]).getAtkType();
+            wpnAttack = equipmentDict.weaponDictionary[equipped.weapon].getAttack();
+            if(equipped.weapon != "nothing")
+                basicAttackType = equipmentDict.weaponDictionary[equipped.weapon].getAtkType();
         }
 
         attack = baseAttack + wpnAttack;
