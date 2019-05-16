@@ -3,102 +3,84 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPC : MonoBehaviour {
-    public Button button;
+public class NPC : MonoBehaviour
+{
     public GameObject player;
     public GameObject canvas;
-
     private bool triggerPlayer;
     private bool shopTrigger;
-  
-    public ItemsList items;
-
-    public int price;
-
-    void Awake()
-    {
-
-    }
-
-    // Use this for initialization
-    void Start () {
-        Button btn = button.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-    }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
+        // activate/deactive both shop canvas and playermovement respectively
         if (shopTrigger)
+        {
             canvas.SetActive(true);
+            player.GetComponent<PlayerController>().enabled = false;
+        }
         else
             canvas.SetActive(false);
-
-	    if(triggerPlayer)
+            player.GetComponent<PlayerController>().enabled = true;
+        if (triggerPlayer)
         {
-            // have to be within the NPC to turn enter/exit out of the canvas, fix this 
-            // player stands still being in the shop canvas
             if (Input.GetKeyDown(KeyCode.E))
                 shopTrigger = !shopTrigger;
         }
-	}
+    }
 
-    public void TaskOnClick()
+    public void itemsFromItemsList(string item)
     {
-        if (shopTrigger)
+    //    Debug.Log(item);
+        if (item == FindObjectOfType<ItemsList>().GetByName(item).itemName)
         {
-            Buy();
+            if (FindObjectOfType<PlayerInventory>().gold >= FindObjectOfType<ItemsList>().GetByName(item).itemPrice)
+            {
+                FindObjectOfType<PlayerInventory>().itemBought(item);
+                FindObjectOfType<PlayerInventory>().gold = FindObjectOfType<PlayerInventory>().gold - FindObjectOfType<ItemsList>().GetByName(item).itemPrice;
+            //    Debug.Log(FindObjectOfType<PlayerInventory>().playerItems);
+            }
+            else
+            {
+                print("Not enough gold, customer");
+            }
         }
     }
 
-    public int count;
-    public void Buy()
+    public void itemsFromEquipmentDictionary(string item)
     {
-        /*
-        if(player.GetComponent<PlayerGold>().money >= price)
+    //    Debug.Log(item);
+        if (FindObjectOfType<EquipmentDictionary>().armorDictionary.ContainsKey(item))
         {
-            // get the items from the itemsList stuff, add price
-            // add to player inventory
-            */
-
-           player.GetComponent<PlayerInventory>().itemObtained("Sword");
-
-            //   item = gameObject.GetComponent<ItemsList>().GetByName("Grenade");
-
-            //    yield return new WaitUntil(() => frame >= 10);
-       //     FindObjectOfType<GameManager>().loadItemDataBase();
-
-
-       //     item = GetComponent<ItemsList>().GetByName("Sword");
-
-           for (int i = 0; i < player.GetComponent<PlayerInventory>().playerItems.Count; i++)
-        {
-            Debug.Log(player.GetComponent<PlayerInventory>().playerItems[i].itemName);
+            if (FindObjectOfType<PlayerInventory>().gold >= FindObjectOfType<EquipmentDictionary>().armorDictionary[item].value)
+            {
+                FindObjectOfType<PlayerInventory>().giveEquipmentArmor(item);
+                FindObjectOfType<PlayerInventory>().gold = FindObjectOfType<PlayerInventory>().gold - FindObjectOfType<EquipmentDictionary>().armorDictionary[item].value;
+            }
+            else
+            {
+                print("Not enough gold, customer");
+            }
         }
-         
-                
-                
-                //   Debug.Log(player.GetComponent<PlayerInventory>().playerItems[0].ToString());
-        /*
-        } else
-        {
-            print("not enough gold peasant.");
-        }
-        */
     }
 
+
+    // simple collision functions so npc and player can interact
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             triggerPlayer = true;
+            Debug.Log("Player entered npc hitbox");
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             triggerPlayer = false;
+            Debug.Log("Player exited npc hitbox");
         }
     }
 }

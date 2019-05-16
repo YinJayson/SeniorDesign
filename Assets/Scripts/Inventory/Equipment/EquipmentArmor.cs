@@ -12,6 +12,7 @@ public class EquipmentArmor : EquipmentItem
         this.id = id;
         this.name = name;
         this.description = description;
+        this.value = value;
         this.sprite = Resources.Load<Sprite>("Sprites/Items/" + id) as Sprite;
         this.defenseStat = defenseStat;
         this.resistStat = resistStat;

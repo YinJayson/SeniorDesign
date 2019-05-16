@@ -15,8 +15,9 @@ public class InventoryItems
     public Sprite sprite { get; set; }
     //item id added for use with quests
     public int itemID { get; set; }
+    public int itemPrice { get; set; }
 
-    public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, string spriteName, int itemID)
+    public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, string spriteName, int itemID, int itemPrice)
     {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
@@ -25,5 +26,6 @@ public class InventoryItems
         this.skillStat = skillStat;
         this.sprite = Resources.Load<Sprite>("Sprites/Items/" + spriteName) as Sprite;
         this.itemID = itemID;
+        this.itemPrice = itemPrice;
     }
 }

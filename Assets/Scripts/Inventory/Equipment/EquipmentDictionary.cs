@@ -25,7 +25,11 @@ public class EquipmentDictionary : MonoBehaviour
                 { "armorCotton", new EquipmentArmor("armorCotton", "Cotton Tunic", "Peasant clothes, but better than nothing.", 10, 2, 2, 2) },
                 { "pantsCotton", new EquipmentArmor("pantsCotton", "Cotton Pants", "Lightweight <i>and</i> fashionable.", 10, 1, 2, 3) },
                 { "armorLeather", new EquipmentArmor("armorLeather", "Leather Armor", "Hard and sturdy.", 50, 5, 2, 2) },
-                { "helmetLeather", new EquipmentArmor("helmetLeather", "Leather Helmet", "Acts as a second skull.", 30, 7, 5, 1) }
+                { "helmetLeather", new EquipmentArmor("helmetLeather", "Leather Helmet", "Acts as a second skull.", 30, 7, 5, 1) },
+                { "ironHelmet", new EquipmentArmor("ironHelmet", "Iron Helmet", "Standard helmet for a foot soldier", 80, 14, 10, 1) },
+                { "ironChest", new EquipmentArmor("ironChest", "Iron Chest Armor", "Standard chest armor for a foot soldier", 200, 20, 15, 2) },
+                { "ironFeet", new EquipmentArmor("ironFeet", "Iron Feet Armor", "Standard feet arnor for a foot soldier", 60, 5, 10, 3) }
+
             };
 
             weaponDictionary = new Dictionary<string, EquipmentWeapon>()
