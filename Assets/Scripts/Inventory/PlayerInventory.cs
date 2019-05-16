@@ -12,10 +12,11 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public List<InventoryItems> playerItems = new List<InventoryItems>();
+    public List<EquipmentItem> equipmentInventory = new List<EquipmentItem>();
     //list with all possible items
     public ItemsList itemList;
-    public InventoryItems OBItem;
-    public PlayerGold cashMoney;
+    public int gold;
+
     private static bool created = false;
 
     void Start()
@@ -26,19 +27,11 @@ public class PlayerInventory : MonoBehaviour
 
             itemList = FindObjectOfType<ItemsList>();
 
-            for (int i = 0; i < playerItems.Count; i++)
-            {
-                Debug.Log("Current Player Inventory\n" + playerItems[i].itemName);
-            }
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary["armorCotton"]);
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary["armorLeather"]);
 
             created = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     //TODO
@@ -46,16 +39,9 @@ public class PlayerInventory : MonoBehaviour
     public void itemObtained(string itemName) {
         //locate the item in the Inventory items List
         //var OBItem = itemList.GetByName(itemName);
-    //    InventoryItems OBItem = itemList.GetByName(itemName);
-        if (itemName != null)
-        {
-            Debug.Log(itemName);
-            OBItem = ItemsList.FindObjectOfType<ItemsList>().GetByName(itemName);
-            playerItems.Add(OBItem);
-            Debug.Log(gameObject.GetComponent<PlayerGold>().money);
-        }
+        InventoryItems OBItem = itemList.GetByName(itemName);
         //add the located item into the player's inventory
-    //    playerItems.Add(OBItem);
+        playerItems.Add(OBItem);
         //Debug.Log(OBItem.itemName);
         //Debug.Log(OBItem.itemDescription);
         //inventoryUI.AddItem(OBItem);
@@ -86,7 +72,13 @@ public class PlayerInventory : MonoBehaviour
         return null;
     }
 
-
+    public void giveEquipmentArmor(string id)
+    {
+        if (FindObjectOfType<EquipmentDictionary>().armorDictionary.ContainsKey(id))
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary[id]);
+        else
+            Debug.Log("Could not find " + id + " in armorDictionary");
+    }
 
     
     //method to remove item

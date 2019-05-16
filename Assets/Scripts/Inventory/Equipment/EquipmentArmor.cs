@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class EquipmentArmor : EquipmentItem
 {
-    public int defenseStat { get; set; }
-    public int resistStat { get; set; }
+    public int defenseStat;
+    public int resistStat;
 
-    public EquipmentArmor(string equipName, string equipDescription, int equipID, int defenseStat, int resistStat)
+    public EquipmentArmor(string id, string name, string description, int value, int defenseStat, int resistStat, int slot)
     {
-        this.equipName = equipName;
-        this.equipDescription = equipDescription;
-        this.equipID = equipID;
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.value = value;
+        this.sprite = Resources.Load<Sprite>("Sprites/Items/" + id) as Sprite;
         this.defenseStat = defenseStat;
         this.resistStat = resistStat;
+        this.slot = slot;
+
+        this.stacks = false;    // Armors do not stack
     }
-    public override int getDefense()
+    public int getDefense()
     {
         return defenseStat;
     }
-    public override int getResist()
+    public int getResist()
     {
         return resistStat;
     }

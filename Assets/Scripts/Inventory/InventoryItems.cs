@@ -15,7 +15,6 @@ public class InventoryItems
     public Sprite sprite { get; set; }
     //item id added for use with quests
     public int itemID { get; set; }
-    //to be changed
     public int itemPrice { get; set; }
 
     public InventoryItems(string itemName, string itemDescription, int healthStat, int attackStat, int skillStat, string spriteName, int itemID, int itemPrice)

@@ -7,26 +7,29 @@ public class InventoryButton : MonoBehaviour
 {
     public int slotNum;
 
-    InventoryItems itemToDisplay;
+    static GameObject itemMenu;
+
     PlayerInventory inventory;
 
-    void OnEnable()
+    public void updateButton()
     {
         inventory = FindObjectOfType<PlayerInventory>();
+
         if (inventory.playerItems.Count > slotNum && inventory.playerItems[slotNum] != null)
-        {
-            setItem(inventory.playerItems[slotNum]);
-        }
-    }
-    public void setItem(InventoryItems item)
-    {
-        itemToDisplay = item;
-        transform.Find("Sprite").GetComponent<Image>().sprite = itemToDisplay.sprite;//Resources.Load<Sprite>("Sprites/Items/" + item.sprite) as Sprite;
+            transform.Find("Sprite").GetComponent<Image>().sprite = inventory.playerItems[slotNum].sprite;
+        else
+            transform.Find("Sprite").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Outline") as Sprite;
     }
 
     public void displayItemMenu()
     {
-        if (itemToDisplay != null)
-            Debug.Log(itemToDisplay.itemName);
+        if (inventory.playerItems.Count > slotNum && inventory.playerItems[slotNum] != null)
+        {
+            if(itemMenu == null)
+                itemMenu = Instantiate(Resources.Load("Menus/ItemMenu") as GameObject, transform.parent);
+
+            itemMenu.GetComponent<ItemMenu>().slotNum = slotNum;
+            itemMenu.GetComponent<ItemMenu>().updateMenu();
+        }
     }
 }

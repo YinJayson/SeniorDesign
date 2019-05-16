@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class EquipmentWeapon : EquipmentItem
 {
-    public int atkStat { get; set; }
-    public bool atkType { get; set; }   // True = Physical, False = Magical
+    public int attack;
+    public bool atkType;
 
-    public EquipmentWeapon(string equipName, string equipDescription, int equipID, int atkStat, bool atkType)
+    public EquipmentWeapon(string name, string description, int value, int attack, bool atkType)
     {
-        this.equipName = equipName;
-        this.equipDescription = equipDescription;
-        this.equipID = equipID;
-        this.atkStat = atkStat;
+        this.name = name;
+        this.description = description;
+        this.value = value;
+        this.attack = attack;
         this.atkType = atkType;
-    }
 
-    public override int getAtk()
-    {
-        return atkStat;
+        this.stacks = false;    // Weapons do not stack
     }
-    public override bool getAtkType()
+    public int getAttack()
+    {
+        return attack;
+    }
+    public bool getAtkType()
     {
         return atkType;
     }

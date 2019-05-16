@@ -37,7 +37,6 @@ public class VictoryMenuScript : MonoBehaviour
                 itemDrop = GameObject.FindObjectOfType<DropDictionary>().dictionary[id3].getDrop();
             }
 
-            Debug.Log(itemDrop);
             if (itemDrop != null)
             {
                 items.Add(itemDrop);

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Quests : MonoBehaviour
 {
-    public int ID;
+    //public int ID;
     public string QuestName;
     public string QuestDescription;
     //inventory item ID that is rewarded
-    public int rewardID;
+    public string rewardItems;
    
 
-    public Quests(int ID, string QuestName, string QuestDescription, int rewardID)
+    public Quests(string QuestName, string QuestDescription, string rewardItems)
     {
-        this.ID = ID;
+        //this.ID = ID;
         this.QuestName = QuestName;
         this.QuestDescription = QuestDescription;
-        this.rewardID = rewardID;
+        this.rewardItems = rewardItems;
     }
 
 }
