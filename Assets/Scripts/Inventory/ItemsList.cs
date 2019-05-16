@@ -60,7 +60,7 @@ public class ItemsList : MonoBehaviour {
             new InventoryItems("Health Potion", "Potion that raises health by 10. Can be used in and out of combat.", 10, 0, 0, "healthpotion", 1, 20),
             new InventoryItems("Life Potion", "Potion that is used to revive a fallen member", 1000, 0,1000,"healthpotion", 2, 1000),
             new InventoryItems("Apple", "Healthy snack :3", 5, 0, 0,"apple", 3, 5),
-            new InventoryItems("Sword", "A simple iron sword", 0, 50, 0, "Sword", 4, 200),
+            new InventoryItems("Sword", "A simple iron sword", 0, 50, 0, "swordIron", 4, 200),
             new InventoryItems("Dark Sword", "A black magical sword", 0, 100, 50, "swordGradient", 5, 400),
             new InventoryItems("Mana Potion", "Potion that raises the drinker's soul energy.", 0, 0, 10, "manapotion", 6, 20),
             new InventoryItems("Bomb", "Messy and loud, use with caution", 0, 500, 0, "bomb", 7, 300)

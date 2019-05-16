@@ -18,8 +18,8 @@ public class EquipDictionary : MonoBehaviour
             dictionary = new Dictionary<string, EquippedItems>()        // Equipped items are ordered as: Helm, Armor, Legs, Weapon
             {
                 { "hero1", new EquippedItems("helmetLeather", "armorCotton", "pantsCotton", "gunLaser") },
-                { "hero2", new EquippedItems("helmetNothing", "armorNothing", "pantsNothing", "nothing") },
-                { "hero3", new EquippedItems("helmetNothing", "armorNothing", "pantsNothing", "nothing") },
+                { "hero2", new EquippedItems("helmetNothing", "armorNothing", "pantsNothing", "weaponNothing") },
+                { "hero3", new EquippedItems("helmetNothing", "armorNothing", "pantsNothing", "swordIron") },
             };
         }
     }

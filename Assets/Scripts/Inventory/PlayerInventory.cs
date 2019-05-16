@@ -29,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
 
             equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary["armorCotton"]);
             equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary["armorLeather"]);
+            equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().weaponDictionary["swordIron"]);
 
             created = true;
         }

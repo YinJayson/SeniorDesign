@@ -50,7 +50,7 @@ public class SkillDefense : MonoBehaviour, Skill
 
     public void skillCooldown()
     {
-        Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
+        Instantiate(Resources.Load<GameObject>("Prefabs/SkillCooldownIcon") as GameObject, new Vector2(0, 0), Quaternion.identity, targetTeam.charPos[0].gameObject.transform);
     }
 
     public bool getReady()

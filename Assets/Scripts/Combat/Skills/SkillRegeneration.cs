@@ -47,7 +47,7 @@ public class SkillRegeneration : MonoBehaviour, Skill
 
     public void skillCooldown()
     {
-        Instantiate(Resources.Load<GameObject>("Icons/SkillCooldownIcon") as GameObject, gameObject.transform.localPosition, Quaternion.identity, gameObject.transform);
+        Instantiate(Resources.Load<GameObject>("Prefabs/SkillCooldownIcon") as GameObject, gameObject.transform.localPosition, Quaternion.identity, gameObject.transform);
     }
 
     public bool getReady()

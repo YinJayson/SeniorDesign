@@ -34,10 +34,10 @@ public class EquipmentDictionary : MonoBehaviour
 
             weaponDictionary = new Dictionary<string, EquipmentWeapon>()
             {
-                { "weaponNothing", new EquipmentWeapon("Nothing", "Nothing but the default", 0, 0, true) },
-                { "swordIron", new EquipmentWeapon("Iron Sword", "A sturdy sword. Good for physical attacks.", 30, 8, true) },
-                { "wandWind", new EquipmentWeapon("Wand of Wind", "Wand imbued with air magic. Good for magical attacks", 35, 9, false) },
-                { "gunLaser", new EquipmentWeapon("Laser Gun", "Fururistic gun. Not too sure which time period we're in...", 1500, 43, false) }
+                { "weaponNothing", new EquipmentWeapon("weaponNothing", "Nothing", "Nothing but the default", 0, 0, true) },
+                { "swordIron", new EquipmentWeapon("swordIron", "Iron Sword", "A sturdy sword. Good for physical attacks.", 30, 8, true) },
+                { "wandWind", new EquipmentWeapon("wandWind", "Wand of Wind", "Wand imbued with air magic. Good for magical attacks", 35, 9, false) },
+                { "gunLaser", new EquipmentWeapon("gunLaser", "Laser Gun", "Fururistic gun. Not too sure which time period we're in...", 1500, 43, false) }
             };
 
             created = true;

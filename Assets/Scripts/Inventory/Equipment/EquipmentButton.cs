@@ -30,7 +30,11 @@ public class EquipmentButton : MonoBehaviour
     }
     void taskOnClick()
     {
-        GameObject menu = Instantiate(Resources.Load<GameObject>("Menus/EquipArmorMenu"), transform.parent.parent.parent) as GameObject;
+        GameObject menu;
+        if(slot == 4)   // Instantiate weapon menu
+            menu = Instantiate(Resources.Load<GameObject>("Menus/EquipWeaponMenu"), transform.parent.parent.parent) as GameObject;
+        else
+            menu = Instantiate(Resources.Load<GameObject>("Menus/EquipArmorMenu"), transform.parent.parent.parent) as GameObject;
         menu.GetComponent<EquipMenu>().id = transform.parent.parent.GetComponent<EquipCard>().id;
         menu.GetComponent<EquipMenu>().slot = slot;
     }

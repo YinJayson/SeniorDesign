@@ -7,18 +7,24 @@ public class EquipButton : MonoBehaviour
 {
     Button button;
 
+
     void Start()
     {
         button = GetComponent<Button>();
-
         button.onClick.AddListener(equipItem);
     }
 
     void equipItem()
     {
-        EquipmentArmor itemToEquip = transform.parent.GetComponent<EquipArmorPanel>().itemToDisplay;
-        string id = transform.parent.parent.GetComponent<EquipMenu>().id;
         int slot = transform.parent.parent.GetComponent<EquipMenu>().slot;
+
+        EquipmentItem itemToEquip;
+
+        if (slot == 4)
+            itemToEquip = transform.parent.GetComponent<EquipWeaponPanel>().itemToDisplay;
+        else
+            itemToEquip = transform.parent.GetComponent<EquipArmorPanel>().itemToDisplay;
+        string id = transform.parent.parent.GetComponent<EquipMenu>().id;
         EquippedItems equipped = FindObjectOfType<EquipDictionary>().dictionary[id];
         string itemToUnequip;
 
@@ -33,20 +39,37 @@ public class EquipButton : MonoBehaviour
             itemToUnequip = equipped.armor;
             equipped.armor = itemToEquip.id;
         }
-        else
+        else if (slot == 3)
         {
             itemToUnequip = equipped.pants;
             equipped.pants = itemToEquip.id;
         }
+        else
+        {
+            itemToUnequip = equipped.weapon;
+            equipped.weapon = itemToEquip.id;
+        }
         // Update the EquipDictionary
         FindObjectOfType<EquipDictionary>().dictionary[id] = equipped;
 
-        // Add the unequipped item back into inventory
-        if(itemToUnequip != "helmetNothing" && itemToUnequip != "armorNothing" && itemToUnequip != "pantsNothing" && itemToUnequip != "weaponNothing")
-            FindObjectOfType<PlayerInventory>().equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary[itemToUnequip]);
+        if (slot == 4)  // Weapon
+        {
+            // Add the unequipped item back into inventory
+            if (itemToUnequip != "weaponNothing")
+                FindObjectOfType<PlayerInventory>().equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().weaponDictionary[itemToUnequip]);
 
-        // Remove equipped item from inventory
-        FindObjectOfType<PlayerInventory>().equipmentInventory.Remove(FindObjectOfType<EquipmentDictionary>().armorDictionary[itemToEquip.id]);
+            // Remove equipped item from inventory
+            FindObjectOfType<PlayerInventory>().equipmentInventory.Remove(FindObjectOfType<EquipmentDictionary>().weaponDictionary[itemToEquip.id]);
+        }
+        else
+        {
+            // Add the unequipped item back into inventory
+            if (itemToUnequip != "helmetNothing" && itemToUnequip != "armorNothing" && itemToUnequip != "pantsNothing")
+                FindObjectOfType<PlayerInventory>().equipmentInventory.Add(FindObjectOfType<EquipmentDictionary>().armorDictionary[itemToUnequip]);
+
+            // Remove equipped item from inventory
+            FindObjectOfType<PlayerInventory>().equipmentInventory.Remove(FindObjectOfType<EquipmentDictionary>().armorDictionary[itemToEquip.id]);
+        }
 
         transform.parent.parent.parent.BroadcastMessage("updateButton");
 

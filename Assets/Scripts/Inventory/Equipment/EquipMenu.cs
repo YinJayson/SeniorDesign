@@ -15,12 +15,14 @@ public class EquipMenu : MonoBehaviour
     IEnumerator updatePanel()
     {
         yield return new WaitUntil(() => id != null && slot != 0);
-        if(slot == 1)
+        if (slot == 1)
             transform.Find("EquippedPanel").GetComponent<EquipArmorPanel>().setItem(FindObjectOfType<EquipDictionary>().dictionary[id].helm);
         else if (slot == 2)
             transform.Find("EquippedPanel").GetComponent<EquipArmorPanel>().setItem(FindObjectOfType<EquipDictionary>().dictionary[id].armor);
         else if (slot == 3)
             transform.Find("EquippedPanel").GetComponent<EquipArmorPanel>().setItem(FindObjectOfType<EquipDictionary>().dictionary[id].pants);
+        else if (slot == 4)
+            transform.Find("EquippedPanel").GetComponent<EquipWeaponPanel>().setItem(FindObjectOfType<EquipDictionary>().dictionary[id].weapon);
         updateButtons();
     }
 
